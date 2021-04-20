@@ -15,20 +15,21 @@ function App() {
   return (
     <>
     <Switch>
-      <Route  path='/' exact component = {Warehouses}/>
-      <Route  path='/warehouse/add' exact component = {AddWarehouse}/>
-      <Route  path='/warehouse/edit' exact component = {EditWarehouse}/>
-      <Route  path='/warehouse/:id'
-              render={props=>{
-                return <WarehouseDetails {...props}/>
-              }}/>
-      <Route  path='/inventories' exact component = {Inventories}/>
-      <Route path='/inventory/add' exact component = {AddInventory}/>
-      <Route path='/inventory/edit' exact component = {EditInventory}/>
-      <Route  path='inventories/:id'
-              render={props=>{
-                return <InventoriesDetails {...props}/>
-              }}/>
+      <Redirect from='/' exact to ='/warehouses'/>
+      <Route    path='/warehouses' exact component = {Warehouses}/>
+      <Route    path='/warehouses/add' exact component = {AddWarehouse}/>
+      <Route    path='/warehouses/edit' exact component = {EditWarehouse}/>
+      <Route    path='/warehouses/:id'
+                render={props=>{
+                  return <WarehouseDetails {...props}/>
+                }}/>
+      <Route    path='/inventories' exact component = {Inventories}/>
+      <Route    path='/inventories/add' exact component = {AddInventory}/>
+      <Route    path='/inventories/edit' exact component = {EditInventory}/>
+      <Route    path='inventories/:id'
+                render={props=>{
+                  return <InventoriesDetails {...props}/>
+                }}/>
     </Switch>
 
     </>
