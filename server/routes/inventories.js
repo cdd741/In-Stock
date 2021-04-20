@@ -6,13 +6,8 @@ const{
     getInventoryArr,
 } = require('../controllers/inventories')
 
-//controllers from warehouses
-const{
-    getWarehousesArr,
-} = require('../controllers/warehouses')
-
 //routes
-router.get('/', getInventoriesArr)
+router.get('/', getInventoryArr)
 
 
 

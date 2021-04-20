@@ -14,8 +14,6 @@ app.use(express.json());
 
 // cors
 app.use(cors());
-//
-app.use(express.json());
 
 //route
 app.use('/inventories',inventories)
