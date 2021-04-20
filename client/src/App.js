@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.scss';
+import Warehouses from './routes/Warehouses'
+import Inventories from './routes/Inventories'
+import WarehouseDetails from './routes/WarehouseDetails'
+import InventoriesDetails from './routes/InventoriesDetails'
+import EditAddInventory from './routes/EditAddInventories'
+import EditAddWarehouse from './routes/EditAddWarehouse'
+
+import {Switch, Route,} from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Switch>
+      <Route  path='/' exact component = {Warehouses}/>
+      <Route  path='/:id'
+              render={props=>{
+                return <WarehouseDetails {...props}/>
+              }}/>
+      <Route  path='/inventories' exact component = {Inventories}/>
+      <Route  path='inventories/:id'
+              render={props=>{
+                return <InventoriesDetails {...props}/>
+              }}/>
+      <Route path='/warehouseinfo' exact component = {EditAddWarehouse}/>
+      <Route path='/inventoryinfo' exact component = {EditAddInventory}/>
+    </Switch>
+
+    </>
   );
 }
 
