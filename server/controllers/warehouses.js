@@ -1,4 +1,4 @@
-inventories = require('../data/warehouses.json');
+
 const fs = require('fs');
 const uuid = require('uuid');
 const path = require('path');

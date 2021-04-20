@@ -8,6 +8,6 @@ app.use(express.urlenconded({extended:true}))
 //parse json
 app.use(express.json());
 
-//routes
+//route
 app.use('/inventories',inventories)
 app.use('/warehouses',warehouses)
