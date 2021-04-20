@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class EditAddInventories extends Component {
+export default class AddWareHouse extends Component {
     render() {
         return (
             <div>
-               <p>placeholder</p> 
+                <p>place holder</p>
             </div>
         )
     }
