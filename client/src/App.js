@@ -11,9 +11,14 @@ import AddWarehouse from "./routes/AddWareHouse.jsx";
 
 import { Switch, Route, Redirect } from "react-router-dom";
 
+import Input from "./components/Input/Input";
+
 function App() {
   return (
     <>
+      <Input label="email" onChange={() => {}}>
+        anything
+      </Input>
       <Switch>
         <Redirect from="/" exact to="/warehouses" />
         <Route path="/warehouses" exact component={Warehouses} />
