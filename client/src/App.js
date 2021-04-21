@@ -16,7 +16,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 function App() {
   return (
     <>
-      {/* <Switch>
+      <Switch>
         <Redirect from="/" exact to="/warehouses" />
         <Route path="/warehouses" exact component={Warehouses} />
         <Route path="/warehouses/add" exact component={AddWarehouse} />
@@ -36,8 +36,7 @@ function App() {
             return <InventoriesDetails {...props} />;
           }}
         />
-      </Switch> */}
-      <DeleteModal/>
+      </Switch>
     </>
   );
 }
