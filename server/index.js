@@ -1,13 +1,14 @@
+const express = require("express");
 const app = express();
+require('dotenv').config();
 const inventories = require ('./routes/inventories');
 const warehouses = require ('./routes/warehouses');
-const express = require("express");
 const cors = require("cors");
-require("dotenv").config();
+
 const { PORT } = process.env;
 
 //parse form data
-app.use(express.urlenconded({extended:true}))
+app.use(express.urlencoded({extended:true}))
 
 //parse json
 app.use(express.json());
