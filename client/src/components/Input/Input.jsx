@@ -35,7 +35,7 @@ export default class Input extends Component {
   render() {
     return (
       <div className="input">
-        <label htmlFor={this.props.label}></label>
+        <label htmlFor={this.props.label}>{this.props.label}</label>
         <textarea
           name={this.props.label}
           id={this.props.label}

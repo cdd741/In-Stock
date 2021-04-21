@@ -38,7 +38,11 @@ class App extends Component {
     return (
       <>
         <form onSubmit={this.handleOnSubmit}>
-          <Input value="sss" label="email" onChange={this.handleOnChange} />
+          <Input
+            value="assdasda"
+            label="email"
+            onChange={this.handleOnChange}
+          />
         </form>
         <Header
           toggle={this.handleOnToggle}
