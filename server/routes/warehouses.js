@@ -5,7 +5,7 @@ const router = express.Router();
 //controllers
 const{
     getWarehousesArr,
-    getWarehouseId
+    getWarehouseId,
 } = require('../controllers/warehouses')
 
 //routes for Warehouses
