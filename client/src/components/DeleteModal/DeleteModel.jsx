@@ -1,5 +1,6 @@
 import React from 'react';
 import {ReactComponent as Close} from '../../assets/Icons/close-24px.svg';
+import Button from '../Button/Button'
 import './DeleteModal.scss'
 
 function DeleteWarehouse (props){
@@ -14,8 +15,18 @@ function DeleteWarehouse (props){
                         the list of warehouses. You wont be able to undo this action.
                     </p>
                     <div className="modal__buttons">
-                        <button className="modal__button modal__button__cancel" /* onClick={props.close()} */>Cancel</button>
-                        <button className="modal__button modal__button__delete" /* onClick={props.delete()} */>Delete</button>
+                        <Button 
+                            className="modal__buttons__cancel" 
+                            type="cancel" 
+                            children="Cancel"
+                            /* onClick={props.close()} */
+                        />
+                        <Button
+                            className="modal__buttons__delete"
+                            type="delete"
+                            children="Delete"
+                            /* onClick={props.delete()} */
+                        />
                     </div>
                 </div>
             </div>
