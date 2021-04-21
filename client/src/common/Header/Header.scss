@@ -1,0 +1,27 @@
+@use "../../styles/partials/variables" as *;
+.header {
+  display: flex;
+  flex-direction: column;
+  background: $graphite;
+  align-items: center;
+  .logo__link {
+    display: flex;
+    margin-top: 24px;
+  }
+}
+.header__list {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  .list__warehouses {
+    width: 164px;
+    height: 36px;
+    background-color: $instock-black;
+    .list__text {
+    }
+  }
+  .list__inventory {
+    width: 164px;
+    height: 36px;
+  }
+}

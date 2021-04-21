@@ -9,7 +9,7 @@ import EditWarehouse from './routes/EditWarehouse'
 import AddInventory from './routes/AddInventory'
 import AddWarehouse from './routes/AddWareHouse.jsx'
 
-import {Switch, Route,} from 'react-router-dom'
+import {Switch, Route,Redirect} from 'react-router-dom'
 
 function App() {
   return (

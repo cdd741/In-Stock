@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import Header from '../common/Header/Header'
 
 export default class Warehouses extends Component {
     state = {}
     render() {
         return (
             <div>
-                <p> THIS IS A PLACE HODLER</p>
+                <Header/>
             </div>
         )
     }
