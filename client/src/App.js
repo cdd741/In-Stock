@@ -13,7 +13,7 @@ import {Switch, Route,} from 'react-router-dom'
 
 function App() {
   return (
-    <>
+    <div className='App'>
     <Switch>
       <Redirect from='/' exact to ='/warehouses'/>
       <Route    path='/warehouses' exact component = {Warehouses}/>
@@ -32,7 +32,7 @@ function App() {
                 }}/>
     </Switch>
 
-    </>
+    </div>
   );
 }
 
