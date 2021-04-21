@@ -6,7 +6,7 @@ import "./Button.scss";
 // props:
 // onClick => please pass a onClick function for event handling
 // width => give an *STRING* of any style of width
-// type => cancel and delete are only styles implemented, leave it empty otherwise
+// type => cancel, delete, nav, nav-selected, or leave it empty for default styling
 // className => you can set customized styling class and style it by your self
 // children => don't worry about that, it's the content inside the Button tags
 function Button({ onClick, width, type, className, children }) {
