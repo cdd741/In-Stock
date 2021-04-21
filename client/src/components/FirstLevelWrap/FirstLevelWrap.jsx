@@ -29,44 +29,50 @@ export default class FirstLevelWrap extends Component {
                   className="container__search-icon"
                 />
               </div>
-              <button className="container__header-btn" type="submit">
-                + Add New Warehouse
-              </button>
+              <Link to="/warehouses/add">
+                <button className="container__header-btn" type="submit">
+                  + Add New Warehouse
+                </button>
+              </Link>
             </form>
           </div>
         </div>
         <div className="container__content-title-bar">
-        <div className="container__content-label-container">
-                      <h4 className="container__content-label">WAREHOUSE</h4>
-                      <img
-                        src={sortIcon}
-                        alt="Arrow up and down"
-                        className="container__sort-img"
-                      ></img>
-                    </div> <div className="container__content-label-container">
-                      <h4 className="container__content-label">ADDRESS</h4>
-                      <img
-                        src={sortIcon}
-                        alt="Arrow up and down"
-                        className="container__sort-img"
-                      ></img>
-                    </div> <div className="container__content-label-container">
-                      <h4 className="container__content-label">CONTACT NAME</h4>
-                      <img
-                        src={sortIcon}
-                        alt="Arrow up and down"
-                        className="container__sort-img"
-                      ></img>
-                    </div> <div className="container__content-label-container">
-                      <h4 className="container__content-label">CONTACT INFORMATION</h4>
-                      <img
-                        src={sortIcon}
-                        alt="Arrow up and down"
-                        className="container__sort-img"
-                      ></img>
-                    </div> <div className="container__content-label-container">
-                      <h4 className="container__content-label">ACTION</h4>
-                    </div>
+          <div className="container__content-label-container">
+            <h4 className="container__content-label">WAREHOUSE</h4>
+            <img
+              src={sortIcon}
+              alt="Arrow up and down"
+              className="container__sort-img"
+            ></img>
+          </div>{" "}
+          <div className="container__content-label-container">
+            <h4 className="container__content-label">ADDRESS</h4>
+            <img
+              src={sortIcon}
+              alt="Arrow up and down"
+              className="container__sort-img"
+            ></img>
+          </div>{" "}
+          <div className="container__content-label-container">
+            <h4 className="container__content-label">CONTACT NAME</h4>
+            <img
+              src={sortIcon}
+              alt="Arrow up and down"
+              className="container__sort-img"
+            ></img>
+          </div>{" "}
+          <div className="container__content-label-container">
+            <h4 className="container__content-label">CONTACT INFORMATION</h4>
+            <img
+              src={sortIcon}
+              alt="Arrow up and down"
+              className="container__sort-img"
+            ></img>
+          </div>{" "}
+          <div className="container__content-label-container">
+            <h4 className="container__content-label">ACTION</h4>
+          </div>
         </div>
         <div className="container__content">
           {/* Mapping the warehouse array to create the warehouse list items */}
@@ -139,16 +145,20 @@ export default class FirstLevelWrap extends Component {
                       <h4 className="container__content-label">ACTION</h4>
                     </div>
                     <div className="container__btns">
-                      <img
-                        className="container__del-btn"
-                        src={delIcon}
-                        alt="trash bin"
-                      ></img>
-                      <img
-                        className="container__edit-btn"
-                        src={editIcon}
-                        alt="pencil"
-                      ></img>
+                      <Link>
+                        <img
+                          className="container__del-btn"
+                          src={delIcon}
+                          alt="trash bin"
+                        ></img>
+                      </Link>
+                      <Link to="/warehouses/edit">
+                        <img
+                          className="container__edit-btn"
+                          src={editIcon}
+                          alt="pencil"
+                        ></img>
+                      </Link>
                     </div>
                   </div>
                 </div>
