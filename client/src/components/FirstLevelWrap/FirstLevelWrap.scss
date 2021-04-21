@@ -1,0 +1,73 @@
+@use "../../styles/partials/mixins" as *;
+// @use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.container {
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 3px;
+  &__header-container {
+    margin: 2rem 0 1rem;
+    border-bottom: 1px solid black;
+  }
+  &__header-content {
+    margin: $Mobile-margin;
+  }
+  &__header {
+    font-size: $Mobile-H1;
+    font-weight: 600;
+    margin: 0;
+  }
+  &__header-form {
+    margin: 1rem 0 1.5rem;
+  }
+  &__header-search-bar {
+    border: 1px solid black;
+    width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+  }
+  &__header-search-bar-input {
+    width: 100%;
+    height: 36px;
+    border: 0;
+  }
+  &__header-btn {
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+  &__item-container {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid black;
+    &:last-child {
+      border: 0;
+    }
+  }
+  &__text-container {
+    margin: $Mobile-margin;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__btns-container {
+    padding: 1.1875rem 1.5rem 1.6875rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__content-label {
+    margin: 0 0 4px;
+    font-size: $Mobile-H4;
+    font-weight: 600;
+  }
+  &__content-info {
+    margin: 0;
+    font-size: $Mobile-H3;
+    line-height: $Mobile-H3-LH;
+    font-weight: 400;
+  }
+  &__content-address {
+    width: 121px;
+    margin-top: 1rem;
+  }
+  &__content-contacts {
+    margin-top: 1rem;
+  }
+}
