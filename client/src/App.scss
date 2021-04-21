@@ -1,9 +1,12 @@
 @use "./styles/partials/typography" as *;
 @use "./styles/partials/variables" as *;
+<<<<<<< HEAD
 @use "./styles/partials/mixins" as *;
 
+=======
+>>>>>>> main
 .App {
-  text-align: center;
+  font-family: "Titillium Web", Roboto, "Open Sans";
 }
 
 .App-logo {
