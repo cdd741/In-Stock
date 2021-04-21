@@ -43,12 +43,14 @@ export default class FirstLevelWrap extends Component {
                   <div className="container__content-location-container">
                     <div className="container__content-location">
                       <h4 className="container__content-label">WAREHOUSE</h4>
-                      <Link to={`/warehouses/${warehouse.id}`}>
-                        <h4 className="container__content-info">
-                          {warehouse.name}
-                        </h4>
-                        <img src={arrowImg} alt="arrow to the right"></img>
-                      </Link>
+                      <div className="container__content-info-container">
+                        <Link to={`/warehouses/${warehouse.id}`}>
+                          <h4 className="container__content-info">
+                            {warehouse.name}
+                          </h4>
+                          <img src={arrowImg} alt="arrow to the right"></img>
+                        </Link>
+                      </div>
                     </div>
                     <div className="container__content-address">
                       <h4 className="container__content-label">ADDRESS</h4>

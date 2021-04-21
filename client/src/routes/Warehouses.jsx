@@ -10,7 +10,7 @@ export default class Warehouses extends Component {
   render() {
     return (
       <div>
-        <FirstLevelWrap warehouseData={warehouseData} />
+        <FirstLevelWrap warehouseData={this.state.warehouseData} />
       </div>
     );
   }
