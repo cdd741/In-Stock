@@ -8,9 +8,9 @@ import EditInventory from './routes/EditInventory'
 import EditWarehouse from './routes/EditWarehouse'
 import AddInventory from './routes/AddInventory'
 import AddWarehouse from './routes/AddWareHouse.jsx'
-import DeleteModal from './components/DeleteModal/DeleteModel'
+import DeleteModal from './components/DeleteModal/DeleteModal'
 
-import {Switch, Route,} from 'react-router-dom'
+import { Switch, Route, Redirect } from "react-router-dom";
 
 
 function App() {
