@@ -1,0 +1,37 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
+
+.button {
+  @include button-input-style;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $instock-blue;
+  color: $white;
+  border-style: none;
+  padding: 0;
+  margin: 0;
+  &__text {
+    margin: 0;
+  }
+
+  &--cancel {
+    background-color: $light-grey;
+    color: $slate;
+    border: 1px solid $cloud;
+  }
+
+  &--delete {
+    background-color: $red;
+  }
+
+  &--nav {
+    background-color: $graphite;
+    color: $cloud;
+  }
+
+  &--nav-selected {
+    background-color: $instock-black;
+  }
+}
