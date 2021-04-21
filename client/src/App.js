@@ -9,6 +9,7 @@ import EditWarehouse from "./routes/EditWarehouse";
 import AddInventory from "./routes/AddInventory";
 import AddWarehouse from "./routes/AddWareHouse.jsx";
 import Header from "./common/Header/Header";
+import DeleteModal from "./components/DeleteModal/DeleteModal";
 
 import { Switch, Route, Redirect } from "react-router-dom";
 import Input from "./components/Input/Input";
