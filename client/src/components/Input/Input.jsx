@@ -1,34 +1,51 @@
-import React from "react";
+import React, { Component } from "react";
 import "./Input.scss";
 import errIcon from "../../assets/Icons/error-24px.svg";
 
-function Input(onChange, textLabel, children) {
-  const handleOnChange = (e) => {
-    e.preventDefault();
-    onChange(e.target.value);
+export default class Input extends Component {
+  state = {
+    invalidInput: false,
+    value: this.props.value,
   };
 
-  const label = textLabel;
-  const value = children;
-  const errMessage = (
-    <div>
-      <img src={errIcon} alt="error icon" />
-      <h3>This field is required</h3>
-    </div>
-  );
-  return (
-    <div className="input">
-      <label htmlFor={label}></label>
-      <textarea
-        name={label}
-        id={label}
-        placeholder={label}
-        value={value}
-        onChange={handleOnChange}
-        required={errMessage}
-      ></textarea>
-    </div>
-  );
-}
+  handleOnChange = (e) => {
+    e.preventDefault();
+    this.props.onChange(e);
+    console.log(this);
+    this.setState({ value: e.target.value });
+  };
 
-export default Input;
+  hendleOnfocusout = (e) => {
+    console.log(this);
+    if (this.state.invalidInput !== !e.target.value) {
+      this.setState({ invalidInput: !e.target.value });
+      console.log(this);
+    }
+  };
+
+  renderErrMessage = () => {
+    return (
+      <div>
+        <img src={errIcon} alt="invalid input icon" />
+        <h3>This field is required</h3>
+      </div>
+    );
+  };
+
+  render() {
+    return (
+      <div className="input">
+        <label htmlFor={this.props.label}></label>
+        <textarea
+          name={this.props.label}
+          id={this.props.label}
+          placeholder={this.props.label}
+          value={this.state.value}
+          onChange={this.handleOnChange}
+          onBlur={this.hendleOnfocusout}
+        ></textarea>
+        {this.state.invalidInput && this.renderErrMessage()}
+      </div>
+    );
+  }
+}
