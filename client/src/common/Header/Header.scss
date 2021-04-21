@@ -2,6 +2,10 @@
 @use '../../styles//partials/mixins' as *;
 .header__div {
   background-color: $graphite;
+  padding-bottom: 64px;
+  @include tablet {
+    padding-bottom: 94px;
+  }
 }
 
 .header {
@@ -9,10 +13,10 @@
   flex-direction: column;
   background: $graphite;
   align-items: center;
-  height: 200px;
+  height: 136px;
   @include page-padding;
   @include tablet {
-    height: 186px;
+    height: 92px;
     flex-direction: row;
     align-items: flex-start;
   }
