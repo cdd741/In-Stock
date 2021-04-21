@@ -12,16 +12,11 @@ import "./Button.scss";
 function Button({ onClick, width, type, className, children }) {
   const buttonClass = type ? `button--${type}` : null;
 
-  const handleOnClick = (e) => {
-    e.preventDefault();
-    onClick();
-  };
-
   return (
     <button
       style={{ width: `${width}` }}
       className={`button ${buttonClass} ${className}`}
-      onClick={handleOnClick}
+      onClick={(e)=>{onClick(e)}}
     >
       <h3 className={`button__text ${className}__text`}>{children}</h3>
     </button>

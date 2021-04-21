@@ -1,5 +1,5 @@
 @use '../../styles/partials/mixins' as *;
-// @use '../../styles/partials/typography' as *;
+@use '../../styles/partials/typography' as *;
 @use '../../styles/partials/variables' as *;
 
 .button {
@@ -10,6 +10,11 @@
   background-color: $instock-blue;
   color: $white;
   border-style: none;
+  padding: 0;
+  margin: 0;
+  &__text {
+    margin: 0;
+  }
 
   &--cancel {
     background-color: $light-grey;
@@ -22,11 +27,11 @@
   }
 
   &--nav {
-    background-color: $instock-black;
+    background-color: $graphite;
     color: $cloud;
   }
 
   &--nav-selected {
-    background-color: $graphite;
+    background-color: $instock-black;
   }
 }

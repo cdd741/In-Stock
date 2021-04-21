@@ -1,27 +1,43 @@
 @use "../../styles/partials/variables" as *;
+@use '../../styles//partials/mixins' as *;
+.header__div {
+  background-color: $graphite;
+}
+
 .header {
   display: flex;
   flex-direction: column;
   background: $graphite;
   align-items: center;
+  height: 200px;
+  @include page-padding;
+  @include tablet {
+    height: 186px;
+    flex-direction: row;
+    align-items: flex-start;
+  }
   .logo__link {
     display: flex;
-    margin-top: 24px;
-  }
-}
-.header__list {
-  display: flex;
-  list-style: none;
-  padding-left: 0;
-  .list__warehouses {
-    width: 164px;
-    height: 36px;
-    background-color: $instock-black;
-    .list__text {
+    margin: 24px 0px;
+    @include tablet {
+      margin-top: 32px;
+      margin-right: auto;
     }
   }
-  .list__inventory {
-    width: 164px;
-    height: 36px;
+}
+.button__container {
+  display: flex;
+  list-style: none;
+  height: auto;
+  @include tablet {
+    margin-top: 27px;
+  }
+  .button__link-warehouses {
+    text-decoration: none;
+    margin-right: 8px;
+  }
+  .button__link-inventory {
+    text-decoration: none;
+    margin-left: 8px;
   }
 }
