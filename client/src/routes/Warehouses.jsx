@@ -5,7 +5,6 @@ export default class Warehouses extends Component {
     render() {
         return (
             <div>
-                <p> THIS IS A PLACE HODLER</p>
             </div>
         )
     }
