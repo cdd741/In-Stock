@@ -1,11 +1,17 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import FirstLevelWrap from "../components/FirstLevelWrap/FirstLevelWrap";
+import warehouseData from "../data/warehouses.json";
 
 export default class Warehouses extends Component {
-    state = {}
-    render() {
-        return (
-            <div>
-            </div>
-        )
-    }
+  state = {
+    warehouseData: warehouseData,
+  };
+
+  render() {
+    return (
+      <div>
+        <FirstLevelWrap warehouseData={this.state.warehouseData} />
+      </div>
+    );
+  }
 }

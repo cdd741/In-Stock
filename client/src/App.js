@@ -27,7 +27,7 @@ class  App extends Component {
         <Header toggle={this.handleOnToggle} isWarehouse={this.state.isWarehouse}/>
         <Switch>
           <Redirect from="/" exact to="/warehouses" />
-          <Route path="/" exact component={Warehouses} />
+          <Route path="/warehouses" exact component={Warehouses} />
           <Route path="/warehouses/add" exact component={AddWarehouse} />
           <Route path="/warehouses/edit" exact component={EditWarehouse} />
           <Route
