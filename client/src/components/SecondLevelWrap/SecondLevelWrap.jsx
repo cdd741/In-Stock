@@ -5,6 +5,8 @@ import delIcon from "../../assets/icons/delete_outline-24px.svg";
 import arrowImg from "../../assets/icons/chevron_right-24px.svg";
 import sortIcon from "../../assets/icons/sort-24px.svg";
 import searchIcon from "../../assets/icons/search-24px.svg";
+import backIcon from "../../assets/icons/arrow_back-24px.svg";
+import "./SecondLevelWrap.scss";
 
 export default class SecondLevelWrap extends Component {
   render() {
@@ -13,6 +15,11 @@ export default class SecondLevelWrap extends Component {
       <div>
         <div className="container__header-container">
           <div className="container__header-content">
+            <img
+              className="container__back-img"
+              src={backIcon}
+              alt="back arrow"
+            ></img>
             {inventoriesData.length > 0 && inventoriesData[0].warehouseName && (
               <h1 className="container__header">
                 {inventoriesData[0].warehouseName}
@@ -50,32 +57,13 @@ export default class SecondLevelWrap extends Component {
               >
                 <div className="container__content-location">
                   <div className="container__content-label-container">
-                    <h4 className="container__content-label">WAREHOUSE</h4>
-                    <img
-                      src={sortIcon}
-                      alt="Arrow up and down"
-                      className="container__sort-img"
-                    ></img>
+                    <h4 className="container__content-label">
+                      WAREHOUSE ADDRESS
+                    </h4>
                   </div>
                   <div className="container__content-info-container">
-                    <Link to={`/warehouses/${warehouseData[0].id}`}>
-                      <h4 className="container__content-info">
-                        {warehouseData[0].name}
-                      </h4>
-                      <img src={arrowImg} alt="arrow to the right"></img>
-                    </Link>
+                    <h4 className="container__content-info">{`${warehouseData[0].address}, ${warehouseData[0].city}, ${warehouseData[0].country}`}</h4>
                   </div>
-                </div>
-                <div className="container__content-address">
-                  <div className="container__content-label-container">
-                    <h4 className="container__content-label">ADDRESS</h4>
-                    <img
-                      src={sortIcon}
-                      alt="Arrow up and down"
-                      className="container__sort-img"
-                    ></img>
-                  </div>
-                  <h4 className="container__content-info">{`${warehouseData[0].address}, ${warehouseData[0].city}, ${warehouseData[0].country}`}</h4>
                 </div>
                 <div className="container__content-contact-name">
                   <div className="container__content-label-container">
