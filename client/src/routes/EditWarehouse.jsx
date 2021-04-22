@@ -16,7 +16,6 @@ export default class EditWarehouse extends Component {
         title="Edit Warehouse"
         onClickBack={handleBackClick}
         edit={true}
-        onClickEdit={}
       >
         <WarehouseForm onSubmit={handleOnSubmit} onCancel={handleOnCancel} />
       </SecondLevelWrap>
