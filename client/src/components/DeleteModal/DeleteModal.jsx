@@ -1,5 +1,5 @@
 import React from 'react';
-import {ReactComponent as Close} from '../../assets/Icons/close-24px.svg';
+import {ReactComponent as Close} from '../../assets/icons/close-24px.svg';
 import Button from '../Button/Button'
 import './DeleteModal.scss'
 
