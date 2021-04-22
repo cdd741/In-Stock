@@ -8,8 +8,6 @@ import "./FirstLevelWrap.scss";
 import { Link } from "react-router-dom";
 
 export default class FirstLevelWrap extends Component {
-
-
   render() {
     const { warehouseData } = this.props;
     return (
