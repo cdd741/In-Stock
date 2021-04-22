@@ -152,7 +152,7 @@ export default class FirstLevelWrap extends Component {
                           alt="trash bin"
                         ></img>
                       </Link>
-                      <Link to="/warehouses/edit">
+                      <Link to={`/warehouses/edit/${warehouse.id}`}>
                         <img
                           className="container__edit-btn"
                           src={editIcon}
