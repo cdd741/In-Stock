@@ -10,7 +10,7 @@ import AddInventory from "./routes/AddInventory";
 import AddWarehouse from "./routes/AddWareHouse.jsx";
 import Header from "./common/Header/Header";
 import DeleteModal from "./components/DeleteModal/DeleteModal";
-import InventoryItem from './components/InventoryForm/InventoryForm';
+import InventoryForm from './components/InventoryForm/InventoryForm'
 
 import { Switch, Route, Redirect } from "react-router-dom";
 
@@ -29,7 +29,7 @@ class App extends Component {
           toggle={this.handleOnToggle}
           isWarehouse={this.state.isWarehouse}
         />
-        {/* <Switch>
+        <Switch>
           <Redirect from="/" exact to="/warehouses" />
           <Route path="/warehouses" exact component={Warehouses} />
           <Route path="/warehouses/add" exact component={AddWarehouse} />
@@ -46,16 +46,23 @@ class App extends Component {
             }}
           />
           <Route path="/inventories" exact component={Inventories} />
-          <Route path="/inventories/add" exact component={AddInventory} />
-          <Route path="/inventories/edit/:id" exact component={EditInventory} />
+          <Route path="/inventories/add" exact 
+            render={props => (
+              <InventoryForm {...props} formType="addItem"/>
+            )} 
+          />
+          <Route path="/inventories/edit" exact 
+            render={props => (
+              <InventoryForm {...props} formType="editItem"/>
+            )} 
+          />
           <Route
             path="inventories/:id"
             render={(props) => {
               return <InventoriesDetails {...props} />;
             }}
           />
-        </Switch> */}
-        <InventoryItem/>
+        </Switch>
       </>
     );
   }

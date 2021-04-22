@@ -28,7 +28,7 @@
     }
 
     &__back-arrow{
-        margin-top: 44px;
+        margin-top: 40px;
     }
 
     &__title{
@@ -136,10 +136,17 @@
         padding-inline-end: 24px;
         display: flex;
         justify-content: space-between;
-        margin-bottom: 16px;
+        margin-top: 24px;
+        background-color: $light-grey;
+        padding: 16px;
+        border-radius: 0 0 3px 3px;
     }
 
     &__button{
         width: 139px;
     }
+}
+
+.link{
+    text-decoration: none;
 }
