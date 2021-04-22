@@ -17,7 +17,7 @@ const getWarehouseId = (req,res)=>{
     if(!warehouse){
         return res
         .status(404)
-        .json({success: false, msg:`warehouse ${req.params.id} is invalid`})
+        .send({success: false, msg:`warehouse ${req.params.id} is invalid`})
     }
     res.status(200).send(warehouse)
 }
@@ -29,6 +29,7 @@ const postWarehouse = (req,res)=>{
         name: req.body.name,
         address:req.body.address,
         city:req.body.city,
+        country:req.body.country,
         contact:{
             name:req.body.name,
             position:req.body.position,
@@ -62,13 +63,44 @@ const deleteWarehouse = (req,res)=>{
         res.status(201).send(warehouses)
 
     } else{
-        res.status(404).send ('No warehouse by that id!')
+        res.status(404).send ({
+            success:false,
+            msg:'No warehouse by that id!',
+        })
     }
 }
+//edit warehouse
+    const putWarehouse = (req,res)=>{
+        const warehouse = warehouses.find(warehouse=>{
+            return (warehouse.id = req.params.id)
+        })
+        if (warehouse){
+            warehouse.name = req.body.name
+            warehouse.address= req.body.address
+            warehouse.city= req.body.city
+            warehouse.country=req.body.country
+            warehouse.contact.name= req.body.name
+            warehouse.contact.position= req.body.position
+            warehouse.contact.phone= req.body.phone
+            warehouse.contact.email= req.body.email
+
+            const json = JSON.stringify(warehouses)
+            fs.writeFileSync(path.resolve(__dirname,'../data/warehouses.json'),json)
+            res.status(201).send(warehouse)
+              
+        }
+        else{
+            res.status(404).send({
+            success: false,     
+            msg:`Warehouse with id = ${req.params.id} not found`
+        })
+        }
+    }
 
 module.exports = {
     getWarehousesArr,
     getWarehouseId,
     postWarehouse,
     deleteWarehouse,
+    putWarehouse,
 }
