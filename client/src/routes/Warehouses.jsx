@@ -1,16 +1,30 @@
 import React, { Component } from "react";
 import FirstLevelWrap from "../components/FirstLevelWrap/FirstLevelWrap";
-import warehouseData from "../data/warehouses.json";
+import axios from "axios";
 
 export default class Warehouses extends Component {
   state = {
-    warehouseData: warehouseData,
+    warehousesData: [],
   };
+
+  componentDidMount() {
+    console.log("did mount");
+    axios
+      .get("http://localhost:8080/warehouses")
+      .then((res) => {
+        this.setState({
+          warehousesData: res.data,
+        });
+      })
+      .catch((err) => {
+        console.log("Warehouse API failed");
+      });
+  }
 
   render() {
     return (
       <div>
-        <FirstLevelWrap warehouseData={this.state.warehouseData} />
+        <FirstLevelWrap warehouseData={this.state.warehousesData} />
       </div>
     );
   }
