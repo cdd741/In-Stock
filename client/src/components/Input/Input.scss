@@ -1,0 +1,73 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
+
+.input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__label-text {
+    font-size: $Mobile-H3;
+    line-height: $Mobile-H3-LH;
+    font-weight: 600;
+    margin: 0;
+    @include tablet {
+      font-size: $H3;
+      line-height: $Mobile-H3-LH;
+    }
+  }
+
+  &__textarea {
+    @include button-input-style;
+    resize: none;
+    box-sizing: border-box;
+    color: $slate;
+    border: 1px solid $cloud;
+    margin: 4px 0 16px;
+    padding: 0px 16px;
+    font-family: inherit;
+    font-size: $Mobile-P2;
+    line-height: 20px;
+
+    @include tablet {
+      font-size: $P2;
+      line-height: 22px;
+    }
+
+    &--err-border {
+      border-color: $red;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      font-family: inherit;
+      font-size: $Mobile-P2;
+      @include tablet {
+        font-size: $P2;
+      }
+    }
+  }
+
+  &__err-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__err-icon {
+    height: 13.33px;
+    width: 13.33px;
+  }
+
+  &__err-message {
+    margin: 0;
+    color: $red;
+    font-size: $Mobile-P3;
+    @include tablet {
+      font-size: $P3;
+    }
+  }
+}
