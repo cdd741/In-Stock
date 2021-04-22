@@ -22,7 +22,32 @@ const getWarehouseId = (req,res)=>{
     res.status(200).send(warehouse)
 }
 
+//post new wearhouse
+const postWarehouse = (req,res)=>{
+    const newWarehouse = {
+        id: uuid.v4(),
+        name: req.body.name,
+        address:req.body.address,
+        city:req.body.city,
+        contact:{
+            name:req.body.name,
+            position:req.body.position,
+            phone:req.body.phone,
+            email:req.body.email,
+        }
+        
+
+    }
+    warehouses.push(newWarehouse)
+    const json = JSON.stringify(warehouses)
+    fs.writeFileSync(path.resolve(__dirname,'../data/warehouses.json'),json)
+    res.status(201).send(warehouses)
+
+}
+
+
 module.exports = {
     getWarehousesArr,
     getWarehouseId,
+    postWarehouse,
 }
