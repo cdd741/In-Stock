@@ -11,7 +11,7 @@ export default class FirstLevelWrap extends Component {
   render() {
     const { warehouseData } = this.props;
     return (
-      <div className="outter-container">
+      <div className="outer-container">
         <div className="container">
           <div className="container__header-container">
             <div className="container__header-content">
