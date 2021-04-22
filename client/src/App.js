@@ -16,11 +16,13 @@ import { Switch, Route, Redirect } from "react-router-dom";
 class App extends Component {
   state = {
     isWarehouse: true,
+    warehousesData: [],
   };
   handleOnToggle = (isWarehouse) => {
     this.setState({ isWarehouse: isWarehouse });
     console.log(this.state.isWarehouse);
   };
+
   render() {
     return (
       <>
