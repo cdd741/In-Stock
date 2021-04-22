@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
+import SecondLevelWrap from "../components/SecondLevelWrap/SecondLevelWrap";
 
 export default class WarehouseDetails extends Component {
   state = {
-    warehousesData: [],
     inventoriesData: [],
+    warehousesData: []
   };
 
   componentDidMount() {
@@ -14,21 +15,33 @@ export default class WarehouseDetails extends Component {
         let inventories = res.data;
         let warehouseId = this.props.match.params.id;
         console.log(res.data);
-        let selectedLocation = inventories.filter(
-          (inventory) => inventory.warehouseID === warehouseId
-        );
-        console.log(selectedLocation);
+        this.setState({
+          inventoriesData: inventories.filter(
+            (inventory) => inventory.warehouseID === warehouseId
+          ),
+        });
+        console.log(this.state.inventoriesData);
       })
       .catch((err) => {
         console.log("Cant receive inventories API ");
       });
+    axios.get('http://localhost:8080/warehouses')
+    .then(res => {
+        let warehouses = res.data;
+        let warehouseId = this.props.match.params.id;
+        this.setState({
+            warehousesData: warehouses.filter(
+              (warehouse) => warehouse.id === warehouseId
+            ),
+          });
+          console.log(this.state.warehousesData)
+    })
   }
 
   render() {
-    console.log(this.props.match.params.id);
     return (
       <div>
-        <p>THIS IS A PLACEHOLDER</p>
+        <SecondLevelWrap inventoriesData={this.state.inventoriesData} id={true} warehouseData = {this.state.warehousesData} />
       </div>
     );
   }
