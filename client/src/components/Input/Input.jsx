@@ -66,10 +66,10 @@ export default class Input extends Component {
 
   render() {
     const textareaClass = this.state.invalidInput
-      ? "input__textarea input__textarea--err-border"
-      : "input__textarea";
+      ? `input__textarea ${this.props.className}__textarea input__textarea--err-border`
+      : `input__textarea ${this.props.className}__textarea`;
     return (
-      <div className="input">
+      <div className={`input ${this.props.className}`}>
         <label htmlFor={this.props.label} className="input__label">
           <h3 className="input__label-text">{this.props.label}</h3>
           <input
