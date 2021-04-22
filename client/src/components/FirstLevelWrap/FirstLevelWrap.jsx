@@ -8,9 +8,10 @@ import "./FirstLevelWrap.scss";
 import { Link } from "react-router-dom";
 
 export default class FirstLevelWrap extends Component {
+
+
   render() {
     const { warehouseData } = this.props;
-    console.log(warehouseData);
     return (
       <div className="container">
         <div className="container__header-container">
@@ -152,7 +153,7 @@ export default class FirstLevelWrap extends Component {
                           alt="trash bin"
                         ></img>
                       </Link>
-                      <Link to="/warehouses/edit">
+                      <Link to={`/warehouses/edit/${warehouse.id}`}>
                         <img
                           className="container__edit-btn"
                           src={editIcon}

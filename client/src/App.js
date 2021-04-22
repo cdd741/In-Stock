@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./App.scss";
 import Warehouses from "./routes/Warehouses";
 import Inventories from "./routes/Inventories";
@@ -8,28 +8,38 @@ import EditInventory from "./routes/EditInventory";
 import EditWarehouse from "./routes/EditWarehouse";
 import AddInventory from "./routes/AddInventory";
 import AddWarehouse from "./routes/AddWareHouse.jsx";
-import Header from './common/Header/Header'
-import DeleteModal from './components/DeleteModal/DeleteModal'
+import Header from "./common/Header/Header";
+import DeleteModal from "./components/DeleteModal/DeleteModal";
 
-import {Switch, Route,Redirect} from 'react-router-dom'
+import { Switch, Route, Redirect } from "react-router-dom";
 
-class  App extends Component {
+class App extends Component {
   state = {
-    isWarehouse: true
+    isWarehouse: true,
+    warehousesData: [],
   };
-  handleOnToggle = (isWarehouse) =>{
-    this.setState({isWarehouse: isWarehouse})
-    console.log(this.state.isWarehouse)
-  }
-  render(){
+  handleOnToggle = (isWarehouse) => {
+    this.setState({ isWarehouse: isWarehouse });
+    console.log(this.state.isWarehouse);
+  };
+
+  render() {
     return (
       <>
-        <Header toggle={this.handleOnToggle} isWarehouse={this.state.isWarehouse}/>
+        <Header
+          toggle={this.handleOnToggle}
+          isWarehouse={this.state.isWarehouse}
+        />
         <Switch>
           <Redirect from="/" exact to="/warehouses" />
           <Route path="/warehouses" exact component={Warehouses} />
           <Route path="/warehouses/add" exact component={AddWarehouse} />
-          <Route path="/warehouses/edit" exact component={EditWarehouse} />
+          <Route
+            path="/warehouses/edit/:id"
+            render={(props) => {
+              return <EditWarehouse {...props} />;
+            }}
+          />
           <Route
             path="/warehouses/:id"
             render={(props) => {
@@ -52,4 +62,3 @@ class  App extends Component {
 }
 
 export default App;
-
