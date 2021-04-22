@@ -12,11 +12,11 @@ import Header from "./common/Header/Header";
 import DeleteModal from "./components/DeleteModal/DeleteModal";
 
 import { Switch, Route, Redirect } from "react-router-dom";
-
 class App extends Component {
   state = {
     isWarehouse: true,
   };
+
   handleOnToggle = (isWarehouse) => {
     this.setState({ isWarehouse: isWarehouse });
     console.log(this.state.isWarehouse);

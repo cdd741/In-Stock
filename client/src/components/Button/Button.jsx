@@ -16,7 +16,9 @@ function Button({ onClick, width, type, className, children }) {
     <button
       style={{ width: `${width}` }}
       className={`button ${buttonClass} ${className}`}
-      onClick={(e)=>{onClick(e)}}
+      onClick={(e) => {
+        onClick(e);
+      }}
     >
       <h3 className={`button__text ${className}__text`}>{children}</h3>
     </button>
