@@ -8,13 +8,15 @@ const{
     getWarehouseId,
     postWarehouse,
     deleteWarehouse,
+    putWarehouse,
 } = require('../controllers/warehouses')
 
 //routes for Warehouses
 router.get('/', getWarehousesArr)
-router.get('/:id', getWarehouseId)
 router.post('/', postWarehouse)
+router.get('/:id', getWarehouseId)
 router.delete('/:id', deleteWarehouse)
+router.put('/:id', putWarehouse)
 
 
 
