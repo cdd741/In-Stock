@@ -17,7 +17,7 @@ export default class Input extends Component {
 
   hendleOnfocusout = (e) => {
     console.log(this);
-    if (this.state.invalidInput !== !e.target.value) {
+    if (this.props.required && this.state.invalidInput !== !e.target.value) {
       this.setState({ invalidInput: !e.target.value });
       console.log(this);
     }
