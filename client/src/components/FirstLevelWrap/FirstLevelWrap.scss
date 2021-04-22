@@ -103,6 +103,11 @@
       justify-content: space-around;
       align-items: center;
     }
+    // @include desktop {
+    //   :nth-child(3) {
+    //     margin-left: 97px;
+    //   }
+    // }
   }
   &__content-label-container {
     .container__sort-img {
