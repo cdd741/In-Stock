@@ -38,10 +38,18 @@ const postWarehouse = (req,res)=>{
         
 
     }
-    warehouses.push(newWarehouse)
-    const json = JSON.stringify(warehouses)
-    fs.writeFileSync(path.resolve(__dirname,'../data/warehouses.json'),json)
-    res.status(201).send(warehouses)
+    if (req.body){
+        warehouses.push(newWarehouse)
+        const json = JSON.stringify(warehouses)
+        fs.writeFileSync(path.resolve(__dirname,'../data/warehouses.json'),json)
+        res.status(201).send(warehouses)
+    }
+    else {
+        res.status(404).send({
+            success:false,
+            msg:'Further details still required!',
+        })
+    }
 
 }
 
