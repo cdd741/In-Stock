@@ -3,6 +3,8 @@
 .header__div {
   background-color: $graphite;
   padding-bottom: 64px;
+  display: flex;
+  justify-content: center;
   @include tablet {
     padding-bottom: 94px;
   }
@@ -13,6 +15,7 @@
   flex-direction: column;
   background: $graphite;
   align-items: center;
+  width: 100%;
   height: 136px;
   @include page-padding;
   @include tablet {

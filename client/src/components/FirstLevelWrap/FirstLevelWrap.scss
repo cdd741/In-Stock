@@ -2,6 +2,10 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/variables" as *;
 
+.outer-container {
+  display: flex;
+  justify-content: center;
+}
 .container {
   color: $instock-black;
   background-color: $white;
@@ -12,7 +16,7 @@
   position: absolute;
   top: 136px;
   @include tablet {
-    margin: 0 $tablet-edge;
+    // margin: 0 auto;
     padding: 0;
     width: 94vw;
     min-width: 715px;
