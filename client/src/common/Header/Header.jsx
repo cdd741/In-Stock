@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import inStockLogo from '../../assets/logo/InStock-Logo.svg'
+import inStockLogo from '../../assets/logos/InStock-Logo.svg';
 import './Header.scss'
 import Button from '../../components/Button/Button'
 
