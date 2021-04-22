@@ -16,6 +16,7 @@ import Input from "./components/Input/Input";
 class App extends Component {
   state = {
     isWarehouse: true,
+    warehousesData: [],
     email: "",
   };
 
@@ -51,9 +52,14 @@ class App extends Component {
         />
         <Switch>
           <Redirect from="/" exact to="/warehouses" />
-          <Route path="/" exact component={Warehouses} />
+          <Route path="/warehouses" exact component={Warehouses} />
           <Route path="/warehouses/add" exact component={AddWarehouse} />
-          <Route path="/warehouses/edit" exact component={EditWarehouse} />
+          <Route
+            path="/warehouses/edit/:id"
+            render={(props) => {
+              return <EditWarehouse {...props} />;
+            }}
+          />
           <Route
             path="/warehouses/:id"
             render={(props) => {
