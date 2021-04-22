@@ -13,11 +13,11 @@ import DeleteModal from "./components/DeleteModal/DeleteModal";
 import InventoryForm from './components/InventoryForm/InventoryForm'
 
 import { Switch, Route, Redirect } from "react-router-dom";
-
 class App extends Component {
   state = {
     isWarehouse: true,
   };
+
   handleOnToggle = (isWarehouse) => {
     this.setState({ isWarehouse: isWarehouse });
     console.log(this.state.isWarehouse);
