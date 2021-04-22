@@ -14,6 +14,7 @@ export default class FirstLevelWrap extends Component {
     const { warehouseData } = this.props;
     return (
       <div className="container">
+        {/* first level wrap */}
         <div className="container__header-container">
           <div className="container__header-content">
             <h1 className="container__header">Warehouses</h1>
@@ -38,6 +39,10 @@ export default class FirstLevelWrap extends Component {
             </form>
           </div>
         </div>
+
+
+
+        {/* warehosue list */}
         <div className="container__content-title-bar">
           <div className="container__content-label-container">
             <h4 className="container__content-label">WAREHOUSE</h4>

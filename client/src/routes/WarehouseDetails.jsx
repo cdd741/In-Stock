@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import SecondLevelWrap from "../components/SecondLevelWrap/SecondLevelWrap";
+import WarehousesInventories from "../components/WarehousesInventories.jsx/WarehousesInventories";
 
 export default class WarehouseDetails extends Component {
   state = {
@@ -34,14 +35,14 @@ export default class WarehouseDetails extends Component {
               (warehouse) => warehouse.id === warehouseId
             ),
           });
-          console.log(this.state.warehousesData)
     })
   }
 
   render() {
     return (
       <div>
-        <SecondLevelWrap inventoriesData={this.state.inventoriesData} id={true} warehouseData = {this.state.warehousesData} />
+        <SecondLevelWrap  />
+        <WarehousesInventories inventoriesData={this.state.inventoriesData} warehouseData = {this.state.warehousesData} />
       </div>
     );
   }
