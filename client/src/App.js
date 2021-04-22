@@ -12,12 +12,10 @@ import Header from "./common/Header/Header";
 import DeleteModal from "./components/DeleteModal/DeleteModal";
 
 import { Switch, Route, Redirect } from "react-router-dom";
-import Input from "./components/Input/Input";
 class App extends Component {
   state = {
     isWarehouse: true,
     warehousesData: [],
-    email: "",
   };
 
   handleOnToggle = (isWarehouse) => {
@@ -25,27 +23,9 @@ class App extends Component {
     console.log(this.state.isWarehouse);
   };
 
-  handleOnChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  handleOnSubmit = (e) => {
-    e.preventDefault();
-    if (this.state.email === "") {
-      alert("WTF");
-    }
-  };
-
   render() {
     return (
       <>
-        <form onSubmit={this.handleOnSubmit}>
-          <Input
-            value="assdasda"
-            label="email"
-            onChange={this.handleOnChange}
-          />
-        </form>
         <Header
           toggle={this.handleOnToggle}
           isWarehouse={this.state.isWarehouse}

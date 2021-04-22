@@ -1,6 +1,36 @@
 import React, { Component } from "react";
 import "./Input.scss";
-import errIcon from "../../assets/Icons/error-24px.svg";
+import errIcon from "../../assets/icons/error-24px.svg";
+
+//
+// Usage: <Input onChange={required} label='required' value='not required'/>
+//
+// onSubmit example:
+// **** you should put this in your form not Input component ****
+// handleOnSubmit = (e) => {
+//   e.preventDefault();
+//   if (this.state.email === "") {
+//     alert("email field required!");
+//   } else {
+//     // do the api call
+//   }
+// };
+//
+// onChange example:
+// handleOnChange = (e) => {
+//   this.setState({ [e.target.name]: e.target.value });
+// };
+//
+// **** keep in mind ****
+// set your STATE NAME as your LABEL NAME so you can setState like the example
+//
+// state = {
+//   email: "",
+// };
+//
+// **** styling ****
+// all you need for styling will just be responsive width
+//
 
 export default class Input extends Component {
   state = {
@@ -11,13 +41,11 @@ export default class Input extends Component {
   handleOnChange = (e) => {
     e.preventDefault();
     this.props.onChange(e);
-    console.log(this);
     this.setState({ value: e.target.value });
   };
 
   hendleOnfocusout = (e) => {
-    console.log(this);
-    if (this.props.required && this.state.invalidInput !== !e.target.value) {
+    if (this.state.invalidInput !== !e.target.value) {
       this.setState({ invalidInput: !e.target.value });
       console.log(this);
     }
@@ -25,26 +53,36 @@ export default class Input extends Component {
 
   renderErrMessage = () => {
     return (
-      <div>
-        <img src={errIcon} alt="invalid input icon" />
-        <h3>This field is required</h3>
+      <div className="input__err-container">
+        <img
+          className="input__err-icon"
+          src={errIcon}
+          alt="invalid input icon"
+        />
+        <h3 className="input__err-message">This field is required</h3>
       </div>
     );
   };
 
   render() {
+    const textareaClass = this.state.invalidInput
+      ? "input__textarea input__textarea--err-border"
+      : "input__textarea";
     return (
       <div className="input">
-        <label htmlFor={this.props.label}>{this.props.label}</label>
-        <textarea
-          name={this.props.label}
-          id={this.props.label}
-          placeholder={this.props.label}
-          value={this.state.value}
-          onChange={this.handleOnChange}
-          onBlur={this.hendleOnfocusout}
-        ></textarea>
-        {this.state.invalidInput && this.renderErrMessage()}
+        <label htmlFor={this.props.label} className="input__label">
+          <h3 className="input__label-text">{this.props.label}</h3>
+          <input
+            name={this.props.label}
+            id={this.props.label}
+            placeholder={this.props.label}
+            value={this.state.value}
+            onChange={this.handleOnChange}
+            onBlur={this.hendleOnfocusout}
+            className={textareaClass}
+          ></input>
+          {this.state.invalidInput && this.renderErrMessage()}
+        </label>
       </div>
     );
   }
