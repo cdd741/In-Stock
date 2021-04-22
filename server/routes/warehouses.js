@@ -4,11 +4,13 @@ const router = express.Router();
 
 //controllers
 const{
-    getWarehousesArr
+    getWarehousesArr,
+    getWarehouseId,
 } = require('../controllers/warehouses')
 
-//routes
+//routes for Warehouses
 router.get('/', getWarehousesArr)
+router.get('/:id', getWarehouseId)
 
 
 
