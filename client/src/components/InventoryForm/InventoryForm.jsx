@@ -2,6 +2,8 @@ import React from 'react';
 import { ReactComponent as BackArrow } from '../../assets/icons/arrow_back-24px.svg';
 import inventories from '../../data/inventories.json';
 import Button from '../Button/Button';
+import Input from '../Input/Input';
+import SecondLevelWrap from '../SecondLevelWrap/SecondLevelWrap';
 import { Link } from 'react-router-dom';
 
 import './InventoryForm.scss';
@@ -18,12 +20,8 @@ class InventoryForm extends React.Component{
         itemWarehouse: null,
     }
 
-
-
     componentDidMount = () => {
         let inventoryItem = inventories.find(item => item.id === this.state.id);
-        console.log(inventories)
-        console.log(inventoryItem)
         this.setState({
             itemName: inventoryItem.itemName,
             itemDescription: inventoryItem.description,
@@ -31,10 +29,24 @@ class InventoryForm extends React.Component{
             itemStatus: inventoryItem.status,
             itemWarehouse: inventoryItem.warehouse
         })
+        if(this.state.formType === 'editItem'){
+            let itemName = document.querySelector('#item-name');
+            let itemDescription = document.getElementById('description');
+            let category = document.getElementById('category');
+            let status = document.getElementById('status');
+            let warehouse = document.getElementById('warehouse')
+
+            console.log(itemName);
+        }
+    }
+
+    handleOnChange = (e) => {
+        this.setState({
+            [e.target.name] : e.target.value,
+        })
     }
 
     render(){
-        console.log(this.state.itemName)
         return(
             <>
                 <div className="inventory-form-container">
@@ -49,11 +61,11 @@ class InventoryForm extends React.Component{
                             <div className="inventory-form__item-details">
                                 <h3 className="inventory-form__subtitle">Item Details</h3>
                                 <label htmlFor="item-name" className="inventory-form__label">Item Name</label>
-                                <input type="text" name="item-name" placeholder="Item Name" className="inventory-form__input"/>
+                                <input type="text" name="item-name" placeholder="Item Name" id="item-name" className="inventory-form__input"/>
                                 <label htmlFor="item-description" className="inventory-form__label">Description</label>
-                                <textarea type="text" name="item-description" placeholder="Please enter a brief item description..." className="inventory-form__text-area"/>
+                                <textarea type="text" name="item-description" placeholder="Please enter a brief item description..." className="inventory-form__text-area" id="item-description"/>
                                 <label htmlFor="categories" className="inventory-form__label">Category</label>
-                                <select name="categories" id="categories" className="inventory-form__select">
+                                <select name="categories" id="categories" className="inventory-form__select" id="categories">
                                     <option value="Electronics" className="inventory-form__option">Electronics</option>
                                     <option value="Gear" className="inventory-form__option">Gear</option>
                                     <option value="Apparel" className="inventory-form__option">Apparel</option>

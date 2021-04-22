@@ -51,7 +51,7 @@ class App extends Component {
               <InventoryForm {...props} formType="addItem"/>
             )} 
           />
-          <Route path="/inventories/edit" exact 
+          <Route path="/inventories/edit/:id" exact 
             render={props => (
               <InventoryForm {...props} formType="editItem"/>
             )} 
