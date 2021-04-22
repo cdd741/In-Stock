@@ -35,8 +35,6 @@ const postWarehouse = (req,res)=>{
             phone:req.body.phone,
             email:req.body.email,
         }
-        
-
     }
     if (req.body){
         warehouses.push(newWarehouse)
@@ -50,12 +48,27 @@ const postWarehouse = (req,res)=>{
             msg:'Further details still required!',
         })
     }
-
 }
 
+//delete warehouse
+const deleteWarehouse = (req,res)=>{
+    const warehouseIndex = warehouses.findIndex(warehouse=>{
+        return warehouse.id == req.params.id
+    })
+    if (warehouseIndex>=0){
+        warehouses.splice(warehouseIndex, 1)
+        const json = JSON.stringify(warehouses)
+        fs.writeFileSync(path.resolve(__dirname,'../data/warehouses.json'),json)
+        res.status(201).send(warehouses)
+
+    } else{
+        res.status(404).send ('No warehouse by that id!')
+    }
+}
 
 module.exports = {
     getWarehousesArr,
     getWarehouseId,
     postWarehouse,
+    deleteWarehouse,
 }
