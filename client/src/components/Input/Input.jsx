@@ -30,7 +30,8 @@ import errIcon from "../../assets/icons/error-24px.svg";
 //
 // **** styling ****
 // all you need for styling will just be responsive width
-//
+// for the whole container use yourClassName
+// for the textarea use yourClassName__textarea
 
 export default class Input extends Component {
   state = {

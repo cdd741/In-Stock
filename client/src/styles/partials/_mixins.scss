@@ -28,16 +28,16 @@
 }
 
 @mixin main-page-padding {
-  margin: 0 $mobile-inner-page-edge;
+  padding: 0 $mobile-inner-page-edge;
   max-width: 640px;
 
   @include tablet {
-    margin: 0 $tablet-inner-page-edge;
+    padding: 0 $tablet-inner-page-edge;
     max-width: 960px;
   }
 
   @include desktop {
-    margin: 0 $desktop-inner-page-edge;
+    padding: 0 $desktop-inner-page-edge;
     max-width: 100%;
   }
 }
@@ -49,5 +49,20 @@
   @include tablet {
     height: 38px;
     border-radius: 38px;
+  }
+}
+
+@mixin container-overlap {
+  position: relative;
+  bottom: 64px;
+  @include tablet {
+    bottom: 94px;
+  }
+}
+
+@mixin header-overlap {
+  padding-bottom: 64px;
+  @include tablet {
+    padding-bottom: 94px;
   }
 }
