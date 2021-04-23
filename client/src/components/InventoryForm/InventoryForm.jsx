@@ -27,7 +27,7 @@ class InventoryForm extends React.Component{
     componentDidMount = () => {
         axios.get(API_URL('inventories', this.state.id))
         .then(res => {
-            let inventoryItem = res;
+            let inventoryItem = res.data;
             if (inventoryItem !== undefined){
                 this.setState({
                 itemName: inventoryItem.itemName,
