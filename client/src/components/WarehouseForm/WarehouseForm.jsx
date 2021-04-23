@@ -20,13 +20,11 @@ export default class WarehouseForm extends Component {
   };
 
   handleOnSubmit = (e) => {
-    e.preventDefault();
-    this.props.onSubmit(this.state);
+    this.props.onSubmit(e, this.state);
   };
 
   handleOnCancel = (e) => {
-    e.preventDefault();
-    this.props.onCancel();
+    this.props.onCancel(e);
   };
 
   render() {

@@ -34,7 +34,13 @@ class App extends Component {
         <Switch>
           <Redirect from="/" exact to="/warehouses" />
           <Route path="/warehouses" exact component={Warehouses} />
-          <Route path="/warehouses/add" exact component={AddWarehouse} />
+          <Route
+            path="/warehouses/add"
+            exact
+            render={(props) => {
+              return <AddWarehouse {...props} />;
+            }}
+          />
           <Route
             path="/warehouses/edit/:id"
             render={(props) => {
