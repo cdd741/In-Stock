@@ -101,6 +101,7 @@ class InventoryForm extends React.Component{
                 "quantity": this.state.itemQuantity
             })
         }
+        this.props.history.push('/inventories');
     }
 
     render(){
