@@ -9,14 +9,11 @@
   border-radius: 3px;
   @include tablet {
     padding: 0;
-    width: 94vw;
     min-width: 715px;
     top: 92px;
   }
   @include desktop {
-    margin: 0 130px;
     min-width: 1020px;
-    width: 79vw;
   }
   &__warehouse-information {
     border-bottom: 1px solid $cloud;
@@ -80,18 +77,33 @@
       align-items: center;
       .list__content-label-container:nth-child(1) {
         width: 18.75%;
+        @include desktop {
+          width: 15%;
+        }
       }
       .list__content-label-container:nth-child(2) {
         width: 18.75%;
+        @include desktop {
+          width: 18%;
+        }
       }
       .list__content-label-container:nth-child(3) {
         width: 25%;
+        @include desktop {
+          width: 23%;
+        }
       }
       .list__content-label-container:nth-child(4) {
         width: 34.75%;
+        @include desktop {
+          width: 22%;
+        }
       }
       .list__content-label-container:nth-child(5) {
         width: 2.75%;
+        @include desktop {
+          width: 2%;
+        }
       }
     }
   }
@@ -142,7 +154,7 @@
       }
     }
     @include desktop {
-      justify-content: space-evenly;
+      justify-content: space-between;
       margin: 0;
     }
   }
@@ -163,6 +175,7 @@
     }
     @include desktop {
       cursor: pointer;
+      width: 15%;
     }
   }
   &__content-address {
@@ -175,7 +188,7 @@
       width: 18.75%;
     }
     @include desktop {
-      width: 216px;
+      width: 18%;
     }
   }
   &__content-status {
@@ -206,6 +219,9 @@
     @include tablet {
       width: 25%;
     }
+    @include desktop {
+      width: 24%;
+    }
   }
   &__content-qty {
     margin-top: 1rem;
@@ -217,7 +233,7 @@
       width: 31.75%;
     }
     @include desktop {
-      margin: 1rem 0;
+      width: 21%;
     }
   }
   &__content-info-container {
@@ -229,7 +245,7 @@
   }
 
   &__btns-container {
-    padding: 1.1875rem 0 1.6875rem;
+    padding: 1.1875rem 0 1.125rem;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -241,6 +257,9 @@
       width: 5.75%;
       flex-direction: column;
       padding: 0;
+    }
+    @include desktop {
+      width: 3%;
     }
   }
   &__btns {
@@ -254,7 +273,7 @@
 
   &__edit-btn {
     @include tablet {
-      margin-left: 24px;
+      margin-left: 2vw;
     }
     @include desktop {
       margin-left: 16px;
