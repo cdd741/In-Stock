@@ -11,19 +11,19 @@ import AddWarehouse from "./routes/AddWareHouse.jsx";
 import Header from "./common/Header/Header";
 import DeleteModal from "./components/DeleteModal/DeleteModal";
 import SecondLevelWrap from "./components/SecondLevelWrap/SecondLevelWrap";
+import InventoryForm from './components/InventoryForm/InventoryForm'
 
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom"; 
+
 class App extends Component {
   state = {
     isWarehouse: true,
-    warehousesData: [],
   };
 
   handleOnToggle = (isWarehouse) => {
     this.setState({ isWarehouse: isWarehouse });
     console.log(this.state.isWarehouse);
   };
-
   render() {
     return (
       <div className="App">
@@ -54,8 +54,16 @@ class App extends Component {
             }}
           />
           <Route path="/inventories" exact component={Inventories} />
-          <Route path="/inventories/add" exact component={AddInventory} />
-          <Route path="/inventories/edit" exact component={EditInventory} />
+          <Route path="/inventories/add" exact 
+            render={props => (
+              <InventoryForm {...props} formType="addItem"/>
+            )} 
+          />
+          <Route path="/inventories/edit/:id" exact 
+            render={props => (
+              <InventoryForm {...props} formType="editItem"/>
+            )} 
+          />
           <Route
             path="inventories/:id"
             render={(props) => {
