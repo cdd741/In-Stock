@@ -4,47 +4,67 @@ import deleteIcon from '../../assets/icons/delete_outline-24px.svg'
 import editIcon from '../../assets/icons/edit2-24px.svg'
 
 function InventoryTable({inventory}) {
-    const inventoryList = inventory.map((item) =>{
-        return (
+    const inventoryListTabletDesktop = inventory.map((item)=>{
+        return(
             <tr className='table__row'>
-                <div className='table__divider--mobile'>
-                    <th className='table__header--mobile'>INVENTORY ITEM</th>
-                    <td className='table__data'>{item.itemName}</td>
-                </div>
-                <div className='table__divider--mobile'>
-                    <th className='table__header--mobile'>STATUS</th>
-                    <td className='table__data'>{item.status}</td>
-                </div>
-                <div className='table__divider--mobile'>
-                    <th className='table__header--mobile'>CATEGORY</th>
-                    <td className='table__data'>{item.category}</td>
-                </div>
-                <div className='table__divider--mobile'>
-                    <th className='table__header--mobile'>QTY</th>
-                    <td className='table__data'>{item.quantity}</td>
-                </div>
-                <div className='table__divider--mobile'>
-                    <th className='table__header--mobile'>WAREHOUSE</th>
-                    <td className='table__data'>{item.warehouseName}</td>
-                </div>
-                <div className='table__icons'>
+                <td className='table__data'>{item.itemName}</td>
+                <td className='table__data'>{item.status}</td>
+                <td className='table__data'>{item.category}</td>
+                <td className='table__data'>{item.quantity}</td>
+                <td className='table__data'>{item.warehouseName}</td>
+                <td className='table__data'>
                     <img src={deleteIcon}/>
                     <img src={editIcon}/>
-
-                </div>
+                </td>
             </tr>
         )
     })
+    const inventoryListMobile = inventory.map((item) =>{
+        return (
+            <ul className='mobile__list'>
+                <li className='list__divider'>
+                    <h2 className='list__header'>INVENTORY ITEM</h2>
+                    <p className='list__data'>{item.itemName}</p>
+                </li>
+                <li className='list__divider'>
+                    <h2 className='list__header'>STATUS</h2>
+                    <p className='list__data'>{item.status}</p>
+                </li>
+                <li className='list__divider'>
+                    <h2 className='list__header'>CATEGORY</h2>
+                    <p className='list__data'>{item.category}</p>
+                </li>
+                <li className='list__divider'>
+                    <h2 className='list__header'>QTY</h2>
+                    <p className='list__data'>{item.quantity}</p>
+                </li>
+                <li className='list__divider'>
+                    <h2 className='list__header'>WAREHOUSE</h2>
+                    <p className='list__data'>{item.warehouseName}</p>
+                </li>
+                <li className='list__icons'>
+                    <img src={deleteIcon}/>
+                    <img src={editIcon}/>
+                </li>
+            </ul>
+        )
+    })
     return (
-        <table className='table__container'>
-            <tbody className='table__body'>
-                {/* <tr>
-                    <th className='table__header--mobile'>TEST</th>
-                    <td className='table__data'>{inventoryList}</td>
-                </tr> */}
-                {inventoryList}
-            </tbody>
-        </table>
+        <div class='list__container'>
+                {inventoryListMobile}
+                <table className='inventory__table'>
+                    <tr className='table__row'>
+                        <th className='table__header'>INVENTORY ITEM</th>
+                        <th className='table__header'>STATUS</th>
+                        <th className='table__header'>CATEGORY</th>
+                        <th className='table__header'>QTY</th>
+                        <th className='table__header'>WAREHOUSE</th>
+                        <th className='table__header'>ACTION</th>
+                    </tr>
+                    {inventoryListTabletDesktop}
+                </table> 
+        </div>
+        
     )
 }
 

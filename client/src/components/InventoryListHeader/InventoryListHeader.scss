@@ -1,15 +1,42 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/variables" as *;
+
 .inventory__container {
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid $cloud;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 24px;
+  @include tablet {
+    border-bottom: none;
+    flex-direction: row;
+    align-items: center;
+    .inventory__header {
+      margin-right: auto;
+    }
+  }
 }
 .search__div {
   display: flex;
   border: 1px solid $cloud;
+  border-radius: 100px;
+  padding: 6px 16px;
+  margin-bottom: 16px;
+  @include tablet {
+    width: 185px;
+    margin-bottom: 0;
+    margin-right: 16px;
+  }
+
   .search__bar {
     border: none;
+    width: 100%;
+  }
+}
+.header__button {
+  @include tablet {
+    width: 128px;
   }
 }
