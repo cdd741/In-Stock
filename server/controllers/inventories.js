@@ -2,6 +2,7 @@
 const fs = require('fs');
 const uuid = require('uuid');
 const path = require('path');
+const { url } = require('inspector');
 inventories = require('../data/inventories.json')
 
 //inventory list
@@ -22,7 +23,24 @@ const getInventoryId = (req,res)=>{
     res.status(200).send(item)
 }
 
+const postInventoryArr = (req, res) => {
+    console.log(req.body)
+    let newItem = req.body;
+    if (Object.keys(newItem).length !== 8 && newItem.status === 'In Stock'){
+        res.send("Not a valid inventory item")
+    }else {
+        if (newItem.status === 'Out of Stock'){
+            newItem.quantity = 0;
+        } 
+        inventories.push(newItem);
+        console.log(inventories);
+        fs.writeFileSync('../data/inventories.json', JSON.toString(inventories), err => console.log(err));
+        res.send(inventories);
+    }
+}
+
 module.exports = {
     getInventoryArr,
     getInventoryId,
+    postInventoryArr
 }
