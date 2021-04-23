@@ -12,7 +12,8 @@ import Header from "./common/Header/Header";
 import DeleteModal from "./components/DeleteModal/DeleteModal";
 import InventoryForm from './components/InventoryForm/InventoryForm'
 
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom"; 
+
 class App extends Component {
   state = {
     isWarehouse: true,
