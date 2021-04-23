@@ -1,0 +1,49 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
+.warehouse-form {
+  &__details {
+    &--warehouse {
+      @include main-page-padding;
+      border-bottom: 1px solid $cloud;
+    }
+    &--contact {
+      @include main-page-padding;
+    }
+  }
+
+  &__title {
+    margin: 16px 0 24px;
+    font-size: $Mobile-H2;
+    line-height: $Mobile-H2-LH;
+    @include tablet {
+      font-size: $H2;
+      line-height: $H2-LH;
+    }
+  }
+
+  &__buttons {
+    @include main-page-padding;
+    background: rgba(247, 248, 249, 0.7);
+    display: flex;
+    align-items: center;
+    height: 68px;
+  }
+
+  &__button {
+    width: 100%;
+
+    &--cancel {
+      margin-right: 17px;
+    }
+
+    &--submit {
+    }
+  }
+}
+
+.input {
+  &__textarea {
+    width: 100%;
+  }
+}

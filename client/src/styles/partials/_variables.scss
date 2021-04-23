@@ -31,8 +31,8 @@ $H2-LH: 32px;
 $H3-LH: 22px;
 $H4-LH: 18px;
 $P1-LH: 28px;
-$P1-LH: 22px;
-$P1-LH: 18px;
+$P2-LH: 22px;
+$P3-LH: 18px;
 $Mobile-H1-LH: 36px;
 $Mobile-H2-LH: 28px;
 $Mobile-H3-LH: 20px;
@@ -58,3 +58,7 @@ $desktop-outter-page-edge: 10.15625vw;
 $mobile-inner-page-edge: 6.4vw;
 $tablet-inner-page-edge: 4.167vw;
 $desktop-inner-page-edge: 3.125vw;
+
+// header container overlap
+$mobile-overlap: 64px;
+$tablet-overlap: 94px;
