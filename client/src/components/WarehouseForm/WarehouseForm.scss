@@ -1,0 +1,83 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
+.warehouse-form {
+  &__input-wrapper {
+    @include tablet {
+      display: flex;
+      justify-content: center;
+      margin: 24px 0;
+    }
+  }
+
+  &__details {
+    margin: 16px 0 0 0;
+
+    @include tablet {
+      width: 100%;
+      padding-bottom: 32px;
+      margin: 0;
+    }
+    &--warehouse {
+      @include main-page-padding;
+      border-bottom: 1px solid $cloud;
+      padding-bottom: 24px;
+
+      @include tablet {
+        border-bottom: none;
+        border-right: 1px solid $cloud;
+        padding-bottom: 0;
+      }
+    }
+
+    &--contact {
+      @include main-page-padding;
+      padding-bottom: 24px;
+      @include tablet {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &__title {
+    margin: 0 0 8px;
+    font-size: $Mobile-H2;
+    line-height: $Mobile-H2-LH;
+    @include tablet {
+      font-size: $H2;
+      line-height: $H2-LH;
+    }
+  }
+
+  &__buttons {
+    @include main-page-padding;
+    background: rgba(247, 248, 249, 0.7);
+    display: flex;
+    align-items: center;
+    height: 68px;
+
+    @include tablet {
+      justify-content: flex-end;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    @include tablet {
+      width: fit-content;
+    }
+
+    &--cancel {
+      margin-right: 17px;
+    }
+
+    &--submit {
+    }
+  }
+}
+
+.input {
+  &__textarea {
+    width: 100%;
+  }
+}

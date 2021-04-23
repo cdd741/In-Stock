@@ -11,9 +11,19 @@
   color: $white;
   border-style: none;
   padding: 0;
-  margin: 0;
+
   &__text {
     margin: 0;
+    font-size: $Mobile-H3;
+    line-height: $Mobile-H3-LH;
+    font-weight: 600;
+    font-style: normal;
+    padding: 8px 16px;
+
+    @include tablet {
+      font-size: $H3;
+      line-height: $H3-LH;
+    }
   }
 
   &--cancel {

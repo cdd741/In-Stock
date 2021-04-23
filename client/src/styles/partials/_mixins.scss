@@ -13,16 +13,31 @@
 }
 
 @mixin page-padding {
-  margin: 0 $mobile-edge;
+  margin: 0 $mobile-outter-page-edge;
+  max-width: 704px;
 
   @include tablet {
-    padding: 0 $tablet-edge;
-    // max-width: 920px;
-    margin: 0 auto;
+    margin: 0 $tablet-outter-page-edge;
+    max-width: 1020px;
   }
 
   @include desktop {
-    padding: 0 $desktop-edge;
+    margin: 0 $desktop-outter-page-edge;
+    max-width: 100%;
+  }
+}
+
+@mixin main-page-padding {
+  padding: 0 $mobile-inner-page-edge;
+  max-width: 640px;
+
+  @include tablet {
+    padding: 0 $tablet-inner-page-edge;
+    max-width: 940px;
+  }
+
+  @include desktop {
+    padding: 0 $desktop-inner-page-edge;
     max-width: 100%;
   }
 }
@@ -34,5 +49,20 @@
   @include tablet {
     height: 38px;
     border-radius: 38px;
+  }
+}
+
+@mixin container-overlap {
+  position: relative;
+  bottom: 64px;
+  @include tablet {
+    bottom: 94px;
+  }
+}
+
+@mixin header-overlap {
+  padding-bottom: 64px;
+  @include tablet {
+    padding-bottom: 94px;
   }
 }
