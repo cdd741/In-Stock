@@ -22,7 +22,11 @@ function SecondLevelWrap({ title, edit, onClickBack, onClickEdit, children }) {
             alt="back button"
             onClick={handleBackClick}
           />
-          <h1 className="secondLevelWrap__title">{title}</h1>
+          {typeof title === "object" ? (
+            <h1 className="secondLevelWrap__title">{title.name}</h1>
+          ) : (
+            <h1 className="secondLevelWrap__title">{title}</h1>
+          )}
         </div>
         {edit && (
           <button className="edit-button">

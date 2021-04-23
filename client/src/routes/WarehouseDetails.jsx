@@ -39,10 +39,10 @@ export default class WarehouseDetails extends Component {
   }
 
   render() {
+    console.log(this.state.warehousesData)
     return (
       <div>
-        <SecondLevelWrap  />
-        <WarehousesInventories inventoriesData={this.state.inventoriesData} warehouseData = {this.state.warehousesData} />
+        <SecondLevelWrap title={this.state.warehousesData[0]} edit={true} children={<WarehousesInventories inventoriesData={this.state.inventoriesData} warehouseData = {this.state.warehousesData}/>} />
       </div>
     );
   }
