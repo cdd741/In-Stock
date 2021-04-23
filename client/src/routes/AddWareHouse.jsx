@@ -38,7 +38,6 @@ export default class AddWarehouse extends Component {
       axios
         .post("http://localhost:8080/warehouse/add", info)
         .then((res) => {
-          console.log(res);
           alert(
             "New warehouse added, going back to home page.😊\nNew Warehouse Detail:\nres"
           );
@@ -55,7 +54,7 @@ export default class AddWarehouse extends Component {
     return (
       <div className="main-container-wrapper">
         <SecondLevelWrap
-          title="Edit Warehouse"
+          title="Add Warehouse"
           onClickBack={this.handleBackClick}
           edit={false}
         >

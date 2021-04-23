@@ -20,6 +20,7 @@ export default class WarehouseForm extends Component {
   };
 
   handleOnSubmit = (e) => {
+    e.preventDefault();
     this.props.onSubmit(e, this.state);
   };
 
@@ -120,7 +121,7 @@ export default class WarehouseForm extends Component {
           </Button>
           <Button
             className="warehouse-form__button warehouse-form__button--submit"
-            onSubmit={this.handleOnSubmit}
+            onClick={this.handleOnSubmit}
           >
             {this.props.type === "edit" ? "Save" : "+ Add Warehouse"}
           </Button>
