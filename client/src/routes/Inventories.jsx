@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import InventoryListHeader from '../components/InventoryListHeader/InventoryListHeader'
+import InventoryTable from '../components/InventoryTable/InventoryTable'
 
-const url='http:localhost:8080/inventories';
+const url='http://localhost:8080/inventories';
 
 export default class Inventories extends Component {
     state= {
@@ -24,8 +25,9 @@ export default class Inventories extends Component {
 
     render() {
         return (
-            <div>
-                <InventoryListHeader getInventoryArr={this.getInventoryArr}/>
+            <div className='container'>
+                <InventoryListHeader />
+                <InventoryTable inventory={this.state.inventory}/>
             </div>
         )
     }

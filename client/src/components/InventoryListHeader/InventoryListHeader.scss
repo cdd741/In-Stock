@@ -1,15 +1,15 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/variables" as *;
-
-.container {
+.inventory__container {
   display: flex;
-  align-items: center;
-  .search__div {
-    display: flex;
-    border: 1px solid $cloud;
-    .search__bar {
-      border: none;
-    }
+  flex-direction: column;
+  border-bottom: 1px solid $cloud;
+}
+.search__div {
+  display: flex;
+  border: 1px solid $cloud;
+  .search__bar {
+    border: none;
   }
 }

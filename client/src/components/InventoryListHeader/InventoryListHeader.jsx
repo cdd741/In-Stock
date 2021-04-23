@@ -1,9 +1,10 @@
 import './InventoryListHeader.scss'
 import React from 'react'
 import searchIcon from '../../assets/icons/search-24px.svg'
-function InventoryListHeader({getInventoryArr}) {
+import Button from '../Button/Button'
+function InventoryListHeader() {
     return (
-        <div className= 'container'>
+        <div className='inventory__container'>
             <h2 className='inventory__header'>Inventory</h2>
             <div className='search__div'>
                 <input
@@ -14,6 +15,11 @@ function InventoryListHeader({getInventoryArr}) {
                 />
                 <img src={searchIcon}/>
             </div>
+            <Button
+            type='text'
+            className="header__button">
+                + Add new Item
+            </Button>
         </div>
     )
 }

@@ -1,0 +1,41 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.table__container {
+  display: flex;
+  width: 100%;
+  .table__body {
+    display: flex;
+    flex-direction: column;
+    .table__row {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 1px solid $cloud;
+      .table__header--mobile {
+        display: block;
+        text-align: left;
+      }
+    }
+  }
+}
+//INVENTORY ITEMS
+.table__divider--mobile:nth-child(1) {
+  padding-left: 24px;
+  width: 50%;
+}
+.table__divider--mobile:nth-child(3) {
+  padding-left: 24px;
+  width: 50%;
+}
+.table__divider--mobile:nth-child(5) {
+  padding-left: 24px;
+  width: 50%;
+  margin-left: 50%;
+}
+.table__icons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 24px;
+}
