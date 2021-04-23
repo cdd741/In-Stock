@@ -6,6 +6,7 @@
   display: flex;
   justify-content: center;
 }
+
 .container {
   color: $instock-black;
   background-color: $white;
@@ -55,6 +56,9 @@
   }
   &__header-form {
     margin: 1rem 0 1.5rem;
+    a {
+      text-decoration: none;
+    }
     @include tablet {
       display: flex;
       align-items: baseline;
@@ -87,6 +91,7 @@
   &__header-btn {
     width: 100%;
     padding: 0.5rem 0;
+
     @include tablet {
       min-width: 168px;
     }
