@@ -6,6 +6,7 @@
   display: flex;
   justify-content: center;
 }
+
 .container {
   color: $instock-black;
   background-color: $white;
@@ -55,6 +56,9 @@
   }
   &__header-form {
     margin: 1rem 0 1.5rem;
+    a {
+      text-decoration: none;
+    }
     @include tablet {
       display: flex;
       align-items: baseline;
@@ -87,6 +91,7 @@
   &__header-btn {
     width: 100%;
     padding: 0.5rem 0;
+
     @include tablet {
       min-width: 168px;
     }
@@ -102,10 +107,45 @@
     display: none;
     background-color: $light-grey;
     height: 40px;
+    .list__qty-desktop {
+      display: none;
+    }
+    @include main-page-padding;
     @include tablet {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
+      box-sizing: content-box;
+      .container__content-label-container:nth-child(1) {
+        width: 20%;
+        @include desktop {
+          width: 18%;
+        }
+      }
+      .container__content-label-container:nth-child(2) {
+        width: 23%;
+        @include desktop {
+          width: 29%;
+        }
+      }
+      .container__content-label-container:nth-child(3) {
+        width: 18%;
+        @include desktop {
+          width: 20.5%;
+        }
+      }
+      .container__content-label-container:nth-child(4) {
+        width: 32.75%;
+        @include desktop {
+          width: 26%;
+        }
+      }
+      .container__content-label-container:nth-child(5) {
+        width: 2.75%;
+        @include desktop {
+          width: 2%;
+        }
+      }
     }
   }
   &__content-label-container {
@@ -126,16 +166,6 @@
     :last-child {
       border: 0;
     }
-    @include tablet {
-      // .container__item:first-child {
-      //   .container__content-label-container {
-      //     display: block;
-      //     margin-bottom: 38px;
-      //     background-color: $light-grey;
-      //     height: 40px;
-      //   }
-      // }
-    }
   }
   &__item {
     border-bottom: 1px solid $cloud;
@@ -150,7 +180,7 @@
     }
   }
   &__item-container {
-    margin: $Mobile-margin;
+    @include main-page-padding;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -158,12 +188,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-sizing: content-box;
       .container__content-label-container {
         display: none;
       }
     }
     @include desktop {
-      justify-content: space-evenly;
+      justify-content: space-between;
       margin: 0;
     }
   }
@@ -177,10 +208,11 @@
     order: 0;
     width: 50%;
     @include tablet {
-      width: 108px;
+      width: 18.75%;
     }
     @include desktop {
       cursor: pointer;
+      width: 12.75%;
     }
   }
   &__content-address {
@@ -194,20 +226,23 @@
     @include tablet {
       order: 0;
       margin: 1rem 0;
-      width: 11.5vw;
+      width: 22.75%;
       .container__content-info {
         width: 100%;
       }
     }
     @include desktop {
-      width: 216px;
+      width: 23.75%;
     }
   }
   &__content-contact-name {
     order: 0;
     width: 50%;
     @include tablet {
-      width: 125px;
+      width: 17%;
+    }
+    @include desktop {
+      width: 15%;
     }
   }
   &__content-contacts {
@@ -217,10 +252,11 @@
     @include tablet {
       margin: 0;
       order: 0;
-      width: 145px;
+      width: 28.75%;
+      margin: 1rem 0;
     }
     @include desktop {
-      margin: 1rem 0;
+      width: 18.75%;
     }
   }
   &__content-info-container {
@@ -243,9 +279,12 @@
       }
     }
     @include tablet {
-      width: auto;
+      width: 5.75%;
       flex-direction: column;
       padding: 0;
+    }
+    @include desktop {
+      width: 4%;
     }
   }
   &__btns {

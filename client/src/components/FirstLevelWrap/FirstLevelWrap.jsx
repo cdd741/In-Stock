@@ -6,6 +6,7 @@ import arrowImg from "../../assets/icons/chevron_right-24px.svg";
 import sortIcon from "../../assets/icons/sort-24px.svg";
 import "./FirstLevelWrap.scss";
 import { Link } from "react-router-dom";
+import Button from "../Button/Button";
 
 export default class FirstLevelWrap extends Component {
   render() {
@@ -16,8 +17,10 @@ export default class FirstLevelWrap extends Component {
           {/* Header Bar */}
           <div className="container__header-container">
             <div className="container__header-content">
+              {/* Header */}
               <h1 className="container__header">Warehouses</h1>
               <form className="container__header-form">
+                {/* Search Bar */}
                 <div className="container__header-search-bar">
                   <input
                     className="container__header-search-bar-input"
@@ -31,9 +34,15 @@ export default class FirstLevelWrap extends Component {
                   />
                 </div>
                 <Link to="/warehouses/add">
-                  <button className="container__header-btn" type="submit">
+                  {/* <button className="container__header-btn" type="submit">
                     + Add New Warehouse
-                  </button>
+                  </button> */}
+                  <Button
+                    width={"100%"}
+                    type={"submit"}
+                    className={"container__header-btn"}
+                    children={"+ Add New Warehouse"}
+                  />
                 </Link>
               </form>
             </div>
