@@ -13,31 +13,33 @@ function SecondLevelWrap({ title, edit, onClickBack, onClickEdit, children }) {
   };
 
   return (
-    <div className="secondLevelWrap">
-      <div className="secondLevelWrap__header-container">
-        <div className="secondLevelWrap__header">
-          <img
-            className="secondLevelWrap__back-button"
-            src={backButton}
-            alt="back button"
-            onClick={handleBackClick}
-          />
-          <h1 className="secondLevelWrap__title">{title}</h1>
+    <div className="main-container-wrapper">
+      <div className="secondLevelWrap">
+        <div className="secondLevelWrap__header-container">
+          <div className="secondLevelWrap__header">
+            <img
+              className="secondLevelWrap__back-button"
+              src={backButton}
+              alt="back button"
+              onClick={handleBackClick}
+            />
+            <h1 className="secondLevelWrap__title">{title}</h1>
+          </div>
+          {edit && (
+            <button className="edit-button">
+              <div className="edit-button__content" onClick={handleEditClick}>
+                <img
+                  className="edit-button__icon"
+                  src={editIcon}
+                  alt="edit button icon"
+                />
+                <h3 className="edit-button__text">Edit</h3>
+              </div>
+            </button>
+          )}
         </div>
-        {edit && (
-          <button className="edit-button">
-            <div className="edit-button__content" onClick={handleEditClick}>
-              <img
-                className="edit-button__icon"
-                src={editIcon}
-                alt="edit button icon"
-              />
-              <h3 className="edit-button__text">Edit</h3>
-            </div>
-          </button>
-        )}
+        {children}
       </div>
-      {children}
     </div>
   );
 }

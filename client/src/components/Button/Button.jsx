@@ -20,7 +20,7 @@ function Button({ onClick, width, type, className, children }) {
         onClick(e);
       }}
     >
-      <h3 className={`button__text ${className}__text`}>{children}</h3>
+      <h3 className={`button__text`}>{children}</h3>
     </button>
   );
 }

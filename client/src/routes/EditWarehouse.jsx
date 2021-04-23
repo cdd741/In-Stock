@@ -12,13 +12,19 @@ export default class EditWarehouse extends Component {
     const handleOnSubmit = (state) => {};
 
     return (
-      <SecondLevelWrap
-        title="Edit Warehouse"
-        onClickBack={handleBackClick}
-        edit={true}
-      >
-        <WarehouseForm onSubmit={handleOnSubmit} onCancel={handleOnCancel} />
-      </SecondLevelWrap>
+      <div className="container-wrapper">
+        <SecondLevelWrap
+          title="Edit Warehouse"
+          onClickBack={handleBackClick}
+          edit={false}
+        >
+          <WarehouseForm
+            type={"edit"}
+            onSubmit={handleOnSubmit}
+            onCancel={handleOnCancel}
+          />
+        </SecondLevelWrap>
+      </div>
     );
   }
 }
