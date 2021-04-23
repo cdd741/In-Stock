@@ -98,7 +98,7 @@ class InventoryForm extends React.Component{
                 "description": this.state.itemDescription,
                 "category": this.state.itemCategory,
                 "status": this.state.itemStatus,
-                "quantity": this.state.itemQuantity
+                "quantity": Number(this.state.itemQuantity)
             })
 
         }else if(this.state.formType === 'editItem'){
