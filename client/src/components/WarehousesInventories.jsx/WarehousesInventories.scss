@@ -173,7 +173,7 @@
       flex-wrap: nowrap;
     }
   }
-  &__content-location {
+  &__content-inventory-item {
     order: 0;
     width: 50%;
     .list__content-info {
@@ -187,7 +187,7 @@
       width: 15%;
     }
   }
-  &__content-address {
+  &__content-category {
     margin-top: 1rem;
     width: 50%;
     order: 1;

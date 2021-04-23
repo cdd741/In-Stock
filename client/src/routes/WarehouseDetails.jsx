@@ -10,6 +10,7 @@ export default class WarehouseDetails extends Component {
   };
 
   componentDidMount() {
+    //getting the warehouse inventory list according to the warehouse:id
     axios
       .get("http://localhost:8080/inventories")
       .then((res) => {
@@ -27,6 +28,7 @@ export default class WarehouseDetails extends Component {
         console.log("Cant receive inventories API ");
       });
     axios.get('http://localhost:8080/warehouses')
+    //getting the warehouse location/contact information according to the warehouse:id
     .then(res => {
         let warehouses = res.data;
         let warehouseId = this.props.match.params.id;
