@@ -65,11 +65,13 @@ const deleteWarehouse = (req,res)=>{
     } else{
         res.status(404).send ({
             success:false,
-            msg:'No warehouse by that id!',
+            msg:`No warehouse by the id${req.params.id}!`,
         })
     }
 }
+
 //edit warehouse
+
     const putWarehouse = (req,res)=>{
         const warehouse = warehouses.find(warehouse=>{
             return (warehouse.id = req.params.id)
