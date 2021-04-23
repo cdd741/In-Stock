@@ -70,6 +70,9 @@
     display: none;
     background-color: $light-grey;
     height: 40px;
+    .list__qty-desktop {
+      display: none;
+    }
     @include main-page-padding;
     @include tablet {
       display: flex;
@@ -97,6 +100,12 @@
         width: 34.75%;
         @include desktop {
           width: 22%;
+          .list__qty-desktop {
+            display: block;
+          }
+          .list__quantity-desktop {
+            display: none;
+          }
         }
       }
       .list__content-label-container:nth-child(5) {
@@ -220,7 +229,7 @@
       width: 25%;
     }
     @include desktop {
-      width: 24%;
+      width: 23.5%;
     }
   }
   &__content-qty {
@@ -233,7 +242,7 @@
       width: 31.75%;
     }
     @include desktop {
-      width: 21%;
+      width: 20%;
     }
   }
   &__content-info-container {
@@ -259,7 +268,7 @@
       padding: 0;
     }
     @include desktop {
-      width: 3%;
+      width: 4%;
     }
   }
   &__btns {

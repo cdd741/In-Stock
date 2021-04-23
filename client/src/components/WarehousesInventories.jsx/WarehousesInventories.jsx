@@ -75,7 +75,8 @@ export default class WarehousesInventories extends Component {
             ></img>
           </div>{" "}
           <div className="list__content-label-container">
-            <h4 className="list__content-label">QUANTITY</h4>
+            <h4 className="list__content-label list__quantity-desktop">QUANTITY</h4>
+            <h4 className="list__content-label list__qty-desktop">QTY</h4>
             <img
               src={sortIcon}
               alt="Arrow up and down"
