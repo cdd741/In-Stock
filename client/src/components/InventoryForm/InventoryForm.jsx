@@ -25,36 +25,42 @@ class InventoryForm extends React.Component{
     }
 
     componentDidMount = () => {
-        let inventoryItem = inventories.find(item => item.id === this.state.id);
-        if (inventoryItem !== undefined){
-            this.setState({
-            itemName: inventoryItem.itemName,
-            itemDescription: inventoryItem.description,
-            itemCategory: inventoryItem.category,
-            itemStatus: inventoryItem.status,
-            itemWarehouseName: inventoryItem.warehouse,
-            itemWarehouseID: inventoryItem.warehouseID
+        axios.get(API_URL('inventories', this.state.id))
+        .then(res => {
+            let inventoryItem = res;
+            if (inventoryItem !== undefined){
+                this.setState({
+                itemName: inventoryItem.itemName,
+                itemDescription: inventoryItem.description,
+                itemCategory: inventoryItem.category,
+                itemStatus: inventoryItem.status,
+                itemWarehouseName: inventoryItem.warehouse,
+                itemWarehouseID: inventoryItem.warehouseID
             })
-            if(this.state.formType === 'editItem'){
-                let itemName = document.getElementById('item-name');
-                let itemDescription = document.getElementById('item-description');
-                let category = document.getElementById('categories');
-                let inStock = document.getElementById('in-stock');
-                let outOfStock = document.getElementById('out-of-stock');
-                let warehouse = document.getElementById('warehouses');
+                if(this.state.formType === 'editItem'){
+                    let itemName = document.getElementById('item-name');
+                    let itemDescription = document.getElementById('item-description');
+                    let category = document.getElementById('categories');
+                    let inStock = document.getElementById('in-stock');
+                    let outOfStock = document.getElementById('out-of-stock');
+                    let warehouse = document.getElementById('warehouses');
 
-                itemName.value = inventoryItem.itemName;
-                itemDescription.value = inventoryItem.description;
-                category.value = inventoryItem.category;
-                warehouse.value = inventoryItem.warehouseName + '|' + inventoryItem.warehouseID;
+                    itemName.value = inventoryItem.itemName;
+                    itemDescription.value = inventoryItem.description;
+                    category.value = inventoryItem.category;
+                    warehouse.value = inventoryItem.warehouseName + '|' + inventoryItem.warehouseID;
 
-                if (inventoryItem.status === 'In Stock'){
-                    inStock.checked = true;
-                }else{
-                    outOfStock.checked = true;
+                    if (inventoryItem.status === 'In Stock'){
+                        inStock.checked = true;
+                    }else{
+                        outOfStock.checked = true;
+                    }
                 }
-            }
-        }  
+            }  
+        })
+        .catch(err => {
+            console.log('error in InventoryForm.jsx axios request', err);
+        })
     }
 
     handleOnChange = (e) => {
@@ -73,7 +79,14 @@ class InventoryForm extends React.Component{
     }
 
     generateRandomId = () => {
+        '9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3'
+        let part1 = Math.random().toString(20).substr(2, 8);
+        let part2 = Math.random().toString(20).substr(2, 4);
+        let part3 = Math.random().toString(20).substr(2, 4);
+        let part4 = Math.random().toString(20).substr(2, 4);
+        let part5 = Math.random().toString(20).substr(2, 8);
 
+        return part1 + '-' + part2 + '-' + part3 + '-' + part4 + '-' + part5;
     }
 
     handleSubmit = () => {
@@ -171,7 +184,7 @@ class InventoryForm extends React.Component{
                                     />
                                     <label htmlFor="out-of-stock" className="inventory-form__label">Out of Stock</label>
                                 </div>
-                                {this.state.formType === 'addItem' && 
+                                {this.state.itemStatus === 'In Stock' && 
                                     <>
                                         <label htmlFor="itemQuantity" className="inventory-form__label">Quantity</label>
                                         <input 
