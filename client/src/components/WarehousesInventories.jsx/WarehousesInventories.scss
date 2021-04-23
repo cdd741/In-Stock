@@ -8,7 +8,6 @@
   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
   border-radius: 3px;
   @include tablet {
-    // margin: 0 auto;
     padding: 0;
     width: 94vw;
     min-width: 715px;
@@ -27,29 +26,73 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    @include tablet {
+      flex-wrap: nowrap;
+    }
   }
   &__warehouse-location {
     order: 0;
-    width: 47%;
+    width: 100%;
     margin: 1rem 0;
-    padding-right: 40px;
+    .list__content-info {
+      width: 141px;
+    }
+    @include tablet {
+      width: 40%;
+      margin: 1.5rem 0;
+      border-right: 1px solid $cloud;
+    }
   }
   &__warehouse-contact-name {
     order: 1;
-    width: 40%;
+    width: 50%;
+    .list__content-info {
+      width: 118px;
+    }
+    @include tablet {
+      width: 30%;
+      margin: 1.5rem 0 1.5rem 2.5rem;
+      .list__content-info {
+        width: 125px;
+      }
+    }
   }
   &__warehouse-contact-information {
     order: 1;
-    margin: 0 1.25rem 1rem 0;
+    margin-bottom: 1rem;
+    width: 50%;
+    .list__content-info {
+      width: 118px;
+    }
+    @include tablet {
+      width: 30%;
+      margin: 1.5rem 0;
+    }
   }
   &__content-title-bar {
     display: none;
     background-color: $light-grey;
     height: 40px;
+    @include main-page-padding;
     @include tablet {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
+      .list__content-label-container:nth-child(1) {
+        width: 18.75%;
+      }
+      .list__content-label-container:nth-child(2) {
+        width: 18.75%;
+      }
+      .list__content-label-container:nth-child(3) {
+        width: 25%;
+      }
+      .list__content-label-container:nth-child(4) {
+        width: 34.75%;
+      }
+      .list__content-label-container:nth-child(5) {
+        width: 2.75%;
+      }
     }
   }
   &__content-label-container {
@@ -59,7 +102,7 @@
     @include tablet {
       display: flex;
       align-items: flex-end;
-      .container__sort-img {
+      .list__sort-img {
         height: 20px;
         margin: 0 0 2px 8.94px;
         display: block;
@@ -69,16 +112,6 @@
   &__content {
     :last-child {
       border: 0;
-    }
-    @include tablet {
-      // .container__item:first-child {
-      //   .container__content-label-container {
-      //     display: block;
-      //     margin-bottom: 38px;
-      //     background-color: $light-grey;
-      //     height: 40px;
-      //   }
-      // }
     }
   }
   &__item {
@@ -103,7 +136,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      .container__content-label-container {
+      margin: 0;
+      .list__content-label-container {
         display: none;
       }
     }
@@ -125,7 +159,7 @@
       color: $instock-blue;
     }
     @include tablet {
-      width: 108px;
+      width: 18.75%;
     }
     @include desktop {
       cursor: pointer;
@@ -135,17 +169,10 @@
     margin-top: 1rem;
     width: 50%;
     order: 1;
-    .container__content-info {
-      width: 30vw;
-      margin: 0;
-    }
     @include tablet {
       order: 0;
       margin: 1rem 0;
-      width: 11.5vw;
-      .container__content-info {
-        width: 100%;
-      }
+      width: 18.75%;
     }
     @include desktop {
       width: 216px;
@@ -153,7 +180,7 @@
   }
   &__content-status {
     order: 0;
-    width: 47%;
+    width: 50%;
     .list__in-stock {
       width: 61px;
       text-align: center;
@@ -177,17 +204,17 @@
       border-radius: 20px;
     }
     @include tablet {
-      width: 125px;
+      width: 25%;
     }
   }
   &__content-qty {
     margin-top: 1rem;
-    width: 47%;
+    width: 50%;
     order: 1;
     @include tablet {
       margin: 0;
       order: 0;
-      width: 145px;
+      width: 31.75%;
     }
     @include desktop {
       margin: 1rem 0;
@@ -211,7 +238,7 @@
       display: none;
     }
     @include tablet {
-      width: auto;
+      width: 5.75%;
       flex-direction: column;
       padding: 0;
     }
@@ -220,16 +247,14 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    @include tablet {
+      width: 58px;
+    }
   }
-  // &__content-label-container {
-  //   @include tablet {
-  //     display: none;
-  //   }
-  // }
 
   &__edit-btn {
     @include tablet {
-      margin-left: 10px;
+      margin-left: 24px;
     }
     @include desktop {
       margin-left: 16px;

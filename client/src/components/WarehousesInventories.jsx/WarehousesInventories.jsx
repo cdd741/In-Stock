@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import sortIcon from "../../assets/icons/sort-24px.svg";
-import editIcon from "../../assets/icons/edit-24px.svg";
+import editIcon from "../../assets/icons/edit-24px-blue.svg";
 import delIcon from "../../assets/icons/delete_outline-24px.svg";
 import arrowImg from "../../assets/icons/chevron_right-24px.svg";
 import "./WarehousesInventories.scss";
@@ -59,7 +59,7 @@ export default class WarehousesInventories extends Component {
             ></img>
           </div>{" "}
           <div className="list__content-label-container">
-            <h4 className="list__content-label">ADDRESS</h4>
+            <h4 className="list__content-label">CATEGORY</h4>
             <img
               src={sortIcon}
               alt="Arrow up and down"
@@ -67,7 +67,7 @@ export default class WarehousesInventories extends Component {
             ></img>
           </div>{" "}
           <div className="list__content-label-container">
-            <h4 className="list__content-label">CONTACT NAME</h4>
+            <h4 className="list__content-label">STATUS</h4>
             <img
               src={sortIcon}
               alt="Arrow up and down"
@@ -75,7 +75,7 @@ export default class WarehousesInventories extends Component {
             ></img>
           </div>{" "}
           <div className="list__content-label-container">
-            <h4 className="list__content-label">CONTACT INFORMATION</h4>
+            <h4 className="list__content-label">QUANTITY</h4>
             <img
               src={sortIcon}
               alt="Arrow up and down"
