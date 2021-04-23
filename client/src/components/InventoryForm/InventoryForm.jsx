@@ -79,7 +79,6 @@ class InventoryForm extends React.Component{
     }
 
     generateRandomId = () => {
-        '9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3'
         let part1 = Math.random().toString(20).substr(2, 8);
         let part2 = Math.random().toString(20).substr(2, 4);
         let part3 = Math.random().toString(20).substr(2, 4);
