@@ -2,6 +2,10 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/typography' as *;
 
+*{
+    box-sizing: border-box;
+}
+
 .inventory-form-container{
     width: 100%;
     height: 100%;
@@ -17,6 +21,13 @@
     border-radius: 3px;
     box-shadow: 0 2px 5px rgba(19, 24, 44, .1);
     
+    @include tablet{
+        margin: 0 32px;
+    }
+
+    @include desktop{
+        margin: 0 130px;
+    }
 
     &__header{
         display: flex;
@@ -25,6 +36,10 @@
         padding-inline-start: 24px;
         padding-inline-end: 24px;
         border-bottom: 1px solid $cloud;
+
+        @include tablet{
+            justify-content: flex-start;
+        }
     }
 
     &__back-arrow{
@@ -43,6 +58,11 @@
     &__form{
         display: flex;
         flex-direction: column;
+
+        @include tablet{
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
     }
 
     &__item-details{
@@ -51,11 +71,22 @@
         display: flex;
         flex-direction: column;
         border-bottom: 1px solid $cloud;
+
+        @include tablet{
+            margin-top: 24px;
+            width: 50%;
+            border-bottom: none;
+            border-right: 1px solid $cloud;
+        }
     }
 
     &__subtitle{
         font-size: $Mobile-H2;
         line-height: $Mobile-H2-LH;
+
+        @include tablet{
+            margin-top: 0;
+        }
     }
 
     &__label{
@@ -84,6 +115,7 @@
         border: 1px solid $cloud;
         padding-left: 16px;
         padding-top: 8px;
+        padding-right: 10px;
         margin-bottom: 16px;
         resize: none;
 
@@ -117,6 +149,11 @@
         padding-inline-end: 24px;
         display: flex;
         flex-direction: column;
+
+        @include tablet{
+            width: 50%;
+            margin-top: 24px;
+        }
     }
 
     &__radios{
@@ -141,10 +178,19 @@
         background-color: $light-grey;
         padding: 16px;
         border-radius: 0 0 3px 3px;
+
+        @include tablet{
+            width: 100%;
+            justify-content: flex-end;
+        }
     }
 
     &__button{
-        width: 139px;
+        padding: 8px 16px;
+
+        @include tablet{
+            margin-left: 16px;
+        }
     }
 }
 
