@@ -10,22 +10,23 @@ import AddInventory from "./routes/AddInventory";
 import AddWarehouse from "./routes/AddWareHouse.jsx";
 import Header from "./common/Header/Header";
 import DeleteModal from "./components/DeleteModal/DeleteModal";
+import SecondLevelWrap from "./components/SecondLevelWrap/SecondLevelWrap";
+import InventoryForm from './components/InventoryForm/InventoryForm'
 
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom"; 
+
 class App extends Component {
   state = {
     isWarehouse: true,
-    warehousesData: [],
   };
 
   handleOnToggle = (isWarehouse) => {
     this.setState({ isWarehouse: isWarehouse });
     console.log(this.state.isWarehouse);
   };
-
   render() {
     return (
-      <>
+      <div className="App">
         <Header
           toggle={this.handleOnToggle}
           isWarehouse={this.state.isWarehouse}
@@ -33,7 +34,13 @@ class App extends Component {
         <Switch>
           <Redirect from="/" exact to="/warehouses" />
           <Route path="/warehouses" exact component={Warehouses} />
-          <Route path="/warehouses/add" exact component={AddWarehouse} />
+          <Route
+            path="/warehouses/add"
+            exact
+            render={(props) => {
+              return <AddWarehouse {...props} />;
+            }}
+          />
           <Route
             path="/warehouses/edit/:id"
             render={(props) => {
@@ -47,16 +54,25 @@ class App extends Component {
             }}
           />
           <Route path="/inventories" exact component={Inventories} />
-          <Route path="/inventories/add" exact component={AddInventory} />
-          <Route path="/inventories/edit" exact component={EditInventory} />
+          <Route path="/inventories/add" exact 
+            render={props => (
+              <InventoryForm {...props} formType="addItem"/>
+            )} 
+          />
+          <Route path="/inventories/edit/:id" exact 
+            render={props => (
+              <InventoryForm {...props} formType="editItem"/>
+            )} 
+          />
           <Route
             path="inventories/:id"
             render={(props) => {
               return <InventoriesDetails {...props} />;
             }}
           />
+          <SecondLevelWrap title="King"></SecondLevelWrap>
         </Switch>
-      </>
+      </div>
     );
   }
 }
