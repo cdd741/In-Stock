@@ -23,8 +23,8 @@ const getInventoryId = (req,res)=>{
     res.status(200).send(item)
 }
 
+//post a new item to the inventories database
 const postInventoryArr = (req, res) => {
-    console.log(req.body)
     let newItem = req.body;
     if (Object.keys(newItem).length !== 8 && newItem.status === 'In Stock'){
         res.send("Not a valid inventory item")
@@ -33,17 +33,31 @@ const postInventoryArr = (req, res) => {
             newItem.quantity = 0;
         } 
         inventories.push(newItem);
-        console.log(inventories);
         fs.writeFileSync(
             process.cwd() + '/data/inventories.json', 
             JSON.stringify(inventories), 
-            err => console.log(err));
+            err => console.log(err)
+        );
         res.send(inventories);
     }
 }
 
+//put functionality
+const putInventoryId = (req, res) => {
+    let editedItem = req.body;
+    let index = inventories.findIndex(item => item.id === editedItem.id);
+    inventories.splice(index, 1, editedItem)
+    fs.writeFileSync(
+        process.cwd() + '/data/inventories.json', 
+        JSON.stringify(inventories), 
+        err => console.log(err)
+    );
+    res.send(inventories)
+} 
+
 module.exports = {
     getInventoryArr,
     getInventoryId,
-    postInventoryArr
+    postInventoryArr, 
+    putInventoryId
 }

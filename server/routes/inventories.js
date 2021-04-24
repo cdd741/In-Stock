@@ -5,14 +5,15 @@ const router = express.Router();
 const{
     getInventoryArr,
     getInventoryId,
-    postInventoryArr
+    postInventoryArr,
+    putInventoryId
 } = require('../controllers/inventories')
 
 //routes
 router.get('/', getInventoryArr)
 router.get('/:id', getInventoryId)
 router.post('/', postInventoryArr)
-
+router.put('/:id', putInventoryId)
 
 
 
