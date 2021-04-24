@@ -13,13 +13,19 @@ export default class WarehouseDetails extends Component {
   };
 
   onClickDel = (id) => {
-    console.log(id);
-    axios.delete(`http://localhost:8080/inventories/${id}`).then((res) => {
-      console.log(res);
-    })
-    .catch(err => {
-      console.log("Inventory failed to delete")
-    })
+    axios
+      .delete(`http://localhost:8080/inventories/${id}`)
+      .then((res) => {
+        // updating the Inventory Array state by taking out the selected inventory id object 
+        this.setState({
+          inventoriesData: this.state.inventoriesData.filter(
+            (inventory) => inventory.id !== id
+          ),
+        });
+      })
+      .catch((err) => {
+        console.log("Inventory failed to delete");
+      });
     this.setState({
       popUpValue: !this.state.popUpValue,
     });
@@ -30,6 +36,12 @@ export default class WarehouseDetails extends Component {
       delInventoryId: inventoryId,
       popUpValue: !this.state.popUpValue,
     });
+  };
+
+  handleBackClick = (e) => {
+    e.preventDefault();
+    // setting url to the previous page
+    this.props.history.goBack();
   };
 
   componentDidMount() {
@@ -64,26 +76,26 @@ export default class WarehouseDetails extends Component {
 
   render() {
     return (
+      <div className="main-container-wrapper">
         <SecondLevelWrap
           title={this.state.warehousesData[0]}
+          onClickBack={this.handleBackClick}
           edit={true}
-          children={
-            <>
-              <WarehousesInventories
-                inventoriesData={this.state.inventoriesData}
-                warehouseData={this.state.warehousesData}
-                togglePopUp={this.togglePopUp}
-              />
-              {this.state.popUpValue && (
-                <DeleteModal
-                  togglePopUp={this.togglePopUp}
-                  onClickDel={this.onClickDel}
-                  inventoryId={this.state.delInventoryId}
-                />
-              )}
-            </>
-          }
-        />
+        >
+          <WarehousesInventories
+            inventoriesData={this.state.inventoriesData}
+            warehouseData={this.state.warehousesData}
+            togglePopUp={this.togglePopUp}
+          />
+          {this.state.popUpValue && (
+            <DeleteModal
+              togglePopUp={this.togglePopUp}
+              onClickDel={this.onClickDel}
+              inventoryId={this.state.delInventoryId}
+            />
+          )}
+        </SecondLevelWrap>
+      </div>
     );
   }
 }

@@ -36,14 +36,11 @@
     }
   }
   &__header-content {
-    margin: $Mobile-margin;
+    @include main-page-padding;
     @include tablet {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-    }
-    @include desktop {
-      margin: 0 40px;
     }
   }
   &__header {
