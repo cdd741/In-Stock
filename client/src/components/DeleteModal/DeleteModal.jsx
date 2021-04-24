@@ -21,13 +21,13 @@ function DeleteWarehouse (props){
                             className="modal__buttons__cancel" 
                             type="cancel" 
                             children="Cancel"
-                            /* onClick={props.close()} */
+                            onClick={props.togglePopUp} 
                         />
                         <Button
                             className="modal__buttons__delete"
                             type="delete"
                             children="Delete"
-                            /* onClick={props.delete()} */
+                            onClick={() => {props.onClickDel(props.inventoryId)}}
                         />
                     </div>
                 </div>
