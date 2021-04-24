@@ -12,19 +12,19 @@ export default class Warehouses extends Component {
   };
 
   onClickDel = (id) => {
-    // axios
-    //   .delete(`http://localhost:8080/inventories/${id}`)
-    //   .then((res) => {
-    //     // updating the Inventory Array state by taking out the selected inventory id object
-    //     this.setState({
-    //       inventoriesData: this.state.inventoriesData.filter(
-    //         (inventory) => inventory.id !== id
-    //       ),
-    //     });
-    //   })
-    //   .catch((err) => {
-    //     console.log("Inventory failed to delete");
-    //   });
+    axios
+      .delete(`http://localhost:8080/warehouses/${id}`)
+      .then((res) => {
+        // updating the Warehouse Array state by taking out the selected inventory id object
+        this.setState({
+          warehousesData: this.state.warehousesData.filter(
+            (warehouse) => warehouse.id !== id
+          ),
+        });
+      })
+      .catch((err) => {
+        console.log("Warehouse deletion has failed");
+      });
     this.setState({
       popUpValue: !this.state.popUpValue,
     });
@@ -38,7 +38,6 @@ export default class Warehouses extends Component {
     });
   };
   componentDidMount() {
-    console.log("did mount");
     axios
       .get("http://localhost:8080/warehouses")
       .then((res) => {

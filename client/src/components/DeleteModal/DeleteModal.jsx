@@ -11,7 +11,7 @@ function DeleteWarehouse(props) {
           <Close className="modal__close" /* onClick={props.close()} */ />
           <h2 className="modal__title">
             Delete {props.deletingItem}
-            {props.isItInventory ? " inventory item" : "warehouse"}?
+            {props.isItInventory ? " inventory item" : " warehouse"}?
           </h2>
           <p className="modal__text">
             Please confirm that you'd like to delete the {props.deletingItem} 

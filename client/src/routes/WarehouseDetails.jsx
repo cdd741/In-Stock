@@ -26,7 +26,7 @@ export default class WarehouseDetails extends Component {
         });
       })
       .catch((err) => {
-        console.log("Inventory failed to delete");
+        console.log("Inventory deletion has failed");
       });
     this.setState({
       popUpValue: !this.state.popUpValue,
