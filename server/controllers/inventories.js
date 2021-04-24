@@ -46,8 +46,5 @@ const deleteInventoryId = (req, res) => {
 module.exports = {
   getInventoryArr,
   getInventoryId,
-<<<<<<< HEAD
   deleteInventoryId,
-=======
->>>>>>> main
 };
