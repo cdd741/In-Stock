@@ -24,7 +24,7 @@ const getInventoryId = (req, res) => {
 //delete id for single item
 const deleteInventoryId = (req, res) => {
   const inventoryIndex = inventories.findIndex((inventory) => {
-    return inventory.id == req.params.id;
+    return inventory.id === req.params.id;
   });
 
   if (inventoryIndex >= 0) {
@@ -46,5 +46,8 @@ const deleteInventoryId = (req, res) => {
 module.exports = {
   getInventoryArr,
   getInventoryId,
+<<<<<<< HEAD
   deleteInventoryId,
+=======
+>>>>>>> main
 };

@@ -47,7 +47,6 @@ export default class Input extends Component {
     invalidInput: false,
     value: this.props.value,
   };
-
   handleOnChange = (e) => {
     e.preventDefault();
     this.props.onChange(e);
@@ -60,6 +59,16 @@ export default class Input extends Component {
       console.log(this);
     }
   };
+
+  hendleOnSubmit = () => {
+    this.props.onSubmit();
+  };
+
+  componentDidUpdate() {
+    if (this.props.showErr && this.state.invalidInput !== !this.state.value) {
+      this.setState({ invalidInput: !this.state.value });
+    }
+  }
 
   render() {
     const textareaClass = this.state.invalidInput

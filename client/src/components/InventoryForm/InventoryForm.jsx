@@ -27,7 +27,7 @@ class InventoryForm extends React.Component{
     componentDidMount = () => {
         axios.get(API_URL('inventories', this.state.id))
         .then(res => {
-            let inventoryItem = res;
+            let inventoryItem = res.data;
             if (inventoryItem !== undefined){
                 this.setState({
                 itemName: inventoryItem.itemName,
@@ -78,6 +78,17 @@ class InventoryForm extends React.Component{
         }
     }
 
+    checkCompletion = () => {
+        let itemName = document.getElementById('item-name');
+        let itemDescription = document.getElementById('item-description');
+        let category = document.getElementById('categories');
+        let inStock = document.getElementById('in-stock');
+        let outOfStock = document.getElementById('out-of-stock');
+        let warehouse = document.getElementById('warehouses');
+
+        return true;
+    }
+
     generateRandomId = () => {
         let part1 = Math.random().toString(20).substr(2, 8);
         let part2 = Math.random().toString(20).substr(2, 4);
@@ -89,31 +100,33 @@ class InventoryForm extends React.Component{
     }
 
     handleSubmit = () => {
-        if(this.state.formType === 'addItem'){
-            axios.post(API_URL('inventories'), {
-                "id": this.generateRandomId(),
-                "warehouseID": this.state.itemWarehouseID,
-                "warehouseName": this.state.itemWarehouseName,
-                "itemName": this.state.itemName,
-                "description": this.state.itemDescription,
-                "category": this.state.itemCategory,
-                "status": this.state.itemStatus,
-                "quantity": this.state.itemQuantity
-            })
+        if(this.state.formComplete){
+            if(this.state.formType === 'addItem'){
+                axios.post(API_URL('inventories'), {
+                    "id": this.generateRandomId(),
+                    "warehouseID": this.state.itemWarehouseID,
+                    "warehouseName": this.state.itemWarehouseName,
+                    "itemName": this.state.itemName,
+                    "description": this.state.itemDescription,
+                    "category": this.state.itemCategory,
+                    "status": this.state.itemStatus,
+                    "quantity": Number(this.state.itemQuantity)
+                })
 
-        }else if(this.state.formType === 'editItem'){
-            axios.put(API_URL('inventories', this.state.id), {
-                "id": this.state.id,
-                "warehouseID": this.state.itemWarehouseID,
-                "warehouseName": this.state.itemWarehouseName,
-                "itemName": this.state.itemName,
-                "description": this.state.itemDescription,
-                "category": this.state.itemCategory,
-                "status": this.state.itemStatus,
-                "quantity": this.state.itemQuantity
-            })
+            }else if(this.state.formType === 'editItem'){
+                axios.put(API_URL('inventories', this.state.id), {
+                    "id": this.state.id,
+                    "warehouseID": this.state.itemWarehouseID,
+                    "warehouseName": this.state.itemWarehouseName,
+                    "itemName": this.state.itemName,
+                    "description": this.state.itemDescription,
+                    "category": this.state.itemCategory,
+                    "status": this.state.itemStatus,
+                    "quantity": this.state.itemQuantity
+                })
+            }
+            this.props.history.push('/inventories');
         }
-        this.props.history.push('/inventories');
     }
 
     render(){

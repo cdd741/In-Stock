@@ -4,7 +4,18 @@ import React, { Component } from "react";
 import SecondLevelWrap from "../components/SecondLevelWrap/SecondLevelWrap";
 import WarehouseForm from "../components/WarehouseForm/WarehouseForm";
 
+const mock = {
+  warehouseName: "asd",
+  streetAddress: "asd",
+  city: "",
+  country: "asd",
+  contactName: "asd",
+  position: "asd",
+  phoneNumber: "",
+  email: "asd",
+};
 export default class EditWarehouse extends Component {
+  state = { showErr: false };
   handleBackClick = (e) => {
     e.preventDefault();
     // setting url to the previous page
@@ -20,6 +31,7 @@ export default class EditWarehouse extends Component {
 
   handleOnSubmit = (e, data) => {
     e.preventDefault();
+    this.setState({ showErr: true });
     if (
       !data.warehouseName ||
       !data.streetAddress ||
@@ -39,7 +51,7 @@ export default class EditWarehouse extends Component {
         .post("http://localhost:8080/warehouse/add", data)
         .then((res) => {
           alert(
-            "Warehouse changed, going back to home page.😊\nNew Warehouse Detail:\nres"
+            `Warehouse changed, going back to home page.😊\nNew Warehouse Detail:\n${res}`
           );
           // set url to home page
           this.props.history.push("/");
@@ -59,6 +71,7 @@ export default class EditWarehouse extends Component {
           edit={false}
         >
           <WarehouseForm
+            showErr={this.state.showErr}
             type={"edit"}
             data={this.props.data}
             onSubmit={this.handleOnSubmit}
