@@ -65,7 +65,7 @@ class App extends Component {
             )} 
           />
           <Route
-            path="inventories/:id"
+            path="/inventories/:id"
             render={(props) => {
               return <InventoriesDetails {...props} />;
             }}
