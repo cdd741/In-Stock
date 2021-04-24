@@ -10,7 +10,7 @@ import Button from "../Button/Button";
 
 export default class FirstLevelWrap extends Component {
   render() {
-    const { warehouseData } = this.props;
+    const { warehouseData, togglePopUp } = this.props;
     return (
       <div className="outer-container">
         <div className="container">
@@ -158,13 +158,13 @@ export default class FirstLevelWrap extends Component {
                       </div>
                       {/* Delete Button and Edit Button */}
                       <div className="container__btns">
-                        <Link>
                           <img
                             className="container__del-btn"
+                            id={warehouse.id}
                             src={delIcon}
                             alt="trash bin"
+                            onClick={()=> {togglePopUp(warehouse.id, warehouse.name)}}
                           ></img>
-                        </Link>
                         <Link to={`/warehouses/edit/${warehouse.id}`}>
                           <img
                             className="container__edit-btn"
