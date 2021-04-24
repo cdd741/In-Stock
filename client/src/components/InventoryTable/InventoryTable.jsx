@@ -2,18 +2,20 @@ import React from 'react'
 import './InventoryTable.scss'
 import deleteIcon from '../../assets/icons/delete_outline-24px.svg'
 import editIcon from '../../assets/icons/edit2-24px.svg'
+import{Link} from 'react-router-dom';
 
 function InventoryTable({inventory}) {
     const inventoryListTabletDesktop = inventory.map((item)=>{
         return(
             <tr className='table__row'>
-                <td className='table__data'>{item.itemName}</td>
+                <td className='table__data'>
+                    <Link to={`/inventories/${item.id}`}         className='table__edit'>{item.itemName}</Link></td>
                 <td className='table__data'>{item.status}</td>
                 <td className='table__data'>{item.category}</td>
                 <td className='table__data'>{item.quantity}</td>
                 <td className='table__data'>{item.warehouseName}</td>
                 <td className='table__data'>
-                    <img src={deleteIcon}/>
+                    <img src={deleteIcon}/>        
                     <img src={editIcon}/>
                 </td>
             </tr>

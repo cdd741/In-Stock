@@ -50,7 +50,7 @@ class App extends Component {
           <Route path="/inventories/add" exact component={AddInventory} />
           <Route path="/inventories/edit" exact component={EditInventory} />
           <Route
-            path="inventories/:id"
+            path="/inventories/:id"
             render={(props) => {
               return <InventoriesDetails {...props} />;
             }}
