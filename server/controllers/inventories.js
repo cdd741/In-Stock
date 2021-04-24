@@ -34,7 +34,10 @@ const postInventoryArr = (req, res) => {
         } 
         inventories.push(newItem);
         console.log(inventories);
-        fs.writeFileSync('../data/inventories.json', JSON.toString(inventories), err => console.log(err));
+        fs.writeFileSync(
+            process.cwd() + '/data/inventories.json', 
+            JSON.stringify(inventories), 
+            err => console.log(err));
         res.send(inventories);
     }
 }
