@@ -253,7 +253,7 @@
       margin: 1rem 0;
     }
     @include desktop {
-      width: 18.75%;
+      width: 17.75%;
     }
   }
   &__content-info-container {
@@ -276,33 +276,28 @@
       }
     }
     @include tablet {
-      width: 5.75%;
+      width: 6.75%;
       flex-direction: column;
       padding: 0;
     }
     @include desktop {
-      width: 4%;
+      width: 5%;
     }
   }
   &__btns {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    a {
+      @include tablet {
+        margin-left: 2vw;
+      }
+      @include desktop {
+        margin-left: 16px;
+      }
+    }
   }
-  // &__content-label-container {
-  //   @include tablet {
-  //     display: none;
-  //   }
-  // }
 
-  &__edit-btn {
-    @include tablet {
-      margin-left: 10px;
-    }
-    @include desktop {
-      margin-left: 16px;
-    }
-  }
   &__content-label {
     margin: 0 0 4px;
     font-size: $Mobile-H4;

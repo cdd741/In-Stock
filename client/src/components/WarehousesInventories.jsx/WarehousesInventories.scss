@@ -273,20 +273,21 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    a {
+      @include tablet {
+        margin-left: 2vw;
+      }
+      @include desktop {
+        margin-left: 16px;
+      }
+    }
     @include tablet {
       width: 58px;
     }
   }
   &__del-btn {
     margin-bottom: 4px;
-  }
-  &__edit-btn {
-    @include tablet {
-      margin-left: 2vw;
-    }
-    @include desktop {
-      margin-left: 16px;
-    }
+    cursor: pointer;
   }
   &__content-label {
     margin: 0 0 4px;

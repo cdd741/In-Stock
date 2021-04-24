@@ -10,6 +10,8 @@ export default class WarehouseDetails extends Component {
     warehousesData: [],
     popUpValue: false,
     delInventoryId: "",
+    isItInventory: true,
+    selectedInventory: ""
   };
 
   onClickDel = (id) => {
@@ -31,9 +33,10 @@ export default class WarehouseDetails extends Component {
     });
   };
 
-  togglePopUp = (inventoryId) => {
+  togglePopUp = (inventoryId, inventoryItem) => {
     this.setState({
       delInventoryId: inventoryId,
+      selectedInventory: inventoryItem,
       popUpValue: !this.state.popUpValue,
     });
   };
@@ -89,6 +92,8 @@ export default class WarehouseDetails extends Component {
           />
           {this.state.popUpValue && (
             <DeleteModal
+              deletingItem={this.state.selectedInventory}
+              isItInventory={this.state.isItInventory}
               togglePopUp={this.togglePopUp}
               onClickDel={this.onClickDel}
               inventoryId={this.state.delInventoryId}

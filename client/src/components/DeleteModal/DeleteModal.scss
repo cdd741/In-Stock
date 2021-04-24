@@ -80,6 +80,7 @@
     &__cancel {
       margin-right: 16px;
       width: 163px;
+      cursor: pointer;
 
       @include tablet {
         width: 71px;
@@ -88,6 +89,7 @@
 
     &__delete {
       width: 163px;
+      cursor: pointer;
 
       @include tablet {
         width: 71px;
