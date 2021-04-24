@@ -35,6 +35,7 @@ export default class WarehouseForm extends Component {
           <div className="warehouse-form__details warehouse-form__details--warehouse">
             <h2 className="warehouse-form__title">Warehouse Details</h2>
             <Input
+              showErr={this.props.showErr}
               onChange={this.handleOnChange}
               label="Warehouse Name"
               name="warehouseName"
@@ -44,6 +45,7 @@ export default class WarehouseForm extends Component {
               className="input input--warehouseName"
             />
             <Input
+              showErr={this.props.showErr}
               onChange={this.handleOnChange}
               label="Street Address"
               name="streetAddress"
@@ -53,6 +55,7 @@ export default class WarehouseForm extends Component {
               className="input input--streetAddress"
             />
             <Input
+              showErr={this.props.showErr}
               onChange={this.handleOnChange}
               label="City"
               name="city"
@@ -62,6 +65,7 @@ export default class WarehouseForm extends Component {
               className="input input--city"
             />
             <Input
+              showErr={this.props.showErr}
               onChange={this.handleOnChange}
               label="Country"
               name="country"
@@ -74,6 +78,7 @@ export default class WarehouseForm extends Component {
           <div className="warehouse-form__details warehouse-form__details--contact">
             <h2 className="warehouse-form__title">Contact Details</h2>
             <Input
+              showErr={this.props.showErr}
               onChange={this.handleOnChange}
               label="ContactName"
               name="contactName"
@@ -83,6 +88,7 @@ export default class WarehouseForm extends Component {
               className="input input--contactName"
             />
             <Input
+              showErr={this.props.showErr}
               onChange={this.handleOnChange}
               label="Position"
               name="position"
@@ -92,6 +98,7 @@ export default class WarehouseForm extends Component {
               className="input input--position"
             />
             <Input
+              showErr={this.props.showErr}
               onChange={this.handleOnChange}
               label="PhoneNumber"
               name="phoneNumber"
@@ -101,6 +108,7 @@ export default class WarehouseForm extends Component {
               className="input input--phoneNumber"
             />
             <Input
+              showErr={this.props.showErr}
               onChange={this.handleOnChange}
               label="Email"
               name="email"
