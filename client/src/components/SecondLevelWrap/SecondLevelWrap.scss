@@ -8,7 +8,7 @@
 }
 
 .secondLevelWrap {
-  // width: 100%;
+  width: 100%;
   @include container-overlap;
   @include page-padding;
   background-color: $white;

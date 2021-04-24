@@ -23,6 +23,7 @@ const getInventoryId = (req, res) => {
 
 //delete id for single item
 const deleteInventoryId = (req, res) => {
+  console.log("hi");
   res.send("delete");
 };
 

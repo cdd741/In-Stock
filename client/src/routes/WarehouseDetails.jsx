@@ -12,11 +12,14 @@ export default class WarehouseDetails extends Component {
     delInventoryId: "",
   };
 
-  onClickDel = (test) => {
-    console.log(test);
-    axios.delete("http://localhost:8080/inventories").then((res) => {
+  onClickDel = (id) => {
+    console.log(id);
+    axios.delete(`http://localhost:8080/inventories/${id}`).then((res) => {
       console.log(res);
-    });
+    })
+    .catch(err => {
+      console.log("Inventory failed to delete")
+    })
     this.setState({
       popUpValue: !this.state.popUpValue,
     });
@@ -36,13 +39,11 @@ export default class WarehouseDetails extends Component {
       .then((res) => {
         let inventories = res.data;
         let warehouseId = this.props.match.params.id;
-        console.log(res.data);
         this.setState({
           inventoriesData: inventories.filter(
             (inventory) => inventory.warehouseID === warehouseId
           ),
         });
-        console.log(this.state.inventoriesData);
       })
       .catch((err) => {
         console.log("Cant receive inventories API ");
@@ -63,7 +64,6 @@ export default class WarehouseDetails extends Component {
 
   render() {
     return (
-      <div>
         <SecondLevelWrap
           title={this.state.warehousesData[0]}
           edit={true}
@@ -84,7 +84,6 @@ export default class WarehouseDetails extends Component {
             </>
           }
         />
-      </div>
     );
   }
 }
