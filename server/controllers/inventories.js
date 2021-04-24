@@ -21,7 +21,30 @@ const getInventoryId = (req, res) => {
   res.status(200).send(item);
 };
 
+//delete id for single item
+const deleteInventoryId = (req, res) => {
+  const inventoryIndex = inventories.findIndex((inventory) => {
+    return inventory.id === req.params.id;
+  });
+
+  if (inventoryIndex >= 0) {
+    inventories.splice(inventoryIndex, 1);
+    const newInventoriesList = JSON.stringify(inventories);
+    fs.writeFileSync(
+      process.cwd() + "/data/inventories.json",
+      newInventoriesList
+    );
+    res.status(201).send(inventories);
+  } else {
+    res.status(404).send({
+      success: false,
+      msg: "No warehouse by that id!",
+    });
+  }
+};
+
 module.exports = {
   getInventoryArr,
   getInventoryId,
+  deleteInventoryId,
 };

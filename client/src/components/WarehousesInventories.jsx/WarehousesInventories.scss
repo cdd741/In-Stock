@@ -9,11 +9,9 @@
   border-radius: 3px;
   @include tablet {
     padding: 0;
-    min-width: 715px;
     top: 92px;
   }
   @include desktop {
-    min-width: 1020px;
   }
   &__warehouse-information {
     border-bottom: 1px solid $cloud;
@@ -275,18 +273,21 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    a {
+      @include tablet {
+        margin-left: 2vw;
+      }
+      @include desktop {
+        margin-left: 16px;
+      }
+    }
     @include tablet {
       width: 58px;
     }
   }
-
-  &__edit-btn {
-    @include tablet {
-      margin-left: 2vw;
-    }
-    @include desktop {
-      margin-left: 16px;
-    }
+  &__del-btn {
+    margin-bottom: 4px;
+    cursor: pointer;
   }
   &__content-label {
     margin: 0 0 4px;

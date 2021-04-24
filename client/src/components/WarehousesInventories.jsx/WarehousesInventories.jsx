@@ -8,7 +8,7 @@ import "./WarehousesInventories.scss";
 
 export default class WarehousesInventories extends Component {
   render() {
-    const { inventoriesData, warehouseData } = this.props;
+    const { inventoriesData, warehouseData, togglePopUp } = this.props;
     return (
       <div className="list">
         {/* The Warehouse Address / Contact Information Card */}
@@ -169,13 +169,13 @@ export default class WarehousesInventories extends Component {
                     </div>
                     {/* Edit and Delete Button */}
                     <div className="list__btns">
-                      <Link>
-                        <img
-                          className="list__del-btn"
-                          src={delIcon}
-                          alt="trash bin"
-                        ></img>
-                      </Link>
+                      <img
+                        className="list__del-btn"
+                        id={inventory.id}
+                        src={delIcon}
+                        alt="trash bin"
+                        onClick={()=> {togglePopUp(inventory.id, inventory.itemName)}}
+                      ></img>
                       <Link to={`/warehouses/edit/${inventory.id}`}>
                         <img
                           className="list__edit-btn"
