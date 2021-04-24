@@ -5,6 +5,8 @@ import SecondLevelWrap from "../components/SecondLevelWrap/SecondLevelWrap";
 import WarehouseForm from "../components/WarehouseForm/WarehouseForm";
 
 export default class AddWarehouse extends Component {
+  state = { showErr: false };
+
   handleBackClick = (e) => {
     e.preventDefault();
     // setting url to the previous page
@@ -59,6 +61,7 @@ export default class AddWarehouse extends Component {
           edit={false}
         >
           <WarehouseForm
+            showErr={this.state.showErr}
             type={"Add"}
             onSubmit={this.handleOnSubmit}
             onCancel={this.handleOnCancel}
