@@ -2,8 +2,6 @@
 @use '../../styles/partials/typography' as *;
 @use '../../styles/partials/variables' as *;
 
-
-
 .list {
   color: $instock-black;
   background-color: $white;
@@ -279,7 +277,9 @@
       width: 58px;
     }
   }
-
+  &__del-btn {
+    margin-bottom: 4px;
+  }
   &__edit-btn {
     @include tablet {
       margin-left: 2vw;
