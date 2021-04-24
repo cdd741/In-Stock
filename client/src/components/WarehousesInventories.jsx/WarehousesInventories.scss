@@ -1,104 +1,68 @@
-@use "../../styles/partials/mixins" as *;
-@use "../../styles/partials/typography" as *;
-@use "../../styles/partials/variables" as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
 
-.outer-container {
-  display: flex;
-  justify-content: center;
-}
-
-.container {
+.list {
   color: $instock-black;
   background-color: $white;
   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
   border-radius: 3px;
-  @include page-padding;
-  width: 90vw;
-  position: absolute;
-  top: 136px;
   @include tablet {
-    // margin: 0 auto;
     padding: 0;
-    width: 94vw;
-    min-width: 715px;
     top: 92px;
   }
   @include desktop {
-    margin: 0 130px;
-    min-width: 1020px;
-    width: 79vw;
   }
-  &__header-container {
-    margin: 2rem 0 1rem;
+  &__warehouse-information {
     border-bottom: 1px solid $cloud;
-    @include tablet {
-      border: 0;
-    }
   }
-  &__header-content {
+  &__warehouse-information-container {
     @include main-page-padding;
-    @include tablet {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-  }
-  &__header {
-    font-size: $Mobile-H1;
-    font-weight: 600;
-    margin: 0;
-    @include tablet {
-      font-size: $H1;
-    }
-  }
-  &__header-form {
-    margin: 1rem 0 1.5rem;
-    a {
-      text-decoration: none;
-    }
-    @include tablet {
-      display: flex;
-      align-items: baseline;
-    }
-  }
-  &__header-search-bar {
-    border: 1px solid $cloud;
-    border-radius: 20px;
-    width: 100%;
-    margin-bottom: 1rem;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     @include tablet {
-      min-width: 185px;
-      width: 24vw;
-      margin-right: 2rem;
-    }
-    @include desktop {
-      width: 21.5vw;
-      min-width: 274px;
-      margin-right: 1rem;
+      flex-wrap: nowrap;
     }
   }
-  &__header-search-bar-input {
+  &__warehouse-location {
+    order: 0;
     width: 100%;
-    margin-left: 1rem;
-    border-radius: 20px;
-    height: 36px;
-    border: 0;
-  }
-  &__header-btn {
-    width: 100%;
-    padding: 0.5rem 0;
-
+    margin: 1rem 0;
+    .list__content-info {
+      width: 141px;
+    }
     @include tablet {
-      min-width: 168px;
-    }
-    @include desktop {
-      width: 13vw;
-      cursor: pointer;
+      width: 40%;
+      margin: 1.5rem 0;
+      border-right: 1px solid $cloud;
     }
   }
-  &__search-icon {
-    margin-right: 9.51px;
+  &__warehouse-contact-name {
+    order: 1;
+    width: 50%;
+    .list__content-info {
+      width: 118px;
+    }
+    @include tablet {
+      width: 30%;
+      margin: 1.5rem 0 1.5rem 2.5rem;
+      .list__content-info {
+        width: 125px;
+      }
+    }
+  }
+  &__warehouse-contact-information {
+    order: 1;
+    margin-bottom: 1rem;
+    width: 50%;
+    .list__content-info {
+      width: 118px;
+    }
+    @include tablet {
+      width: 30%;
+      margin: 1.5rem 0;
+    }
   }
   &__content-title-bar {
     display: none;
@@ -112,32 +76,37 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-sizing: content-box;
-      .container__content-label-container:nth-child(1) {
-        width: 20%;
+      .list__content-label-container:nth-child(1) {
+        width: 18.75%;
+        @include desktop {
+          width: 15%;
+        }
+      }
+      .list__content-label-container:nth-child(2) {
+        width: 18.75%;
         @include desktop {
           width: 18%;
         }
       }
-      .container__content-label-container:nth-child(2) {
-        width: 23%;
+      .list__content-label-container:nth-child(3) {
+        width: 25%;
         @include desktop {
-          width: 29%;
+          width: 23%;
         }
       }
-      .container__content-label-container:nth-child(3) {
-        width: 18%;
+      .list__content-label-container:nth-child(4) {
+        width: 34.75%;
         @include desktop {
-          width: 20.5%;
+          width: 22%;
+          .list__qty-desktop {
+            display: block;
+          }
+          .list__quantity-desktop {
+            display: none;
+          }
         }
       }
-      .container__content-label-container:nth-child(4) {
-        width: 32.75%;
-        @include desktop {
-          width: 26%;
-        }
-      }
-      .container__content-label-container:nth-child(5) {
+      .list__content-label-container:nth-child(5) {
         width: 2.75%;
         @include desktop {
           width: 2%;
@@ -152,7 +121,7 @@
     @include tablet {
       display: flex;
       align-items: flex-end;
-      .container__sort-img {
+      .list__sort-img {
         height: 20px;
         margin: 0 0 2px 8.94px;
         display: block;
@@ -177,6 +146,7 @@
     }
   }
   &__item-container {
+    margin-top: 1rem;
     @include main-page-padding;
     display: flex;
     justify-content: space-between;
@@ -185,8 +155,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-sizing: content-box;
-      .container__content-label-container {
+      margin: 0;
+      .list__content-label-container {
         display: none;
       }
     }
@@ -201,59 +171,76 @@
       flex-wrap: nowrap;
     }
   }
-  &__content-location {
+  &__content-inventory-item {
     order: 0;
     width: 50%;
+    .list__content-info {
+      color: $instock-blue;
+    }
     @include tablet {
       width: 18.75%;
     }
     @include desktop {
       cursor: pointer;
-      width: 12.75%;
-    }
-  }
-  &__content-address {
-    margin-top: 1rem;
-    width: 50%;
-    order: 1;
-    .container__content-info {
-      width: 30vw;
-      margin: 0;
-    }
-    @include tablet {
-      order: 0;
-      margin: 1rem 0;
-      width: 22.75%;
-      .container__content-info {
-        width: 100%;
-      }
-    }
-    @include desktop {
-      width: 23.75%;
-    }
-  }
-  &__content-contact-name {
-    order: 0;
-    width: 50%;
-    @include tablet {
-      width: 17%;
-    }
-    @include desktop {
       width: 15%;
     }
   }
-  &__content-contacts {
+  &__content-category {
+    margin-top: 1rem;
+    width: 50%;
+    order: 1;
+    @include tablet {
+      order: 0;
+      margin: 1rem 0;
+      width: 18.75%;
+    }
+    @include desktop {
+      width: 18%;
+    }
+  }
+  &__content-status {
+    order: 0;
+    width: 50%;
+    .list__in-stock {
+      width: 61px;
+      text-align: center;
+      margin: 0;
+      font-size: $Mobile-H3;
+      line-height: $Mobile-H3-LH;
+      font-weight: 600;
+      color: $green;
+      background-color: rgba(21, 132, 99, 0.07);
+      border-radius: 20px;
+    }
+    .list__out-of-stock {
+      width: 86px;
+      text-align: center;
+      margin: 0;
+      font-size: $Mobile-H3;
+      line-height: $Mobile-H3-LH;
+      font-weight: 600;
+      color: $red;
+      background-color: rgba(201, 69, 21, 0.07);
+      border-radius: 20px;
+    }
+    @include tablet {
+      width: 25%;
+    }
+    @include desktop {
+      width: 23.5%;
+    }
+  }
+  &__content-qty {
     margin-top: 1rem;
     width: 50%;
     order: 1;
     @include tablet {
       margin: 0;
       order: 0;
-      width: 28.75%;
-      margin: 1rem 0;
+      width: 31.75%;
     }
     @include desktop {
-      width: 17.75%;
+      width: 20%;
     }
   }
   &__content-info-container {
@@ -265,23 +252,21 @@
   }
 
   &__btns-container {
-    padding: 1.1875rem 0 1.6875rem;
+    padding: 1.1875rem 0 1.125rem;
     display: flex;
     justify-content: space-between;
     width: 100%;
     order: 2;
-    .container__content-label-container {
+    .list__content-label {
       display: none;
-      @include tablet {
-      }
     }
     @include tablet {
-      width: 6.75%;
+      width: 5.75%;
       flex-direction: column;
       padding: 0;
     }
     @include desktop {
-      width: 5%;
+      width: 4%;
     }
   }
   &__btns {
@@ -296,12 +281,14 @@
         margin-left: 16px;
       }
     }
+    @include tablet {
+      width: 58px;
+    }
   }
   &__del-btn {
     margin-bottom: 4px;
     cursor: pointer;
   }
-
   &__content-label {
     margin: 0 0 4px;
     font-size: $Mobile-H4;
@@ -316,6 +303,7 @@
     font-size: $Mobile-H3;
     line-height: $Mobile-H3-LH;
     font-weight: 600;
+    color: $instock-black;
     @include tablet {
       font-size: $P2;
       line-height: $H3-LH;

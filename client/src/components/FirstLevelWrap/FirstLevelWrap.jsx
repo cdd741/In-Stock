@@ -1,22 +1,26 @@
 import React, { Component } from "react";
 import delIcon from "../../assets/icons/delete_outline-24px.svg";
-import editIcon from "../../assets/icons/edit-24px.svg";
+import editIcon from "../../assets/icons/edit-24px-blue.svg";
 import searchIcon from "../../assets/icons/search-24px.svg";
 import arrowImg from "../../assets/icons/chevron_right-24px.svg";
 import sortIcon from "../../assets/icons/sort-24px.svg";
 import "./FirstLevelWrap.scss";
 import { Link } from "react-router-dom";
+import Button from "../Button/Button";
 
 export default class FirstLevelWrap extends Component {
   render() {
-    const { warehouseData } = this.props;
+    const { warehouseData, togglePopUp } = this.props;
     return (
       <div className="outer-container">
         <div className="container">
+          {/* Header Bar */}
           <div className="container__header-container">
             <div className="container__header-content">
+              {/* Header */}
               <h1 className="container__header">Warehouses</h1>
               <form className="container__header-form">
+                {/* Search Bar */}
                 <div className="container__header-search-bar">
                   <input
                     className="container__header-search-bar-input"
@@ -30,14 +34,22 @@ export default class FirstLevelWrap extends Component {
                   />
                 </div>
                 <Link to="/warehouses/add">
-                  <button className="container__header-btn" type="submit">
+                  {/* <button className="container__header-btn" type="submit">
                     + Add New Warehouse
-                  </button>
+                  </button> */}
+                  <Button
+                    width={"100%"}
+                    type={"submit"}
+                    className={"container__header-btn"}
+                    children={"+ Add New Warehouse"}
+                  />
                 </Link>
               </form>
             </div>
           </div>
+          {/* The grey background title bar for the tablet and desktop view */}
           <div className="container__content-title-bar">
+            {/* Warehouse Label */}
             <div className="container__content-label-container">
               <h4 className="container__content-label">WAREHOUSE</h4>
               <img
@@ -45,7 +57,8 @@ export default class FirstLevelWrap extends Component {
                 alt="Arrow up and down"
                 className="container__sort-img"
               ></img>
-            </div>{" "}
+            </div>
+            {/* Address Label */}
             <div className="container__content-label-container">
               <h4 className="container__content-label">ADDRESS</h4>
               <img
@@ -53,7 +66,8 @@ export default class FirstLevelWrap extends Component {
                 alt="Arrow up and down"
                 className="container__sort-img"
               ></img>
-            </div>{" "}
+            </div>
+            {/* Contact Label */}
             <div className="container__content-label-container">
               <h4 className="container__content-label">CONTACT NAME</h4>
               <img
@@ -61,7 +75,8 @@ export default class FirstLevelWrap extends Component {
                 alt="Arrow up and down"
                 className="container__sort-img"
               ></img>
-            </div>{" "}
+            </div>
+            {/* Contact Information Label */}
             <div className="container__content-label-container">
               <h4 className="container__content-label">CONTACT INFORMATION</h4>
               <img
@@ -69,7 +84,8 @@ export default class FirstLevelWrap extends Component {
                 alt="Arrow up and down"
                 className="container__sort-img"
               ></img>
-            </div>{" "}
+            </div>
+            {/* Action button Label */}
             <div className="container__content-label-container">
               <h4 className="container__content-label">ACTION</h4>
             </div>
@@ -80,15 +96,13 @@ export default class FirstLevelWrap extends Component {
               return (
                 <div className="container__item">
                   <div className="container__item-container" key={warehouse.id}>
+                    {/* Warehouse Location Container */}
                     <div className="container__content-location">
+                      {/* Label */}
                       <div className="container__content-label-container">
                         <h4 className="container__content-label">WAREHOUSE</h4>
-                        <img
-                          src={sortIcon}
-                          alt="Arrow up and down"
-                          className="container__sort-img"
-                        ></img>
                       </div>
+                      {/* Warehouse Location */}
                       <div className="container__content-info-container">
                         <Link to={`/warehouses/${warehouse.id}`}>
                           <h4 className="container__content-info">
@@ -98,43 +112,37 @@ export default class FirstLevelWrap extends Component {
                         </Link>
                       </div>
                     </div>
+                    {/* Warehouse Address Container */}
                     <div className="container__content-address">
+                      {/* Label */}
                       <div className="container__content-label-container">
                         <h4 className="container__content-label">ADDRESS</h4>
-                        <img
-                          src={sortIcon}
-                          alt="Arrow up and down"
-                          className="container__sort-img"
-                        ></img>
                       </div>
+                      {/* Warehouse Address */}
                       <h4 className="container__content-info">{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</h4>
                     </div>
+                    {/* Warehouse Contact Name Container */}
                     <div className="container__content-contact-name">
+                      {/* Label */}
                       <div className="container__content-label-container">
                         <h4 className="container__content-label">
                           CONTACT NAME
                         </h4>
-                        <img
-                          src={sortIcon}
-                          alt="Arrow up and down"
-                          className="container__sort-img"
-                        ></img>
                       </div>
+                      {/* Contact Name */}
                       <h4 className="container__content-info">
                         {warehouse.contact.name}
                       </h4>
                     </div>
+                    {/* Warehouse Contact Info Container */}
                     <div className="container__content-contacts">
+                      {/* Label */}
                       <div className="container__content-label-container">
                         <h4 className="container__content-label">
                           CONTACT INFORMATION
                         </h4>
-                        <img
-                          src={sortIcon}
-                          alt="Arrow up and down"
-                          className="container__sort-img"
-                        ></img>
                       </div>
+                      {/* Contact Information */}
                       <h4 className="container__content-info">
                         {warehouse.contact.phone}
                       </h4>
@@ -142,18 +150,21 @@ export default class FirstLevelWrap extends Component {
                         {warehouse.contact.email}
                       </h4>
                     </div>
+                    {/* Button Container */}
                     <div className="container__btns-container">
                       <div className="container__content-label-container">
+                        {/* Label */}
                         <h4 className="container__content-label">ACTION</h4>
                       </div>
+                      {/* Delete Button and Edit Button */}
                       <div className="container__btns">
-                        <Link>
                           <img
                             className="container__del-btn"
+                            id={warehouse.id}
                             src={delIcon}
                             alt="trash bin"
+                            onClick={()=> {togglePopUp(warehouse.id, warehouse.name)}}
                           ></img>
-                        </Link>
                         <Link to={`/warehouses/edit/${warehouse.id}`}>
                           <img
                             className="container__edit-btn"
