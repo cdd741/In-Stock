@@ -11,9 +11,9 @@ import AddWarehouse from "./routes/AddWareHouse.jsx";
 import Header from "./common/Header/Header";
 import DeleteModal from "./components/DeleteModal/DeleteModal";
 import SecondLevelWrap from "./components/SecondLevelWrap/SecondLevelWrap";
-import InventoryForm from './components/InventoryForm/InventoryForm'
+import InventoryForm from "./components/InventoryForm/InventoryForm";
 
-import { Switch, Route, Redirect } from "react-router-dom"; 
+import { Switch, Route, Redirect } from "react-router-dom";
 
 class App extends Component {
   state = {
@@ -54,15 +54,15 @@ class App extends Component {
             }}
           />
           <Route path="/inventories" exact component={Inventories} />
-          <Route path="/inventories/add" exact 
-            render={props => (
-              <InventoryForm {...props} formType="addItem"/>
-            )} 
+          <Route
+            path="/inventories/add"
+            exact
+            render={(props) => <InventoryForm {...props} formType="addItem" />}
           />
-          <Route path="/inventories/edit/:id" exact 
-            render={props => (
-              <InventoryForm {...props} formType="editItem"/>
-            )} 
+          <Route
+            path="/inventories/edit/:id"
+            exact
+            render={(props) => <InventoryForm {...props} formType="editItem" />}
           />
           <Route
             path="/inventories/:id"
