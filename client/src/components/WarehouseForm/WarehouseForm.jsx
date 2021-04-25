@@ -5,14 +5,16 @@ import Button from "../Button/Button";
 
 export default class WarehouseForm extends Component {
   state = {
-    warehouseName: this.props.data ? this.props.data.warehouseName : "",
-    streetAddress: this.props.data ? this.props.data.streetAddress : "",
-    city: this.props.data ? this.props.data.city : "",
-    country: this.props.data ? this.props.data.country : "",
-    contactName: this.props.data ? this.props.data.contactName : "",
-    position: this.props.data ? this.props.data.position : "",
-    phoneNumber: this.props.data ? this.props.data.phoneNumber : "",
-    email: this.props.data ? this.props.data.email : "",
+    warehouseName: "",
+    streetAddress: "",
+    city: "",
+    country: "",
+    contactName: "",
+    position: "",
+    phoneNumber: "",
+    email: "",
+
+    firstTimeRender: true,
   };
 
   handleOnChange = (e) => {
@@ -27,6 +29,22 @@ export default class WarehouseForm extends Component {
   handleOnCancel = (e) => {
     this.props.onCancel(e);
   };
+
+  componentDidUpdate() {
+    if (this.state.firstTimeRender) {
+      this.setState({
+        warehouseName: this.props.data ? this.props.data.name : "",
+        streetAddress: this.props.data ? this.props.data.address : "",
+        city: this.props.data ? this.props.data.city : "",
+        country: this.props.data ? this.props.data.country : "",
+        contactName: this.props.data ? this.props.data.contact.name : "",
+        position: this.props.data ? this.props.data.contact.position : "",
+        phoneNumber: this.props.data ? this.props.data.contact.phone : "",
+        email: this.props.data ? this.props.data.contact.email : "",
+        firstTimeRender: false,
+      });
+    }
+  }
 
   render() {
     return (

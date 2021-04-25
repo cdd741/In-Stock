@@ -38,16 +38,18 @@ export default class AddWarehouse extends Component {
     return (
       // submit to the backend using api call
       axios
-        .post("http://localhost:8080/warehouse/add", info)
+        .post("http://localhost:8080/warehouses", info)
         .then((res) => {
           alert(
-            "New warehouse added, going back to home page.😊\nNew Warehouse Detail:\nres"
+            `New warehouse added, going back to home page.😊\nNew Warehouse Detail:\n${{
+              ...res,
+            }}`
           );
           // set url to home page
           this.props.history.push("/");
         })
         .catch((err) =>
-          console.log("ERROR from POST request in AddWarehous", err)
+          console.log("ERROR from POST request in AddWarehouse", err)
         )
     );
   };
