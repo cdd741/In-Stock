@@ -35,7 +35,7 @@ export default class Inventories extends Component {
           .then((res) => {
             // updating the Warehouse Array state by taking out the selected inventory id object
             this.setState({
-              warehousesData: this.state.inventory.filter(
+              inventory: this.state.inventory.filter(
                 (inventoryID) => inventoryID.id !== id
               ),
             });

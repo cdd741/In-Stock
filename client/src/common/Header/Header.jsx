@@ -11,7 +11,11 @@ export default function Header({ toggle, isWarehouse }) {
   return (
     <div className="header__div">
       <header className="header">
-        <Link to="/" className="logo__link">
+        <Link to="/" className="logo__link"
+          onClick={() => {
+            toggle(true);
+          }}
+        >
           <img className="logo__image" src={inStockLogo} alt="inStock-log" />
         </Link>
         <div className="button__container">
