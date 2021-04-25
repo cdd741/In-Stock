@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
+import Footer from "../common/Footer/Footer";
 
 import SecondLevelWrap from "../components/SecondLevelWrap/SecondLevelWrap";
 import WarehouseForm from "../components/WarehouseForm/WarehouseForm";
@@ -85,6 +86,7 @@ export default class EditWarehouse extends Component {
             onCancel={this.handleOnCancel}
           />
         </SecondLevelWrap>
+        <Footer />
       </div>
     );
   }

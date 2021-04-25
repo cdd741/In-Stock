@@ -3,8 +3,11 @@
 
 .footer {
   position: absolute;
-  bottom: 40px;
-  left: 109px;
+  bottom: 20px;
+  width:100%;
+  text-align: center;
+  @include tablet {
+  }
   &__paragraph {
     font-size: $Mobile-P3;
   }

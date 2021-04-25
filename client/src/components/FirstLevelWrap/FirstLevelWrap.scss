@@ -20,17 +20,15 @@
   border-radius: 3px;
   @include page-padding;
   width: 90vw;
-  position: absolute;
-  top: 136px;
+  margin: -54px 0 60px;
   @include tablet {
-    // margin: 0 auto;
     padding: 0;
     width: 94vw;
     min-width: 715px;
-    top: 92px;
+    margin: -92px 0 90px;
   }
   @include desktop {
-    margin: 0 130px;
+    margin: -92px 130px 90px;
     min-width: 1020px;
     width: 79vw;
   }

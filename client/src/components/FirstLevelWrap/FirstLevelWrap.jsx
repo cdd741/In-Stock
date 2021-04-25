@@ -7,6 +7,7 @@ import sortIcon from "../../assets/icons/sort-24px.svg";
 import "./FirstLevelWrap.scss";
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
+import Footer from "../../common/Footer/Footer";
 
 export default class FirstLevelWrap extends Component {
   state = {
@@ -90,7 +91,7 @@ export default class FirstLevelWrap extends Component {
     );
     const togglePopUp = this.props.togglePopUp;
     return (
-      <div className="outer-container">
+      <div className="main-container-wrapper">
         <div className="container">
           {/* Header Bar */}
           <div className="container__header-container">
@@ -118,8 +119,8 @@ export default class FirstLevelWrap extends Component {
                 </div>
                 <Link to="/warehouses/add">
                   {/* <button className="container__header-btn" type="submit">
-                    + Add New Warehouse
-                  </button> */}
+                      + Add New Warehouse
+                    </button> */}
                   <Button
                     width={"100%"}
                     type={"submit"}
@@ -277,6 +278,7 @@ export default class FirstLevelWrap extends Component {
             })}
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
