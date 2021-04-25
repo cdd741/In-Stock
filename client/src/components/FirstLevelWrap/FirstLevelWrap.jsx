@@ -11,40 +11,70 @@ import Button from "../Button/Button";
 export default class FirstLevelWrap extends Component {
   state = {
     sortOrder: false,
-    sortType: null,
+    sortType: "",
+    searchTerm: "",
   };
 
   handleOnClickSort = (type, e) => {
     e.preventDefault();
-    this.setState({ sortOrder: !this.state.sortOrder, sortType: type });
+    const order = this.state.sortType === type ? !this.state.sortOrder : false;
+    this.setState({ sortOrder: order, sortType: type });
+  };
+
+  handleOnClickSearch = (e) => {
+    e.preventDefault();
+    this.setState({ searchTerm: e.target.search.value });
+  };
+
+  searchList = (warehouseList) => {
+    console.log(this.state.searchTerm);
+    if (!this.state.searchTerm) {
+      return [...warehouseList];
+    }
+    return warehouseList.filter((warehouseInfo) => {
+      for (let i in warehouseInfo) {
+        if (typeof warehouseInfo[i] === "object") {
+          for (let j in warehouseInfo[i]) {
+            if (
+              warehouseInfo[i][j]
+                .toLowerCase()
+                .includes(this.state.searchTerm.toLowerCase())
+            )
+              return true;
+          }
+        } else {
+          if (warehouseInfo[i].includes(this.state.searchTerm)) return true;
+        }
+      }
+      return false;
+    });
   };
 
   sortList = (warehouseList) => {
     let sortedList = [];
-    console.log(this.state.sortType);
     switch (this.state.sortType) {
       case "warehouseName":
-        sortedList = [...warehouseList].sort((item1, item2) => {
-          return item1.name.localeCompare(item2.name);
+        sortedList = [...warehouseList].sort((warehouse1, warehouse2) => {
+          return warehouse1.name.localeCompare(warehouse2.name);
         });
         break;
       case "address":
-        sortedList = [...warehouseList].sort((item1, item2) => {
-          const str1 = `${item1.address}, ${item1.city}, ${item1.country}`;
-          const str2 = `${item2.address}, ${item2.city}, ${item2.country}`;
-          return str1.name.localeCompare(str2.name);
+        sortedList = [...warehouseList].sort((warehouse1, warehouse2) => {
+          const str1 = `${warehouse1.address}, ${warehouse1.city}, ${warehouse1.country}`;
+          const str2 = `${warehouse2.address}, ${warehouse2.city}, ${warehouse2.country}`;
+          return str1.localeCompare(str2);
         });
         break;
       case "contactName":
-        sortedList = [...warehouseList].sort((item1, item2) => {
-          return item1.contact.name.localeCompare(item2.contact.name);
+        sortedList = [...warehouseList].sort((warehouse1, warehouse2) => {
+          return warehouse1.contact.name.localeCompare(warehouse2.contact.name);
         });
         break;
       case "contactInfo":
-        sortedList = [...warehouseList].sort((item1, item2) => {
-          const str1 = `${item1.contact.phone}, ${item1.contact.email}`;
-          const str2 = `${item2.contact.phone}, ${item2.contact.email}`;
-          return str1.name.localeCompare(str2.name);
+        sortedList = [...warehouseList].sort((warehouse1, warehouse2) => {
+          const str1 = `${warehouse1.contact.phone}, ${warehouse1.contact.email}`;
+          const str2 = `${warehouse2.contact.phone}, ${warehouse2.contact.email}`;
+          return str1.localeCompare(str2);
         });
         break;
       default:
@@ -56,7 +86,9 @@ export default class FirstLevelWrap extends Component {
   };
 
   render() {
-    const warehouseData = this.sortList(this.props.warehouseData);
+    const warehouseData = this.sortList(
+      this.searchList(this.props.warehouseData)
+    );
     const togglePopUp = this.props.togglePopUp;
     return (
       <div className="outer-container">
@@ -66,7 +98,10 @@ export default class FirstLevelWrap extends Component {
             <div className="container__header-content">
               {/* Header */}
               <h1 className="container__header">Warehouses</h1>
-              <form className="container__header-form">
+              <form
+                className="container__header-form"
+                onSubmit={this.handleOnClickSearch}
+              >
                 {/* Search Bar */}
                 <div className="container__header-search-bar">
                   <input
@@ -74,10 +109,12 @@ export default class FirstLevelWrap extends Component {
                     placeholder="Search.."
                     name="search"
                   ></input>
-                  <img
+                  <input
                     src={searchIcon}
                     alt="Search Icon"
-                    className="container__search-icon"
+                    className="container__search-icon pointer"
+                    type="image"
+                    name="submit"
                   />
                 </div>
                 <Link to="/warehouses/add">
