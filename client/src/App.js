@@ -14,7 +14,6 @@ import SecondLevelWrap from "./components/SecondLevelWrap/SecondLevelWrap";
 import InventoryForm from "./components/InventoryForm/InventoryForm";
 
 import { Switch, Route, Redirect } from "react-router-dom";
-import Footer from "./common/Footer/Footer";
 
 class App extends Component {
   state = {
