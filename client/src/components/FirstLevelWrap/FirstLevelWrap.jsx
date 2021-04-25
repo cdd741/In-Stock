@@ -10,13 +10,54 @@ import Button from "../Button/Button";
 
 export default class FirstLevelWrap extends Component {
   state = {
-    warehouseData: this.props.warehouseData,
-    togglePopUpL: this.props.togglePopUp,
-    sort: false,
+    sortOrder: false,
+    sortType: null,
   };
 
-  handleOnClickSort = () => {};
+  handleOnClickSort = (type, e) => {
+    e.preventDefault();
+    this.setState({ sortOrder: !this.state.sortOrder, sortType: type });
+  };
+
+  sortList = (warehouseList) => {
+    let sortedList = [];
+    console.log(this.state.sortType);
+    switch (this.state.sortType) {
+      case "warehouseName":
+        sortedList = [...warehouseList].sort((item1, item2) => {
+          return item1.name.localeCompare(item2.name);
+        });
+        break;
+      case "address":
+        sortedList = [...warehouseList].sort((item1, item2) => {
+          const str1 = `${item1.address}, ${item1.city}, ${item1.country}`;
+          const str2 = `${item2.address}, ${item2.city}, ${item2.country}`;
+          return str1.name.localeCompare(str2.name);
+        });
+        break;
+      case "contactName":
+        sortedList = [...warehouseList].sort((item1, item2) => {
+          return item1.contact.name.localeCompare(item2.contact.name);
+        });
+        break;
+      case "contactInfo":
+        sortedList = [...warehouseList].sort((item1, item2) => {
+          const str1 = `${item1.contact.phone}, ${item1.contact.email}`;
+          const str2 = `${item2.contact.phone}, ${item2.contact.email}`;
+          return str1.name.localeCompare(str2.name);
+        });
+        break;
+      default:
+        sortedList = [...warehouseList];
+        break;
+    }
+
+    return this.state.sortOrder ? sortedList.reverse() : sortedList;
+  };
+
   render() {
+    const warehouseData = this.sortList(this.props.warehouseData);
+    const togglePopUp = this.props.togglePopUp;
     return (
       <div className="outer-container">
         <div className="container">
@@ -61,7 +102,10 @@ export default class FirstLevelWrap extends Component {
               <img
                 src={sortIcon}
                 alt="Arrow up and down"
-                className="container__sort-img"
+                className="container__sort-img pointer"
+                onClick={(e) => {
+                  this.handleOnClickSort("warehouseName", e);
+                }}
               ></img>
             </div>
             {/* Address Label */}
@@ -70,7 +114,10 @@ export default class FirstLevelWrap extends Component {
               <img
                 src={sortIcon}
                 alt="Arrow up and down"
-                className="container__sort-img"
+                className="container__sort-img pointer"
+                onClick={(e) => {
+                  this.handleOnClickSort("address", e);
+                }}
               ></img>
             </div>
             {/* Contact Label */}
@@ -79,7 +126,10 @@ export default class FirstLevelWrap extends Component {
               <img
                 src={sortIcon}
                 alt="Arrow up and down"
-                className="container__sort-img"
+                className="container__sort-img pointer"
+                onClick={(e) => {
+                  this.handleOnClickSort("contactName", e);
+                }}
               ></img>
             </div>
             {/* Contact Information Label */}
@@ -88,7 +138,10 @@ export default class FirstLevelWrap extends Component {
               <img
                 src={sortIcon}
                 alt="Arrow up and down"
-                className="container__sort-img"
+                className="container__sort-img pointer"
+                onClick={(e) => {
+                  this.handleOnClickSort("contactInfo", e);
+                }}
               ></img>
             </div>
             {/* Action button Label */}
@@ -98,7 +151,7 @@ export default class FirstLevelWrap extends Component {
           </div>
           <div className="container__content">
             {/* Mapping the warehouse array to create the warehouse list items */}
-            {this.state.warehouseData.map((warehouse) => {
+            {warehouseData.map((warehouse) => {
               return (
                 <div className="container__item">
                   <div className="container__item-container" key={warehouse.id}>
@@ -170,10 +223,7 @@ export default class FirstLevelWrap extends Component {
                           src={delIcon}
                           alt="trash bin"
                           onClick={() => {
-                            this.state.togglePopUp(
-                              warehouse.id,
-                              warehouse.name
-                            );
+                            togglePopUp(warehouse.id, warehouse.name);
                           }}
                         ></img>
                         <Link to={`/warehouses/edit/${warehouse.id}`}>

@@ -2,6 +2,12 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/variables" as *;
 
+.pointer {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .outer-container {
   display: flex;
   justify-content: center;
