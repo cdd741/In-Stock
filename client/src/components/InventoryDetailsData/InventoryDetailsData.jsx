@@ -1,27 +1,32 @@
 import React from 'react'
+import './InventoryDetailsData.scss'
 
 function InventoryDetailsData({idInventory}) {
     return (
-        <div>
-                <div>
-                    <h2>ITEM DESCRIPTION</h2>                    
-                    <p>{idInventory.description}</p>
+        <div className='inventory-data__container'>
+                <div className ='inventory-data__tablet-divider'>
+                    <div className='inventory-data__divider'>
+                        <p className='inventory-data__header'>ITEM DESCRIPTION:</p>                    
+                        <p>{idInventory.description}</p>
+                    </div>
+                    <div className='inventory-data__divider'>
+                        <p className='inventory-data__header'>CATEGORY:</p> 
+                        <p>{idInventory.category}</p>                
+                    </div>
                 </div>
-                <div>
-                    <h2>CATEGORY:</h2> 
-                    <p>{idInventory.category}</p>                
-                </div>
-                <div>
-                    <h2>STATUS:</h2> 
-                    <p>{idInventory.status}</p>                
-                </div>
-                <div>
-                    <h2>QUANTITY:</h2> 
-                    <p>{idInventory.quantity}</p>                
-                </div>
-                <div>
-                    <h2>WAREHOUSE:</h2> 
-                    <p>{idInventory.warehouseName}</p>                
+                <div className ='inventory-data__tablet-divider'>
+                    <div className='inventory-data__divider'>
+                        <p className='inventory-data__header'>STATUS:</p> 
+                        <p>{idInventory.status}</p>                
+                    </div>
+                    <div className='inventory-data__divider'>
+                        <p className='inventory-data__header'>QUANTITY:</p> 
+                        <p>{idInventory.quantity}</p>                
+                    </div>
+                    <div className='inventory-data__divider'>
+                        <p className='inventory-data__header'>WAREHOUSE:</p> 
+                        <p>{idInventory.warehouseName}</p>                
+                    </div>
                 </div>
         </div>
     )

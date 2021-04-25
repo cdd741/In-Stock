@@ -2,6 +2,7 @@ import React from "react";
 import "./SecondLevelWrap.scss";
 import backButton from "../../assets/icons/arrow_back-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
+import {Link} from 'react-router-dom';
 
 function SecondLevelWrap({ title, edit, onClickBack, onClickEdit, children }) {
   const handleEditClick = (e) => {
@@ -29,16 +30,18 @@ function SecondLevelWrap({ title, edit, onClickBack, onClickEdit, children }) {
           )}
         </div>
         {edit && (
+          <Link to={edit}>
           <button className="edit-button">
             <div className="edit-button__content" onClick={handleEditClick}>
               <img
                 className="edit-button__icon"
                 src={editIcon}
                 alt="edit button icon"
-              />
+                />
               <h3 className="edit-button__text">Edit</h3>
             </div>
           </button>
+          </Link>
         )}
       </div>
       {children}
