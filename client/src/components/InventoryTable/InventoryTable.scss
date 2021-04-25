@@ -8,7 +8,7 @@
   display: flex;
   flex-wrap: wrap;
   list-style-type: none;
-  padding: 0;
+  @include main-page-padding;
   @include tablet {
     display: none;
   }
@@ -26,6 +26,18 @@
     justify-content: space-between;
   }
 }
+.list__header {
+  font-size: 11px;
+  @include tablet {
+    font-size: 12px;
+  }
+}
+.list__data {
+  font-size: 13px;
+  @include tablet {
+    font-size: 14px;
+  }
+}
 
 // //INVENTORY ITEMS
 
@@ -40,13 +52,49 @@
 }
 .table__row {
   border-bottom: 1px solid $cloud;
+  .table__data:nth-child(1) {
+    @include tablet {
+      padding-left: 32px;
+      @include desktop {
+        padding-left: 40px;
+      }
+    }
+  }
+  .table__data:nth-child(6) {
+    @include tablet {
+      padding-right: 32px;
+      @include desktop {
+        padding-right: 40px;
+      }
+    }
+  }
 }
+.table__row:nth-child(1) {
+  .table__header:nth-child(1) {
+    @include tablet {
+      padding-left: 32px;
+      @include desktop {
+        padding-left: 40px;
+      }
+    }
+  }
+  .table__header:nth-child(6) {
+    @include tablet {
+      padding-right: 32px;
+      @include desktop {
+        padding-right: 40px;
+      }
+    }
+  }
+}
+
 .table__header {
   vertical-align: middle;
   text-align: start;
   background: $light-grey;
   height: 40px;
-  font-weight: 600;
+  font-weight: 400;
+  font-size: 12px;
 }
 .table__Icon {
   vertical-align: middle;
@@ -70,7 +118,14 @@
   border-radius: 50px;
 }
 .table__data {
+  font-size: 14px;
   @include tablet {
     height: 58px;
   }
+}
+
+.list__icons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }

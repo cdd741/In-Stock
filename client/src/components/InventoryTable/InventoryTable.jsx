@@ -6,14 +6,14 @@ import{Link} from 'react-router-dom';
 import sortIcon from '../../assets/icons/sort-24px.svg'
 import chevron from '../../assets/icons/chevron_right-24px.svg'
 
-function InventoryTable({inventory}) {
+function InventoryTable({inventory, togglePopUp}) {
     const inventoryListTabletDesktop = inventory.map((item)=>{
         return(
             <tr className='table__row'>
                 <td className='table__data'>
                     <Link to={`/inventories/${item.id}`} className='table__edit'>
                         {item.itemName}
-                        <img className='table__Icon'src={chevron}/>
+                        <img className='table__Icon'src={chevron} alt='chevron'/>
                     </Link>
                 </td>
                 <td className='table__data '>
@@ -32,14 +32,24 @@ function InventoryTable({inventory}) {
                 <td className='table__data'>{item.quantity}</td>
                 <td className='table__data'>{item.warehouseName}</td>
                 <td className='table__data'>
-                    <img src={deleteIcon}/>        
-                    <img src={editIcon}/>
+                    <img 
+                        src={deleteIcon} 
+                        alt='deleteIcon'
+                        id={item.id}
+                        onClick={()=>{
+                            togglePopUp(item.id, item.itemName)
+                        }}
+                
+                        />        
+                    <Link to={`/inventories/edit/${item.id}`}>
+                        <img src={editIcon} alt='editIcon'/>
+                    </Link>
                 </td>
             </tr>
         )
     })
     const inventoryListMobile = inventory.map((item) =>{
-        return (
+        return (  
             <ul className='mobile__list'>
                 <li className='list__divider'>
                     <h2 className='list__header'>INVENTORY ITEM</h2>
@@ -62,14 +72,16 @@ function InventoryTable({inventory}) {
                     <p className='list__data'>{item.warehouseName}</p>
                 </li>
                 <li className='list__icons'>
-                    <img src={deleteIcon}/>
-                    <img src={editIcon}/>
+                    <img src={deleteIcon} alt='deleteIcon'/>
+                    <Link to={`/inventories/edit/${item.id}`}>
+                    <img src={editIcon} alt='editIcon'/>
+                    </Link>
                 </li>
             </ul>
         )
     })
     return (
-        <div class='list__container'>
+        <div className='list__container'>
                 {inventoryListMobile}
                 <table className='inventory__table'>
                     <tr className='table__row'>
@@ -78,7 +90,7 @@ function InventoryTable({inventory}) {
                         <th className='table__header'>CATEGORY<img className='table__Icon' src={sortIcon} alt='sortIcon'/></th>
                         <th className='table__header'>QTY<img className='table__Icon' src={sortIcon} alt='sortIcon'/></th>
                         <th className='table__header'>WAREHOUSE<img className='table__Icon' src={sortIcon} alt='sortIcon'/></th>
-                        <th className='table__header'>ACTION<img className='table__Icon'/></th>
+                        <th className='table__header'>ACTION</th>
                     </tr>
                     {inventoryListTabletDesktop}
                 </table> 
