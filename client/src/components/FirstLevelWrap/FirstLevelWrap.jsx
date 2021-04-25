@@ -35,14 +35,19 @@ export default class FirstLevelWrap extends Component {
         if (typeof warehouseInfo[i] === "object") {
           for (let j in warehouseInfo[i]) {
             if (
-              warehouseInfo[i][j]
+              String(warehouseInfo[i][j])
                 .toLowerCase()
                 .includes(this.state.searchTerm.toLowerCase())
             )
               return true;
           }
         } else {
-          if (warehouseInfo[i].includes(this.state.searchTerm)) return true;
+          if (
+            String(warehouseInfo[i])
+              .toLowerCase()
+              .includes(this.state.searchTerm.toLowerCase())
+          )
+            return true;
         }
       }
       return false;
@@ -203,7 +208,9 @@ export default class FirstLevelWrap extends Component {
                           <h4 className="container__content-info">
                             {warehouse.name}
                           </h4>
-                          <img src={arrowImg} alt="arrow to the right"></img>
+                          <div className="container__arrow-img">
+                            <img src={arrowImg} alt="arrow to the right"></img>
+                          </div>
                         </Link>
                       </div>
                     </div>

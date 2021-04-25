@@ -64,6 +64,25 @@
       margin: 1.5rem 0;
     }
   }
+  &__arrow-img{
+    @keyframes arrow {
+      0%{
+        transform: none;
+      }
+      90%{
+        transform: translateX(3.5px);
+      }
+      100%{
+        transform: translateX(4px);
+      }
+    }
+    :hover{
+      animation-duration: .5s;
+      animation-timing-function: ease-in;
+      animation-fill-mode: forwards;
+      animation-name: arrow;
+    }
+  }
   &__content-title-bar {
     display: none;
     background-color: $light-grey;

@@ -4,7 +4,7 @@ import InventoryListHeader from '../components/InventoryListHeader/InventoryList
 import InventoryTable from '../components/InventoryTable/InventoryTable'
 import DeleteModal from "../components/DeleteModal/DeleteModal";
 
-const url='http://localhost:8080/inventories';
+const url = "http://localhost:8080/inventories";
 
 export default class Inventories extends Component {
     state= {
@@ -12,16 +12,12 @@ export default class Inventories extends Component {
         popUpValue: false,
         isItInventory: true,
         selectedItem:'',
+        searchTerm:''
     }
 
-    getInventoryArr = ()=>{
-        axios.get(url)
-        .then(res=>{
-            this.setState({
-                inventory:res.data
-            })
-        })
-    }
+  handleOnClickSearch = (searchTerm) => {
+    this.setState({ searchTerm: searchTerm });
+  };
 
     componentDidMount(){
         this.getInventoryArr()
@@ -56,9 +52,10 @@ export default class Inventories extends Component {
         return (
             <div className='main-container-wrapper'>
                 <div className='container'>
-                <InventoryListHeader />
+                <InventoryListHeader handleOnClickSearch={this.handleOnClickSearch} />
                 <InventoryTable 
                     inventory={this.state.inventory}
+                    searchTerm={this.state.searchTerm}
                     togglePopUp={this.togglePopUp}
                 />
                 </div>

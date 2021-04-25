@@ -66,3 +66,14 @@
     padding-bottom: 94px;
   }
 }
+
+@mixin arrow-animation{
+  @keyframes arrow {
+    from{
+      transform: none;
+    }
+    to{
+      transform: translateX(4px);
+    }
+  }
+}
