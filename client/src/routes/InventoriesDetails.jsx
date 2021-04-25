@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import SecondLevelWrap from "../components/SecondLevelWrap/SecondLevelWrap";
 import InventoryDetailsData from "../components/InventoryDetailsData/InventoryDetailsData";
+import Footer from "../common/Footer/Footer";
 const url = "http://localhost:8080/inventories";
 
 export default class InventoriesDetails extends Component {
@@ -39,6 +40,7 @@ export default class InventoriesDetails extends Component {
         >
           <InventoryDetailsData idInventory={this.state.idInventory} />
         </SecondLevelWrap>
+        <Footer />
       </div>
     );
   }
