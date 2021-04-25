@@ -27,7 +27,6 @@ export default class FirstLevelWrap extends Component {
   };
 
   searchList = (warehouseList) => {
-    console.log(this.state.searchTerm);
     if (!this.state.searchTerm) {
       return [...warehouseList];
     }
