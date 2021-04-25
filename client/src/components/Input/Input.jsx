@@ -46,6 +46,7 @@ export default class Input extends Component {
   state = {
     invalidInput: false,
     value: this.props.value,
+    firstTimeRender: true,
   };
   handleOnChange = (e) => {
     e.preventDefault();
@@ -56,7 +57,6 @@ export default class Input extends Component {
   hendleOnfocusout = (e) => {
     if (this.state.invalidInput !== !e.target.value) {
       this.setState({ invalidInput: !e.target.value });
-      console.log(this);
     }
   };
 
@@ -65,6 +65,9 @@ export default class Input extends Component {
   };
 
   componentDidUpdate() {
+    if (this.state.firstTimeRender && this.props.value) {
+      this.setState({ value: this.props.value, firstTimeRender: false });
+    }
     if (this.props.showErr && this.state.invalidInput !== !this.state.value) {
       this.setState({ invalidInput: !this.state.value });
     }
