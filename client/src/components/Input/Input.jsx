@@ -60,10 +60,6 @@ export default class Input extends Component {
     }
   };
 
-  hendleOnSubmit = () => {
-    this.props.onSubmit();
-  };
-
   componentDidUpdate() {
     if (this.state.firstTimeRender && this.props.value) {
       this.setState({ value: this.props.value, firstTimeRender: false });

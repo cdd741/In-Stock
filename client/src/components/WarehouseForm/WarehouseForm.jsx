@@ -23,6 +23,7 @@ export default class WarehouseForm extends Component {
 
   handleOnSubmit = (e) => {
     e.preventDefault();
+    this.setState({ firstTimeRender: false });
     this.props.onSubmit(e, this.state);
   };
 
