@@ -63,7 +63,6 @@
 
   &__button {
     width: 100%;
-    cursor: pointer;
     @include tablet {
       width: fit-content;
     }

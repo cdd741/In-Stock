@@ -131,6 +131,7 @@ export default class FirstLevelWrap extends Component {
                     type={"submit"}
                     className={"container__header-btn"}
                     children={"+ Add New Warehouse"}
+                    onClick={() => {}}
                   />
                 </Link>
               </form>
