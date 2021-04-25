@@ -66,6 +66,7 @@ export default class Warehouses extends Component {
             inventoryId={this.state.delInventoryId}
           />
         )}
+        
       </div>
     );
   }

@@ -35,10 +35,11 @@
     width: 79vw;
   }
   &__header-container {
-    margin: 2rem 0 1rem;
+    margin: 19px 0 1rem;
     border-bottom: 1px solid $cloud;
     @include tablet {
       border: 0;
+      margin-bottom: 4px;
     }
   }
   &__header-content {
@@ -65,6 +66,7 @@
     @include tablet {
       display: flex;
       align-items: baseline;
+      margin: 1rem 0 0 0;
     }
   }
   &__header-search-bar {
@@ -90,6 +92,9 @@
     border-radius: 20px;
     height: 36px;
     border: 0;
+    &:focus {
+      outline: none;
+    }
   }
   &__header-btn {
     width: 100%;
@@ -104,7 +109,7 @@
     }
   }
   &__search-icon {
-    margin-right: 9.51px;
+    margin-right: 14.51px;
   }
   &__content-title-bar {
     display: none;
