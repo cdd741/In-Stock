@@ -120,12 +120,16 @@ export default class WarehousesInventories extends Component {
                       <h4 className="list__content-label">INVENTORY ITEM</h4>
                     </div>
                     {/* Inventory Item */}
-                    <div className="list__content-info-container">
+                    <div 
+                      className="list__content-info-container"
+                    >
                       <Link to={`/inventories/${inventory.id}`}>
                         <h4 className="list__content-info">
                           {inventory.itemName}
                         </h4>
-                        <img src={arrowImg} alt="arrow to the right"></img>
+                        <div className="list__arrow-img">
+                          <img src={arrowImg} alt="arrow to the right"></img>
+                        </div>
                       </Link>
                     </div>
                   </div>
