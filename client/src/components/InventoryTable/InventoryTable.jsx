@@ -220,7 +220,6 @@ function InventoryTable({ inventory, togglePopUp, searchTerm }) {
           </th>
           <th className="table__header">
             ACTION
-            <img className="table__Icon" src={sortIcon} alt="sortIcon" />
           </th>
         </tr>
         {inventoryListTabletDesktop}
