@@ -1,0 +1,48 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+.inventory-data__container {
+  padding: 24px 24px;
+  display: flex;
+  flex-wrap: wrap;
+
+  .inventory-data__tablet-divider {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .inventory-data__tablet-divider:nth-child(1) {
+    @include tablet {
+      width: 50%;
+      border-right: 1px solid $slate;
+      padding-right: 24px;
+    }
+    .inventory-data__divider:nth-child(1) {
+      width: 100%;
+    }
+    .inventory-data__divider:nth-child(1) {
+      width: 100%;
+    }
+  }
+  .inventory-data__tablet-divider:nth-child(2) {
+    @include tablet {
+      width: 50%;
+      padding-left: 24px;
+    }
+    .inventory-data__divider:nth-child(1) {
+      width: 50%;
+    }
+    .inventory-data__divider:nth-child(2) {
+      width: 50%;
+    }
+    .inventory-data__divider:nth-child(3) {
+      width: 50%;
+    }
+  }
+}
+p {
+  margin-bottom: 0;
+}
+.inventory-data__header {
+  font-weight: 500;
+}
