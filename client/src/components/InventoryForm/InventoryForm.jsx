@@ -21,7 +21,8 @@ class InventoryForm extends React.Component{
         itemStatus: null,
         itemWarehouseName: null,
         itemWarehouseID: null,
-        itemQuantity: null
+        itemQuantity: null,
+        formComplete: null,
     }
 
     componentDidMount = () => {
@@ -64,29 +65,59 @@ class InventoryForm extends React.Component{
     }
 
     handleOnChange = (e) => {
-        if(e.target.name !== 'itemWarehouse'){
+        if(e.target.name !== 'itemWarehouse' || e.target.name !== 'itemStatus'){
             this.setState({
                 [e.target.name] : e.target.value,
             })
-        }else {
+        }else if(e.target.name === 'itemWarehouse'){
             //the warehouse details are both derived from the same string which is the value of the input
             let warehouseDetails = e.target.value.split('|')
             this.setState({
                 itemWarehouseName: warehouseDetails[0],
                 itemWarehouseID: warehouseDetails[1]
             })
+        }else if(e.target.name !== 'itemStatus'){
+            this.setState({
+                itemStatus: e.target.value
+            })
+            e.target.value === 'Out of Stock' && 
+            this.setState({
+                itemQuantity: 0
+            })
         }
     }
 
-    checkCompletion = () => {
-        let itemName = document.getElementById('item-name');
-        let itemDescription = document.getElementById('item-description');
-        let category = document.getElementById('categories');
-        let inStock = document.getElementById('in-stock');
-        let outOfStock = document.getElementById('out-of-stock');
-        let warehouse = document.getElementById('warehouses');
+    checkFieldCompletion = (e) => {
+        console.log(e.target.value)
+        console.log(this.state[e.target.name])
+        if(e.target.value === ''){
+            e.target.classList.add('incomplete')
+        }else if (e.target.value !== ''){
+            e.target.classList.remove('incomplete')
+        }
+    }
 
-        return true;
+    checkFormCompletion = () => {
+        if(
+            !this.state.itemName ||
+            !this.state.itemDescription ||
+            !this.state.itemCategory ||
+            !this.state.itemStatus ||
+            !this.state.itemWarehouseID ||
+            !this.state.itemWarehouseName ||
+            !(this.state.itemQuantity >= 0)  
+        ){
+            console.log('form incomplete')
+            this.setState({
+                formComplete: false,
+            })
+            return false;
+        }else{
+            this.setState({
+                formComplete: true,
+            })
+            return true;
+        }
     }
 
     generateRandomId = () => {
@@ -94,12 +125,14 @@ class InventoryForm extends React.Component{
         let part2 = Math.random().toString(20).substr(2, 4);
         let part3 = Math.random().toString(20).substr(2, 4);
         let part4 = Math.random().toString(20).substr(2, 4);
-        let part5 = Math.random().toString(20).substr(2, 8);
+        let part5 = Math.random().toString(20).substr(2, 12);
 
         return part1 + '-' + part2 + '-' + part3 + '-' + part4 + '-' + part5;
     }
 
-    handleSubmit = () => {
+    handleSubmit = (e) => {
+        e.preventDefault()
+        this.checkFormCompletion()
         if(this.state.formComplete){
             if(this.state.formType === 'addItem'){
                 axios.post(API_URL('inventories'), {
@@ -147,9 +180,24 @@ class InventoryForm extends React.Component{
                                     name="itemName" 
                                     placeholder="Item Name" 
                                     id="item-name" 
-                                    className="inventory-form__input"
+                                    className={
+                                        `inventory-form__input`
+                                    }
                                     onChange={(e) => this.handleOnChange(e)}
+                                    onBlur={(e) => {
+                                        this.checkFieldCompletion(e)
+                                    }}
                                 />
+                                {
+                                this.state.formComplete === false && 
+                                this.state.itemName === null || 
+                                this.state.itemName === ''
+                                ?
+                                    <div className="inventory-form__field-req">
+                                        <p>* this field is required</p>
+                                    </div>
+                                : null
+                                }
                                 <label htmlFor="itemDescription" className="inventory-form__label">Description</label>
                                 <textarea 
                                     type="text" 
@@ -158,7 +206,20 @@ class InventoryForm extends React.Component{
                                     className="inventory-form__text-area" 
                                     id="item-description"
                                     onChange={(e) => this.handleOnChange(e)}
+                                    onBlur={(e) => {
+                                        this.checkFieldCompletion(e)
+                                    }}
                                 />
+                                {
+                                this.state.formComplete === false && 
+                                this.state.itemDescription === null || 
+                                this.state.itemDescription === ''
+                                ?
+                                    <div className="inventory-form__field-req">
+                                        <p>* this field is required</p>
+                                    </div>
+                                : null
+                                }
                                 <label htmlFor="categories" className="inventory-form__label">Category</label>
                                 <select 
                                     name="itemCategory" 
@@ -166,6 +227,10 @@ class InventoryForm extends React.Component{
                                     className="inventory-form__select" 
                                     id="categories"
                                     onChange={(e) => this.handleOnChange(e)}
+                                    onBlur={(e) => {
+                                        console.log('Checking completion...')
+                                        this.checkFieldCompletion(e)
+                                    }}
                                 >
                                     <option value="Electronics" className="inventory-form__option">Electronics</option>
                                     <option value="Gear" className="inventory-form__option">Gear</option>
@@ -173,6 +238,16 @@ class InventoryForm extends React.Component{
                                     <option value="Accessories" className="inventory-form__option">Accessories</option>
                                     <option value="Health" className="inventory-form__option">Health</option>
                                 </select>
+                                {
+                                this.state.formComplete === false && 
+                                this.state.itemCategory === null || 
+                                this.state.itemCategory === ''
+                                ?
+                                    <div className="inventory-form__field-req">
+                                        <p>* this field is required</p>
+                                    </div>
+                                : null
+                                }
                             </div>
                             <div className="inventory-form__item-availability">
                                 <h3 className="inventory-form__subtitle">Item Availability</h3>
@@ -193,9 +268,23 @@ class InventoryForm extends React.Component{
                                         id="out-of-stock" 
                                         className="inventory-form__radio"
                                         onChange={(e) => this.handleOnChange(e)}
+                                        onBlur={(e) => {
+                                            console.log('Checking completion...')
+                                            this.checkFieldCompletion(e)
+                                        }}
                                     />
                                     <label htmlFor="out-of-stock" className="inventory-form__label">Out of Stock</label>
                                 </div>
+                                {
+                                this.state.formComplete === false && 
+                                this.state.itemStatus === null || 
+                                this.state.itemStatus === ''
+                                ?
+                                    <div className="inventory-form__field-req">
+                                        <p>* this field is required</p>
+                                    </div>
+                                : null
+                                }
                                 {this.state.itemStatus === 'In Stock' && 
                                     <>
                                         <label htmlFor="itemQuantity" className="inventory-form__label">Quantity</label>
@@ -205,7 +294,21 @@ class InventoryForm extends React.Component{
                                             placeholder="0" 
                                             className="inventory-form__input"
                                             onChange={(e) => this.handleOnChange(e)}
+                                            onBlur={(e) => {
+                                                console.log('Checking completion...')
+                                                this.checkFieldCompletion(e)
+                                            }}
                                         />
+                                        {
+                                        this.state.formComplete === false && 
+                                        this.state.itemQuantity === null || 
+                                        this.state.itemQuantity === ''
+                                        ?
+                                            <div className="inventory-form__field-req">
+                                                <p>* this field is required</p>
+                                            </div>
+                                        : null
+                                        }
                                     </>
                                 }
                                 <label htmlFor="itemWarehouse" className="inventory-form__label">Warehouse</label>
@@ -214,6 +317,10 @@ class InventoryForm extends React.Component{
                                     id="warehouses" 
                                     className="inventory-form__select"
                                     onChange={(e) => this.handleOnChange(e)}
+                                    onBlur={(e) => {
+                                        console.log('Checking completion...')
+                                        this.checkFieldCompletion(e)
+                                    }}
                                 >
                                     <option value="Manhattan|2922c286-16cd-4d43-ab98-c79f698aeab0">
                                         Manhattan
@@ -237,6 +344,16 @@ class InventoryForm extends React.Component{
                                         Montreal
                                     </option>
                                 </select>
+                                {
+                                this.state.formComplete === false && 
+                                this.state.itemQuantity === null || 
+                                this.state.itemQuantity === ''
+                                ?
+                                    <div className="inventory-form__field-req">
+                                        <p>* this field is required</p>
+                                    </div>
+                                : null
+                                }
                             </div>
                             <div className="inventory-form__buttons">
                                 <Button 
@@ -252,7 +369,7 @@ class InventoryForm extends React.Component{
                                     className="inventory-form__button" 
                                     children={this.state.formType === "addItem"? "+ Add Item" : "Save"}
                                     onClick={(e) => {
-                                        this.handleSubmit();
+                                        this.handleSubmit(e);
                                     }}
                                 />
                             </div>
