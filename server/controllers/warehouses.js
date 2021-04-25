@@ -69,7 +69,7 @@ const deleteWarehouse = (req, res) => {
 //edit warehouse
 const putWarehouse = (req, res) => {
   const warehouse = warehouses.find((warehouse) => {
-    return (warehouse.id === req.params.id);
+    return warehouse.id === req.params.id;
   });
   if (warehouse) {
     warehouse.name = req.body.name;
