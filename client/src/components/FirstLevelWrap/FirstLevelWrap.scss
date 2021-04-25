@@ -332,7 +332,7 @@
   &__content-label {
     margin: 0 0 4px;
     font-size: $Mobile-H4;
-    font-weight: 600;
+    font-weight: 400;
     color: $slate;
     @include tablet {
       font-size: $P3;
@@ -342,7 +342,7 @@
     margin: 0;
     font-size: $Mobile-H3;
     line-height: $Mobile-H3-LH;
-    font-weight: 600;
+    font-weight: 400;
     @include tablet {
       font-size: $P2;
       line-height: $H3-LH;

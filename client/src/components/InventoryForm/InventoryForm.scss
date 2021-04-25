@@ -188,6 +188,7 @@
 
   &__button {
     padding: 8px 16px;
+    cursor: pointer;
 
     @include tablet {
       margin-left: 16px;
