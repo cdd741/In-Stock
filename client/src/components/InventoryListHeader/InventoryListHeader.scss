@@ -9,11 +9,14 @@
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 24px;
+  padding-top: 32px;
+  height: auto;
   @include tablet {
     border-bottom: none;
     flex-direction: row;
     align-items: center;
     .inventory__header {
+      margin: 0;
       margin-right: auto;
     }
   }

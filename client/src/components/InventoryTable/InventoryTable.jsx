@@ -74,11 +74,11 @@ function InventoryTable({inventory}) {
                 <table className='inventory__table'>
                     <tr className='table__row'>
                         <th className='table__header'>INVENTORY ITEM<img className='table__Icon' src={sortIcon} alt='sortIcon'/></th>
-                        <th className='table__header'>STATUS<img className='table__Icon' src={sortIcon}/></th>
-                        <th className='table__header'>CATEGORY<img className='table__Icon' src={sortIcon}/></th>
-                        <th className='table__header'>QTY<img className='table__Icon' src={sortIcon}/></th>
-                        <th className='table__header'>WAREHOUSE<img className='table__Icon' src={sortIcon}/></th>
-                        <th className='table__header'>ACTION<img className='table__Icon' src={sortIcon}/></th>
+                        <th className='table__header'>STATUS<img className='table__Icon' src={sortIcon} alt='sortIcon'/></th>
+                        <th className='table__header'>CATEGORY<img className='table__Icon' src={sortIcon} alt='sortIcon'/></th>
+                        <th className='table__header'>QTY<img className='table__Icon' src={sortIcon} alt='sortIcon'/></th>
+                        <th className='table__header'>WAREHOUSE<img className='table__Icon' src={sortIcon} alt='sortIcon'/></th>
+                        <th className='table__header'>ACTION<img className='table__Icon'/></th>
                     </tr>
                     {inventoryListTabletDesktop}
                 </table> 

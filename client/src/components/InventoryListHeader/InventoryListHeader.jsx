@@ -14,7 +14,7 @@ function InventoryListHeader() {
                 name='search'
                 placeholder='Search...'
                 />
-                <img src={searchIcon}/>
+                <img src={searchIcon} alt=''/>
             </div>
             <Link className='inventory-header__link'to='/inventories/add'>
                 <Button
