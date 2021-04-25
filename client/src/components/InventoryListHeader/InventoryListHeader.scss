@@ -8,13 +8,14 @@
   border-bottom: 1px solid $cloud;
   padding-left: $mobile-outter-page-edge;
   padding-right: $mobile-outter-page-edge;
-  padding-bottom: 24px;
-  padding-top: 32px;
+  padding-bottom: 17px;
+  padding-top: 0px;
   height: auto;
   @include tablet {
     border-bottom: none;
     flex-direction: row;
     align-items: center;
+    padding-top: 32px;
     padding-left: 32px;
     padding-right: 32px;
     @include desktop {
@@ -22,6 +23,7 @@
       padding-right: 40px;
     }
     .inventory__header {
+      font-size: 28px;
       margin: 0;
       margin-right: auto;
     }
