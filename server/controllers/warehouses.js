@@ -52,7 +52,7 @@ const postWarehouse = (req, res) => {
 //delete warehouse
 const deleteWarehouse = (req, res) => {
   const warehouseIndex = warehouses.findIndex((warehouse) => {
-    return warehouse.id == req.params.id;
+    return warehouse.id === req.params.id;
   });
   if (warehouseIndex >= 0) {
     warehouses.splice(warehouseIndex, 1);
@@ -69,7 +69,7 @@ const deleteWarehouse = (req, res) => {
 //edit warehouse
 const putWarehouse = (req, res) => {
   const warehouse = warehouses.find((warehouse) => {
-    return (warehouse.id = req.params.id);
+    return (warehouse.id === req.params.id);
   });
   if (warehouse) {
     warehouse.name = req.body.name;
@@ -87,7 +87,7 @@ const putWarehouse = (req, res) => {
   } else {
     res.status(404).send({
       success: false,
-      msg: `Warehouse with id = ${req.params.id} not found`,
+      msg: `All fields require information`,
     });
   }
 };
