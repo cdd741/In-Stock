@@ -43,5 +43,35 @@
   border-bottom: 1px solid $cloud;
 }
 .table__header {
-  text-align: left;
+  vertical-align: middle;
+  text-align: start;
+  background: $light-grey;
+  height: 40px;
+  font-weight: 600;
+}
+.table__Icon {
+  vertical-align: middle;
+}
+
+.table__edit {
+  text-decoration: none;
+}
+.inStock {
+  background-color: rgba(21, 132, 99, 0.07);
+  color: $green;
+  width: 65px;
+  text-align: center;
+  border-radius: 50px;
+}
+.outStock {
+  background-color: rgba(201, 69, 21, 0.07);
+  color: $red;
+  width: 92px;
+  text-align: center;
+  border-radius: 50px;
+}
+.table__data {
+  @include tablet {
+    height: 58px;
+  }
 }
