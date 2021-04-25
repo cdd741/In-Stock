@@ -140,7 +140,7 @@
       .container__content-label-container:nth-child(5) {
         width: 2.75%;
         @include desktop {
-          width: 2%;
+          width: 3%;
         }
       }
     }
@@ -253,7 +253,7 @@
       margin: 1rem 0;
     }
     @include desktop {
-      width: 17.75%;
+      width: 18.75%;
     }
   }
   &__content-info-container {
