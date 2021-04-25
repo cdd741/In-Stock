@@ -102,7 +102,8 @@ function InventoryTable({ inventory, togglePopUp, searchTerm }) {
           <td className="table__data">{item.quantity}</td>
           <td className="table__data">{item.warehouseName}</td>
           <td className="table__data">
-            <img 
+            <div className='icon__mover'>
+              <img  
                         src={deleteIcon} 
                         alt='deleteIcon'
                         id={item.id}
@@ -113,6 +114,7 @@ function InventoryTable({ inventory, togglePopUp, searchTerm }) {
                         <Link to={`/inventories/edit/${item.id}`}>
                         <img src={editIcon} alt='editIcon'/>
                     </Link>
+              </div>
           </td>
         </tr>
       );
@@ -220,7 +222,6 @@ function InventoryTable({ inventory, togglePopUp, searchTerm }) {
           </th>
           <th className="table__header">
             ACTION
-            <img className="table__Icon" src={sortIcon} alt="sortIcon" />
           </th>
         </tr>
         {inventoryListTabletDesktop}

@@ -58,6 +58,9 @@
 }
 .table__row {
   border-bottom: 1px solid $cloud;
+  .table__data:nth-child(6) {
+    align: right;
+  }
   .table__data:nth-child(1) {
     @include tablet {
       padding-left: 32px;
@@ -85,6 +88,7 @@
     }
   }
   .table__header:nth-child(6) {
+    text-align: end;
     @include tablet {
       padding-right: 32px;
       @include desktop {
@@ -135,4 +139,8 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 27px;
+}
+.icon__mover {
+  margin-left: auto;
+  width: fit-content;
 }

@@ -159,6 +159,7 @@ class InventoryForm extends React.Component {
           quantity: this.state.itemQuantity,
         });
       }
+      alert("Submission accepted, going back to previous page.😊");
       this.props.history.push("/inventories");
     }
   };
@@ -389,7 +390,8 @@ class InventoryForm extends React.Component {
                   className="inventory-form__button"
                   children="Cancel"
                   onClick={() => {
-                    this.props.history.push("/inventories");
+                    this.props.history.push("/inventories")
+                    alert("Submission cancelled, going back to previous page.😊");
                   }}
                 />
                 <Button
