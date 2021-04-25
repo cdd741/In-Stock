@@ -108,9 +108,7 @@
             outline: none;
         }
 
-        &__incomplete{
-            
-        }
+        
     }
 
     &__text-area{
@@ -197,8 +195,19 @@
             margin-left: 16px;
         }
     }
+
+    &__field-req{
+        color: $red;
+        font-size: $H4;
+        margin-top: -24px;
+        padding-left: 12px;
+    }
 }
 
 .link{
     text-decoration: none;
+}
+
+.incomplete{
+    border: 1px solid $red;
 }
