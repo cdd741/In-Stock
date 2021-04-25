@@ -1,34 +1,41 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import InventoryListHeader from '../components/InventoryListHeader/InventoryListHeader'
-import InventoryTable from '../components/InventoryTable/InventoryTable'
+import React, { Component } from "react";
+import axios from "axios";
+import InventoryListHeader from "../components/InventoryListHeader/InventoryListHeader";
+import InventoryTable from "../components/InventoryTable/InventoryTable";
 
-const url='http://localhost:8080/inventories';
+const url = "http://localhost:8080/inventories";
 
 export default class Inventories extends Component {
-    state= {
-        inventory: []
-    }
+  state = {
+    inventory: [],
+    searchTerm: "",
+  };
 
-    getInventoryArr = ()=>{
-        axios.get(url)
-        .then(res=>{
-            this.setState({
-                inventory:res.data
-            })
-        })
-    }
+  handleOnClickSearch = (searchTerm) => {
+    this.setState({ searchTerm: searchTerm });
+  };
 
-    componentDidMount(){
-        this.getInventoryArr()
-    }
+  getInventoryArr = () => {
+    axios.get(url).then((res) => {
+      this.setState({
+        inventory: res.data,
+      });
+    });
+  };
 
-    render() {
-        return (
-            <div className='container'>
-                <InventoryListHeader />
-                <InventoryTable inventory={this.state.inventory}/>
-            </div>
-        )
-    }
+  componentDidMount() {
+    this.getInventoryArr();
+  }
+
+  render() {
+    return (
+      <div className="container">
+        <InventoryListHeader handleOnClickSearch={this.handleOnClickSearch} />
+        <InventoryTable
+          inventory={this.state.inventory}
+          searchTerm={this.state.searchTerm}
+        />
+      </div>
+    );
+  }
 }
