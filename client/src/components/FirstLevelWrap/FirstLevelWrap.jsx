@@ -105,7 +105,7 @@ export default class FirstLevelWrap extends Component {
                 <div className="container__header-search-bar">
                   <input
                     className="container__header-search-bar-input"
-                    placeholder="Search.."
+                    placeholder="Search..."
                     name="search"
                   ></input>
                   <input
