@@ -28,6 +28,7 @@ export default class InventoriesDetails extends Component {
             })
         })
     }
+    
 
     componentDidMount(){
         this.getInventoryIdArr()
@@ -39,7 +40,8 @@ export default class InventoriesDetails extends Component {
                 <SecondLevelWrap
                     title={this.state.idInventory.itemName}
                     onClickBack={this.handleBackClick}
-                    edit={true}
+                    onClickEdit={()=>{}}
+                    edit={`/inventories/edit/${this.props.match.params.id}`}
                 >
                     <InventoryDetailsData idInventory={this.state.idInventory}/>
                     

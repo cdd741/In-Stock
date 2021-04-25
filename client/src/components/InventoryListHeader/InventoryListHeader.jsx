@@ -2,6 +2,7 @@ import './InventoryListHeader.scss'
 import React from 'react'
 import searchIcon from '../../assets/icons/search-24px.svg'
 import Button from '../Button/Button'
+import {Link} from 'react-router-dom'
 function InventoryListHeader() {
     return (
         <div className='inventory__container'>
@@ -15,11 +16,14 @@ function InventoryListHeader() {
                 />
                 <img src={searchIcon}/>
             </div>
+            <Link to='/inventories/add'>
             <Button
-            type='text'
-            className="header__button">
-                + Add new Item
+            type={"submit"}
+            className='header__button'
+            children={"+ Add New Item"}
+            onClick={()=>{}}>
             </Button>
+                </Link>
         </div>
     )
 }

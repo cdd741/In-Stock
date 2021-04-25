@@ -36,7 +36,8 @@
   }
 }
 .header__button {
+  width: 100%;
   @include tablet {
-    width: 128px;
+    width: auto;
   }
 }
