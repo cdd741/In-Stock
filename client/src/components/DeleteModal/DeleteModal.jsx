@@ -8,15 +8,16 @@ function DeleteWarehouse(props) {
     <>
       <div className="modal-container">
         <div className="modal">
-          <Close className="modal__close" /* onClick={props.close()} */ />
+          <Close className="modal__close" onClick={props.togglePopUp} />
           <h2 className="modal__title">
             Delete {props.deletingItem}
             {props.isItInventory ? " inventory item" : " warehouse"}?
           </h2>
           <p className="modal__text">
-            Please confirm that you'd like to delete the {props.deletingItem + " "} 
-             from the list of {props.isItInventory ? " inventory" : "warehouse"}. You
-            won't be able to undo this action.
+            Please confirm that you'd like to delete the{" "}
+            {props.deletingItem + " "}
+            from the list of {props.isItInventory ? " inventory" : "warehouse"}.
+            You won't be able to undo this action.
           </p>
           <div className="modal__buttons">
             <Button
