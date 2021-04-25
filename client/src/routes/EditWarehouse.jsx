@@ -4,18 +4,9 @@ import React, { Component } from "react";
 import SecondLevelWrap from "../components/SecondLevelWrap/SecondLevelWrap";
 import WarehouseForm from "../components/WarehouseForm/WarehouseForm";
 
-const mock = {
-  warehouseName: "asd",
-  streetAddress: "asd",
-  city: "",
-  country: "asd",
-  contactName: "asd",
-  position: "asd",
-  phoneNumber: "",
-  email: "asd",
-};
 export default class EditWarehouse extends Component {
   state = { showErr: false };
+
   handleBackClick = (e) => {
     e.preventDefault();
     // setting url to the previous page
@@ -48,10 +39,15 @@ export default class EditWarehouse extends Component {
     return (
       // submit to the backend using api call
       axios
-        .post("http://localhost:8080/warehouse/add", data)
+        .put(
+          `http://localhost:8080/warehouses/${this.props.match.params.id}`,
+          data
+        )
         .then((res) => {
           alert(
-            `Warehouse changed, going back to home page.😊\nNew Warehouse Detail:\n${res}`
+            `Warehouse changed, going back to home page.😊\nNew Warehouse Detail:\n${{
+              ...res,
+            }}`
           );
           // set url to home page
           this.props.history.push("/");
@@ -61,6 +57,17 @@ export default class EditWarehouse extends Component {
         )
     );
   };
+
+  componentDidMount() {
+    axios
+      .get(`http://localhost:8080/warehouses/${this.props.match.params.id}`)
+      .then((res) => {
+        this.setState({ data: res.data });
+      })
+      .catch((err) => {
+        console.log("ERROR occured from GET request in EditWarehouse", err);
+      });
+  }
 
   render() {
     return (
@@ -73,7 +80,7 @@ export default class EditWarehouse extends Component {
           <WarehouseForm
             showErr={this.state.showErr}
             type={"edit"}
-            data={this.props.data}
+            data={this.state.data}
             onSubmit={this.handleOnSubmit}
             onCancel={this.handleOnCancel}
           />

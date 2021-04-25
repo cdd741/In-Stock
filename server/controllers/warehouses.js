@@ -69,16 +69,17 @@ const deleteWarehouse = (req, res) => {
 //edit warehouse
 const putWarehouse = (req, res) => {
   const warehouse = warehouses.find((warehouse) => {
-    return (warehouse.id = req.params.id);
+    return warehouse.id === req.params.id;
   });
+
   if (warehouse) {
-    warehouse.name = req.body.name;
-    warehouse.address = req.body.address;
+    warehouse.name = req.body.warehouseName;
+    warehouse.address = req.body.streetAddress;
     warehouse.city = req.body.city;
     warehouse.country = req.body.country;
-    warehouse.contact.name = req.body.name;
+    warehouse.contact.name = req.body.contactName;
     warehouse.contact.position = req.body.position;
-    warehouse.contact.phone = req.body.phone;
+    warehouse.contact.phone = req.body.phoneNumber;
     warehouse.contact.email = req.body.email;
 
     const json = JSON.stringify(warehouses);

@@ -158,13 +158,15 @@ export default class FirstLevelWrap extends Component {
                       </div>
                       {/* Delete Button and Edit Button */}
                       <div className="container__btns">
-                          <img
-                            className="container__del-btn"
-                            id={warehouse.id}
-                            src={delIcon}
-                            alt="trash bin"
-                            onClick={()=> {togglePopUp(warehouse.id, warehouse.name)}}
-                          ></img>
+                        <img
+                          className="container__del-btn"
+                          id={warehouse.id}
+                          src={delIcon}
+                          alt="trash bin"
+                          onClick={() => {
+                            togglePopUp(warehouse.id, warehouse.name);
+                          }}
+                        ></img>
                         <Link to={`/warehouses/edit/${warehouse.id}`}>
                           <img
                             className="container__edit-btn"

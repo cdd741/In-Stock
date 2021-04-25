@@ -1,7 +1,9 @@
-const fs = require("fs");
-const uuid = require("uuid");
-const path = require("path");
-inventories = require("../data/inventories.json");
+
+const fs = require('fs');
+const uuid = require('uuid');
+const path = require('path');
+const { url } = require('inspector');
+inventories = require('../data/inventories.json')
 
 //inventory list
 const getInventoryArr = (req, res) => {
@@ -43,8 +45,42 @@ const deleteInventoryId = (req, res) => {
   }
 };
 
+//post a new item to the inventories database
+const postInventoryArr = (req, res) => {
+    let newItem = req.body;
+    if (Object.keys(newItem).length !== 8 && newItem.status === 'In Stock'){
+        res.send("Not a valid inventory item")
+    }else {
+        if (newItem.status === 'Out of Stock'){
+            newItem.quantity = 0;
+        } 
+        inventories.push(newItem);
+        fs.writeFileSync(
+            process.cwd() + '/data/inventories.json', 
+            JSON.stringify(inventories), 
+            err => console.log(err)
+        );
+        res.send(inventories);
+    }
+}
+
+//put functionality
+const putInventoryId = (req, res) => {
+    let editedItem = req.body;
+    let index = inventories.findIndex(item => item.id === editedItem.id);
+    inventories.splice(index, 1, editedItem)
+    fs.writeFileSync(
+        process.cwd() + '/data/inventories.json', 
+        JSON.stringify(inventories), 
+        err => console.log(err)
+    );
+    res.send(inventories)
+} 
+
 module.exports = {
-  getInventoryArr,
-  getInventoryId,
-  deleteInventoryId,
-};
+    getInventoryArr,
+    getInventoryId,
+    postInventoryArr, 
+    putInventoryId,
+    deleteInventoryId,
+}
