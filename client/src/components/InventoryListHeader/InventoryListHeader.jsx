@@ -16,14 +16,14 @@ function InventoryListHeader() {
                 />
                 <img src={searchIcon}/>
             </div>
-            <Link to='/inventories/add'>
-            <Button
-            type={"submit"}
-            className='header__button'
-            children={"+ Add New Item"}
-            onClick={()=>{}}>
-            </Button>
-                </Link>
+            <Link className='inventory-header__link'to='/inventories/add'>
+                <Button
+                type={"submit"}
+                className='header__button'
+                children={"+ Add New Item"}
+                onClick={()=>{}}>
+                </Button>
+            </Link>
         </div>
     )
 }
