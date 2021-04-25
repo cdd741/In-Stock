@@ -3,6 +3,7 @@ import axios from "axios";
 import SecondLevelWrap from "../components/SecondLevelWrap/SecondLevelWrap";
 import WarehousesInventories from "../components/WarehousesInventories.jsx/WarehousesInventories";
 import DeleteModal from "../components/DeleteModal/DeleteModal";
+import Footer from "../common/Footer/Footer";
 
 export default class WarehouseDetails extends Component {
   state = {
@@ -11,14 +12,14 @@ export default class WarehouseDetails extends Component {
     popUpValue: false,
     delInventoryId: "",
     isItInventory: true,
-    selectedInventory: ""
+    selectedInventory: "",
   };
 
   onClickDel = (id) => {
     axios
       .delete(`http://localhost:8080/inventories/${id}`)
       .then((res) => {
-        // updating the Inventory Array state by taking out the selected inventory id object 
+        // updating the Inventory Array state by taking out the selected inventory id object
         this.setState({
           inventoriesData: this.state.inventoriesData.filter(
             (inventory) => inventory.id !== id
@@ -100,6 +101,7 @@ export default class WarehouseDetails extends Component {
             />
           )}
         </SecondLevelWrap>
+        <Footer />
       </div>
     );
   }

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import sortIcon from "../../assets/icons/sort-24px.svg";
 import chevron from "../../assets/icons/chevron_right-24px.svg";
 
-function InventoryTable({ inventory, searchTerm }) {
+function InventoryTable({ inventory, togglePopUp, searchTerm }) {
   const [sortOrder, setSortOrder] = useState(false);
   const [sortType, setSortType] = useState("");
 
@@ -102,8 +102,17 @@ function InventoryTable({ inventory, searchTerm }) {
           <td className="table__data">{item.quantity}</td>
           <td className="table__data">{item.warehouseName}</td>
           <td className="table__data">
-            <img src={deleteIcon} />
-            <img src={editIcon} />
+            <img 
+                        src={deleteIcon} 
+                        alt='deleteIcon'
+                        id={item.id}
+                        onClick={()=>{
+                            togglePopUp(item.id, item.itemName)
+                        }}
+                        />
+                        <Link to={`/inventories/edit/${item.id}`}>
+                        <img src={editIcon} alt='editIcon'/>
+                    </Link>
           </td>
         </tr>
       );
@@ -134,8 +143,17 @@ function InventoryTable({ inventory, searchTerm }) {
           <p className="list__data">{item.warehouseName}</p>
         </li>
         <li className="list__icons">
-          <img src={deleteIcon} />
-          <img src={editIcon} />
+        <img 
+                        src={deleteIcon} 
+                        alt='deleteIcon'
+                        id={item.id}
+                        onClick={()=>{
+                            togglePopUp(item.id, item.itemName)
+                        }}
+                        />
+          <Link to={`/inventories/edit/${item.id}`}>
+                        <img src={editIcon} alt='editIcon'/>
+                    </Link>
         </li>
       </ul>
     );

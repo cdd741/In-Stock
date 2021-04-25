@@ -16,7 +16,7 @@ function DeleteWarehouse(props) {
           <p className="modal__text">
             Please confirm that you'd like to delete the {props.deletingItem + " "} 
              from the list of {props.isItInventory ? " inventory" : "warehouse"}. You
-            wont be able to undo this action.
+            won't be able to undo this action.
           </p>
           <div className="modal__buttons">
             <Button

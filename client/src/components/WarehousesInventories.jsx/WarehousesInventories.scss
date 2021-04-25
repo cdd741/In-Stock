@@ -108,13 +108,13 @@
         }
       }
       .list__content-label-container:nth-child(3) {
-        width: 25%;
+        width: 21%;
         @include desktop {
           width: 23%;
         }
       }
       .list__content-label-container:nth-child(4) {
-        width: 34.75%;
+        width: 21.75%;
         @include desktop {
           width: 22%;
           .list__qty-desktop {
@@ -243,7 +243,7 @@
       border-radius: 20px;
     }
     @include tablet {
-      width: 25%;
+      width: 22%;
     }
     @include desktop {
       width: 23.5%;
@@ -256,7 +256,7 @@
     @include tablet {
       margin: 0;
       order: 0;
-      width: 31.75%;
+      width: 18.75%;
     }
     @include desktop {
       width: 20%;

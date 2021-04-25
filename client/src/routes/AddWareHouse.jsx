@@ -3,6 +3,7 @@ import axios from "axios";
 
 import SecondLevelWrap from "../components/SecondLevelWrap/SecondLevelWrap";
 import WarehouseForm from "../components/WarehouseForm/WarehouseForm";
+import Footer from "../common/Footer/Footer";
 
 export default class AddWarehouse extends Component {
   state = { showErr: false };
@@ -69,6 +70,7 @@ export default class AddWarehouse extends Component {
             onCancel={this.handleOnCancel}
           />
         </SecondLevelWrap>
+        <Footer />
       </div>
     );
   }
