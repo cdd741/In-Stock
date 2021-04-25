@@ -9,8 +9,14 @@ import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 
 export default class FirstLevelWrap extends Component {
+  state = {
+    warehouseData: this.props.warehouseData,
+    togglePopUpL: this.props.togglePopUp,
+    sort: false,
+  };
+
+  handleOnClickSort = () => {};
   render() {
-    const { warehouseData, togglePopUp } = this.props;
     return (
       <div className="outer-container">
         <div className="container">
@@ -92,7 +98,7 @@ export default class FirstLevelWrap extends Component {
           </div>
           <div className="container__content">
             {/* Mapping the warehouse array to create the warehouse list items */}
-            {warehouseData.map((warehouse) => {
+            {this.state.warehouseData.map((warehouse) => {
               return (
                 <div className="container__item">
                   <div className="container__item-container" key={warehouse.id}>
@@ -164,7 +170,10 @@ export default class FirstLevelWrap extends Component {
                           src={delIcon}
                           alt="trash bin"
                           onClick={() => {
-                            togglePopUp(warehouse.id, warehouse.name);
+                            this.state.togglePopUp(
+                              warehouse.id,
+                              warehouse.name
+                            );
                           }}
                         ></img>
                         <Link to={`/warehouses/edit/${warehouse.id}`}>
