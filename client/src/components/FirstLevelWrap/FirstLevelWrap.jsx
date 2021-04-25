@@ -208,7 +208,9 @@ export default class FirstLevelWrap extends Component {
                           <h4 className="container__content-info">
                             {warehouse.name}
                           </h4>
-                          <img src={arrowImg} alt="arrow to the right"></img>
+                          <div className="container__arrow-img">
+                            <img src={arrowImg} alt="arrow to the right"></img>
+                          </div>
                         </Link>
                       </div>
                     </div>

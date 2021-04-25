@@ -274,7 +274,25 @@
       color: $instock-blue;
     }
   }
-
+  &__arrow-img{
+    @keyframes arrow {
+      0%{
+        transform: none;
+      }
+      90%{
+        transform: translateX(3.5px);
+      }
+      100%{
+        transform: translateX(4px);
+      }
+    }
+    :hover{
+      animation-duration: .5s;
+      animation-timing-function: ease-in;
+      animation-fill-mode: forwards;
+      animation-name: arrow;
+    }
+  }
   &__btns-container {
     padding: 1.1875rem 0 1.6875rem;
     display: flex;
