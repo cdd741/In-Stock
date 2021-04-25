@@ -12,6 +12,8 @@
   display: flex;
   flex-wrap: wrap;
   list-style-type: none;
+  border-bottom: 1px solid $cloud;
+
   @include main-page-padding;
   @include tablet {
     display: none;
@@ -132,4 +134,5 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 27px;
 }

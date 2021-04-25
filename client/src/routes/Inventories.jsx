@@ -18,7 +18,14 @@ export default class Inventories extends Component {
   handleOnClickSearch = (searchTerm) => {
     this.setState({ searchTerm: searchTerm });
   };
-
+  getInventoryArr = ()=>{
+    axios.get(url)
+    .then(res=>{
+        this.setState({
+            inventory:res.data
+        })
+    })
+}
     componentDidMount(){
         this.getInventoryArr()
     }
