@@ -15,10 +15,10 @@ function InventoryTable({ inventory, searchTerm }) {
     const order = sortType === type ? !sortOrder : false;
     setSortOrder(order);
     setSortType(type);
-    console.log(order, sortType);
   };
 
   const searchList = (inventoryList) => {
+    const lowerCaseSearchTerm = searchTerm.toLowerCase();
     if (!searchTerm) {
       return [...inventoryList];
     }
@@ -27,14 +27,17 @@ function InventoryTable({ inventory, searchTerm }) {
         if (typeof inventoryInfo[i] === "object") {
           for (let j in inventoryInfo[i]) {
             if (
-              inventoryInfo[i][j]
+              String(inventoryInfo[i][j])
                 .toLowerCase()
-                .includes(searchTerm.toLowerCase())
+                .includes(lowerCaseSearchTerm)
             )
               return true;
           }
         } else {
-          if (inventoryInfo[i].includes(searchTerm)) return true;
+          if (
+            String(inventoryInfo[i]).toLowerCase().includes(lowerCaseSearchTerm)
+          )
+            return true;
         }
       }
       return false;
@@ -78,34 +81,36 @@ function InventoryTable({ inventory, searchTerm }) {
     return sortOrder ? sortedList.reverse() : sortedList;
   };
 
-  const inventoryListTabletDesktop = sortList(inventory).map((item) => {
-    return (
-      <tr className="table__row">
-        <td className="table__data">
-          <Link to={`/inventories/${item.id}`} className="table__edit">
-            {item.itemName}
-            <img className="table__Icon" src={chevron} />
-          </Link>
-        </td>
-        <td className="table__data ">
-          {item.status === "In Stock" ? (
-            <div className="inStock">{item.status}</div>
-          ) : (
-            <div className="outStock">{item.status}</div>
-          )}
-        </td>
-        <td className="table__data">{item.category}</td>
-        <td className="table__data">{item.quantity}</td>
-        <td className="table__data">{item.warehouseName}</td>
-        <td className="table__data">
-          <img src={deleteIcon} />
-          <img src={editIcon} />
-        </td>
-      </tr>
-    );
-  });
+  const inventoryListTabletDesktop = sortList(searchList(inventory)).map(
+    (item) => {
+      return (
+        <tr className="table__row">
+          <td className="table__data">
+            <Link to={`/inventories/${item.id}`} className="table__edit">
+              {item.itemName}
+              <img className="table__Icon" src={chevron} />
+            </Link>
+          </td>
+          <td className="table__data ">
+            {item.status === "In Stock" ? (
+              <div className="inStock">{item.status}</div>
+            ) : (
+              <div className="outStock">{item.status}</div>
+            )}
+          </td>
+          <td className="table__data">{item.category}</td>
+          <td className="table__data">{item.quantity}</td>
+          <td className="table__data">{item.warehouseName}</td>
+          <td className="table__data">
+            <img src={deleteIcon} />
+            <img src={editIcon} />
+          </td>
+        </tr>
+      );
+    }
+  );
 
-  const inventoryListMobile = sortList(inventory).map((item) => {
+  const inventoryListMobile = sortList(searchList(inventory)).map((item) => {
     return (
       <ul className="mobile__list">
         <li className="list__divider">

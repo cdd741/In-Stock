@@ -4,9 +4,9 @@ import searchIcon from "../../assets/icons/search-24px.svg";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 function InventoryListHeader({ handleOnClickSearch }) {
-  const handleOnSubmit = (searchTerm, e) => {
+  const handleOnSubmit = (e) => {
     e.preventDefault();
-    handleOnClickSearch(searchTerm);
+    handleOnClickSearch(e.target.search.value);
   };
 
   return (
@@ -15,7 +15,7 @@ function InventoryListHeader({ handleOnClickSearch }) {
       <form className="search__div" onSubmit={handleOnSubmit}>
         <input
           className="search__bar"
-          type="search"
+          type="text"
           name="search"
           placeholder="Search..."
         />
