@@ -198,7 +198,11 @@
     color: $red;
     font-size: $H4;
     margin-top: -24px;
-    padding-left: 12px;
+    margin-bottom: 24px;
+  }
+
+  &__error-icon{
+    height: $H3;
   }
 }
 
