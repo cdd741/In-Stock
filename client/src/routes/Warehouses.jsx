@@ -63,7 +63,7 @@ export default class Warehouses extends Component {
             isItInventory={this.state.isItInventory}
             togglePopUp={this.togglePopUp}
             onClickDel={this.onClickDel}
-            inventoryId={this.state.delInventoryId}
+            inventoryId={this.state.delInventoryId} 
           />
         )}
         
