@@ -88,7 +88,7 @@ function InventoryTable({ inventory, togglePopUp, searchTerm }) {
           <td className="table__data">
             <Link to={`/inventories/${item.id}`} className="table__edit">
               {item.itemName}
-              <img className="table__Icon" src={chevron} />
+              <img className="table__Icon-chevron" src={chevron} />
             </Link>
           </td>
           <td className="table__data ">
