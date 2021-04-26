@@ -92,7 +92,6 @@ class InventoryForm extends React.Component {
   };
 
   handleOnChange = (e) => {
-    console.log(e.target.name)
     if (e.target.name !== "itemWarehouse") {
       this.setState({
         [e.target.name]: e.target.value,
