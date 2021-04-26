@@ -123,7 +123,7 @@ function InventoryTable({ inventory, togglePopUp, searchTerm }) {
 
   const inventoryListMobile = sortList(searchList(inventory)).map((item) => {
     return (
-      <ul className="mobile__list">
+      <ul className="mobile__list" >
         <li className="list__divider">
           <h2 className="list__header">INVENTORY ITEM</h2>
           <p className="list__data">{item.itemName}</p>
