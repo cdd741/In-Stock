@@ -164,6 +164,7 @@ class InventoryForm extends React.Component {
           quantity: this.state.itemQuantity,
         });
       }
+      alert("Submission accepted, going back to previous page.😊");
       this.props.history.push("/inventories");
     }
   };
