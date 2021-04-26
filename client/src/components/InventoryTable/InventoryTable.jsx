@@ -84,11 +84,11 @@ function InventoryTable({ inventory, togglePopUp, searchTerm }) {
   const inventoryListTabletDesktop = sortList(searchList(inventory)).map(
     (item) => {
       return (
-        <tr className="table__row">
+        <tr key={item.id} className="table__row">
           <td className="table__data">
             <Link to={`/inventories/${item.id}`} className="table__edit">
               {item.itemName}
-              <img className="table__Icon-chevron" src={chevron} />
+              <img className="table__Icon" src={chevron} alt='chevron' />
             </Link>
           </td>
           <td className="table__data ">
@@ -123,7 +123,7 @@ function InventoryTable({ inventory, togglePopUp, searchTerm }) {
 
   const inventoryListMobile = sortList(searchList(inventory)).map((item) => {
     return (
-      <ul className="mobile__list">
+      <ul key={item.id} className="mobile__list">
         <li className="list__divider">
           <h2 className="list__header">INVENTORY ITEM</h2>
           <p className="list__data">{item.itemName}</p>
