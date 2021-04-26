@@ -77,14 +77,15 @@ class InventoryForm extends React.Component {
             itemName.value = inventoryItem.itemName;
             itemDescription.value = inventoryItem.description;
             category.value = inventoryItem.category;
-            quantity.value = inventoryItem.quantity;
             warehouse.value =
               inventoryItem.warehouseName + "|" + inventoryItem.warehouseID;
 
             if (inventoryItem.status === "In Stock") {
               inStock.checked = true;
+              quantity.value = inventoryItem.quantity;
             } else {
               outOfStock.checked = true;
+              quantity.value = 0;
             }
             this.checkFormCompletion();
           }
@@ -97,7 +98,8 @@ class InventoryForm extends React.Component {
   };
 
   handleOnChange = (e) => {
-    if (e.target.name !== "itemWarehouse" || e.target.name !== "itemStatus") {
+    console.log(e.target.name)
+    if (e.target.name !== "itemWarehouse") {
       this.setState({
         [e.target.name]: e.target.value,
       });
@@ -108,14 +110,6 @@ class InventoryForm extends React.Component {
         itemWarehouseName: warehouseDetails[0],
         itemWarehouseID: warehouseDetails[1],
       });
-    } else if (e.target.name !== "itemStatus") {
-      this.setState({
-        itemStatus: e.target.value,
-      });
-      e.target.value === "Out of Stock" &&
-        this.setState({
-          itemQuantity: 0,
-        });
     }
   };
 
