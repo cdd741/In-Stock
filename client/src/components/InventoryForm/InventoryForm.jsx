@@ -25,7 +25,6 @@ class InventoryForm extends React.Component {
   };
 
   checkFormCompletion = () => {
-    console.log('checking')
     if (
       !this.state.itemName ||
       !this.state.itemDescription ||
@@ -35,13 +34,11 @@ class InventoryForm extends React.Component {
       !this.state.itemWarehouseName ||
       !(this.state.itemQuantity >= 0)
     ) {
-      console.log("form incomplete");
       this.setState({
         formComplete: false,
       });
       return false;
     } else {
-      console.log('form complete')
       this.setState({
         formComplete: true,
       });
@@ -55,7 +52,6 @@ class InventoryForm extends React.Component {
       .then((res) => {
         let inventoryItem = res.data;
         if (inventoryItem !== undefined) {
-          console.log('Made it to mount stuff')
           this.setState({
             itemName: inventoryItem.itemName,
             itemDescription: inventoryItem.description,
@@ -92,13 +88,10 @@ class InventoryForm extends React.Component {
         }
       })
       .catch((err) => {
-        console.log("error in InventoryForm.jsx axios request", err);
       });
-      console.log(this.state)
   };
 
   handleOnChange = (e) => {
-    console.log(e.target.name)
     if (e.target.name !== "itemWarehouse") {
       this.setState({
         [e.target.name]: e.target.value,
@@ -234,7 +227,6 @@ class InventoryForm extends React.Component {
                 id="categories"
                 onChange={(e) => this.handleOnChange(e)}
                 onBlur={(e) => {
-                  console.log("Checking completion...");
                   this.checkFieldCompletion(e);
                 }}
               >
@@ -294,7 +286,6 @@ class InventoryForm extends React.Component {
                   className="inventory-form__radio"
                   onChange={(e) => this.handleOnChange(e)}
                   onBlur={(e) => {
-                    console.log("Checking completion...");
                     this.checkFieldCompletion(e);
                   }}
                 />
@@ -329,7 +320,6 @@ class InventoryForm extends React.Component {
                     className="inventory-form__input"
                     onChange={(e) => this.handleOnChange(e)}
                     onBlur={(e) => {
-                      console.log("Checking completion...");
                       this.checkFieldCompletion(e);
                     }}
                   />
@@ -355,7 +345,6 @@ class InventoryForm extends React.Component {
                 className="inventory-form__select"
                 onChange={(e) => this.handleOnChange(e)}
                 onBlur={(e) => {
-                  console.log("Checking completion...");
                   this.checkFieldCompletion(e);
                 }}
               >
