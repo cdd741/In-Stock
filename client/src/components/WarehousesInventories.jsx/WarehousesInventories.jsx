@@ -180,7 +180,7 @@ export default class WarehousesInventories extends Component {
                         alt="trash bin"
                         onClick={()=> {togglePopUp(inventory.id, inventory.itemName)}}
                       ></img>
-                      <Link to={`/warehouses/edit/${inventory.id}`}>
+                      <Link to={`/inventories/edit/${inventory.id}`}>
                         <img
                           className="list__edit-btn"
                           src={editIcon}
