@@ -196,8 +196,8 @@ export default class FirstLevelWrap extends Component {
             {/* Mapping the warehouse array to create the warehouse list items */}
             {warehouseData.map((warehouse) => {
               return (
-                <div className="container__item">
-                  <div className="container__item-container" key={warehouse.id}>
+                <div className="container__item" key={warehouse.id}>
+                  <div className="container__item-container">
                     {/* Warehouse Location Container */}
                     <div className="container__content-location">
                       {/* Label */}

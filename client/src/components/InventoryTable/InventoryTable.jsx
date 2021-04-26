@@ -92,7 +92,7 @@ function InventoryTable({ inventory, togglePopUp, searchTerm }) {
             </Link>
           </td>
           <td className="table__data ">
-            {item.status === "In Stock" ? (
+                      {item.status === "In Stock" ? (
               <div className="inStock">{item.status}</div>
             ) : (
               <div className="outStock">{item.status}</div>
