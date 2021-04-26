@@ -6,13 +6,6 @@
   box-sizing: border-box;
 }
 
-.inventory-form-container {
-  width: 100%;
-  height: 80vh;
-  background-color: $light-grey;
-  position: relative;
-}
-
 .inventory-form {
   margin: 0 16px;
   background-color: #fff;
@@ -199,7 +192,11 @@
     color: $red;
     font-size: $H4;
     margin-top: -24px;
-    padding-left: 12px;
+    margin-bottom: 24px;
+  }
+
+  &__error-icon{
+    height: $H3;
   }
 }
 
