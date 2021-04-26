@@ -117,8 +117,15 @@
   vertical-align: middle;
 }
 
+.table__edit-btn {
+  @include tablet {
+    margin-left: 16px;
+  }
+}
+
 .table__edit {
   text-decoration: none;
+  color: $instock-blue;
 }
 .inStock {
   background-color: rgba(21, 132, 99, 0.07);
