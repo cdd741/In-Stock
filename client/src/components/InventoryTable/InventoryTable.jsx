@@ -112,7 +112,7 @@ function InventoryTable({ inventory, togglePopUp, searchTerm }) {
                         }}
                         />
                         <Link to={`/inventories/edit/${item.id}`}>
-                        <img src={editIcon} alt='editIcon'/>
+                        <img src={editIcon} alt='editIcon' className="table__edit-btn"/>
                     </Link>
               </div>
           </td>

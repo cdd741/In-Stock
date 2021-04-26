@@ -32,11 +32,12 @@ function SecondLevelWrap({ title, edit, onClickBack, onClickEdit, children }) {
         {edit && (
           <Link to={edit}>
           <button className="edit-button">
-            <div className="edit-button__content" onClick={handleEditClick}>
+            <div className="edit-button__content">
               <img
                 className="edit-button__icon"
                 src={editIcon}
                 alt="edit button icon"
+
                 />
               <h3 className="edit-button__text">Edit</h3>
             </div>

@@ -84,7 +84,7 @@ export default class WarehouseDetails extends Component {
         <SecondLevelWrap
           title={this.state.warehousesData[0]}
           onClickBack={this.handleBackClick}
-          edit={true}
+          edit={`/warehouses/edit/${this.props.match.params.id}`}
         >
           <WarehousesInventories
             inventoriesData={this.state.inventoriesData}
