@@ -4,12 +4,9 @@ import Warehouses from "./routes/Warehouses";
 import Inventories from "./routes/Inventories";
 import WarehouseDetails from "./routes/WarehouseDetails";
 import InventoriesDetails from "./routes/InventoriesDetails";
-import EditInventory from "./routes/EditInventory";
 import EditWarehouse from "./routes/EditWarehouse";
-import AddInventory from "./routes/AddInventory";
 import AddWarehouse from "./routes/AddWareHouse.jsx";
 import Header from "./common/Header/Header";
-import DeleteModal from "./components/DeleteModal/DeleteModal";
 import SecondLevelWrap from "./components/SecondLevelWrap/SecondLevelWrap";
 import InventoryForm from "./components/InventoryForm/InventoryForm";
 
